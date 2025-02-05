@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.from-customstart {
+		--tw-gradient-from: #1a1a2e var(--tw-gradient-from-position);
+   		--tw-gradient-to: rgb(1 1 2 / 0) var(--tw-gradient-to-position);
+		--tw-gradient-from-position: 70%;
+    	--tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+	}
+	.to-customend {
+		--tw-gradient-to: #314860 var(--tw-gradient-to-position);
+	}
+}
+
+.wallpaper {
+	min-height: 100vh;
+	margin: 0;
+	background: linear-gradient(to bottom, #010102, #314860);
+	background-attachment: fixed;
+	background-size: cover;
+	position: relative;
+}
