@@ -22,3 +22,9 @@
 	background-size: cover;
 	position: relative;
 }
+
+.green-btn {
+	border-radius: 50%;
+	background: #338500;
+	box-shadow: inset 15px 15px 18px #276500 inset -15px -15px 18px #3fa500;
+}
