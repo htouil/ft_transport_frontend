@@ -8,22 +8,26 @@
 	<link rel="stylesheet" href="src/styles.css">
 </head>	
 <body>
-	<header class="flex justify-between items-center p-4">
-		<a href="../index.html" class="inline-flex gap-1 ml-2 sm:ml-5 md:ml-10 lg:justify-between lg:items-center lg:size-20">
-			<img src="../public/logos/racket_logo.png" alt="Home" class="w-6 h-6">
-			<p>PongHub</p>
+	<header class="flex justify-between items-center transform  p-4 mt-5 ml-7 mr-7 lg:mt-5">
+		<a href="../index.html" title="Home" class="inline-flex transform origin-center transition-transform duration-300 hover:scale-110 gap-1 ml-2 sm:ml-5 md:ml-10 lg:justify-between lg:items-center">
+			<img src="../public/logos/racket_logo.png" alt="Racket" class="self-center justify-self-center  size-8 md:size-10 lg:size-12">
+			<div>
+				<p class="text-xl md:text-2xl lg:text-3xl">PongHub</p>
+				<p class="text-xs md:text-md lg:text-lg">Table Heroes</p>
+			</div>
 		</a>
-		<div class="border-hidden rounded-lg bg-gray-500 flex items-center content-center mr-2 sm:mr-5 md:mr-10">
+		<div class="relative border-hidden rounded-lg bg-gray-500 flex items-center justify-center mr-2 sm:mr-5 md:mr-10 w-20 lg:h-9 lg:w-28">
 			<div class="relative">
-				<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="relative rounded-full p-1 -mr-1.5 w-8 h-7">
-				<button title="online" class="absolute green-btn bottom-0.5 right-0.5 w-2 h-2"></button>
+				<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="relative rounded-full p-1 w-7 h-7 lg:w-10 lg:h-10">
+				<button title="online" class="absolute green-btn bottom-0.5 right-0.5 w-2 h-2 lg:w-3 lg:h-3"></button>
 				<!-- <img src="../public/logos/wah.jpg" alt="online dot" class="absolute bottom-1 right-1 w-2 h-2"> -->
 			</div>
-			<p class="text-xs font-medium">htouil</p>
-			<img src="../public/logos/bell.png" alt="bell" class="relative w-4 h-4">
+			<p style="text-shadow: 2rem;" class="text-xs font-medium lg:text-base lg:font-medium">htouil</p>
+			<button>
+				<img src="../public/logos/bell.png" alt="bell" class="relative transform origin-top transition-transform duration-300 hover:-rotate-12 w-4 h-4 lg:w-5 lg:h-5">
+			</button>
 			</img>
 		</div>
-		
 	</header>
 
 	<script src="../src/app.js" type="module"></script>
