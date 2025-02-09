@@ -28,3 +28,49 @@
 	background: #338500;
 	box-shadow: inset 15px 15px 18px #276500 inset -15px -15px 18px #3fa500;
 }
+
+.faded-image {
+	background-image: url('../public/images/rackets_cover_picture.jpeg');
+	position: relative;
+}
+
+.faded-image::before, 
+.faded-image::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	/* height: ; */
+}
+
+.faded-image::before {
+	top: 0;
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.faded-image::after {
+	bottom: 0;
+	background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.faded-border {
+	/* -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1), rgb(0, 0, 0, 0));
+	mask-image: linear-gradient(to bottom, rgb(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 100%, rgb(0, 0, 0, 0) 0%); */
+	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
+ 	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
+}
+
+.xp-bar {
+	color: #fff;
+}
+
+.xp-bar::after {
+	content: '';
+	/* border-style: hidden; */
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	border-radius: 9999px;
+	height: 1.25rem;
+	width: 75%;
+}
