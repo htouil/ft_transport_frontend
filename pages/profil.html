@@ -4,11 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Profil | ft_transport</title>
-	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="src/styles.css">
 </head>	
-<body>
-	<header class="flex justify-between items-center transform  p-4 mt-5 ml-7 mr-7 lg:mt-5">
+<body class="">
+	<header class="flex justify-between items-center transform min-w-72 min-[316px]:p-4 min-[316px]:ml-7 min-[316px]:mr-7 mt-5 lg:mt-5">
 		<a href="../index.html" title="Home" class="inline-flex transform origin-center transition-transform duration-300 hover:scale-110 gap-1 ml-2 sm:ml-5 md:ml-10 lg:justify-between lg:items-center">
 			<img src="../public/logos/racket_logo.png" alt="Racket" class="self-center justify-self-center  size-8 md:size-10 lg:size-12">
 			<div>
@@ -16,19 +18,51 @@
 				<p class="text-xs md:text-md lg:text-lg">Table Heroes</p>
 			</div>
 		</a>
-		<div class="relative border-hidden rounded-lg bg-gray-500 flex items-center justify-center mr-2 sm:mr-5 md:mr-10 w-20 lg:h-9 lg:w-28">
+		<div class="relative border-hidden rounded-lg bg-gray-500 flex items-center justify-center mr-2 sm:mr-5 md:mr-10 w-20 lg:h-10 lg:w-24">
 			<div class="relative">
-				<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="relative rounded-full p-1 w-7 h-7 lg:w-10 lg:h-10">
+				<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="relative rounded-full p-1 size-7 lg:size-10 lg:p-1.5">
 				<button title="online" class="absolute green-btn bottom-0.5 right-0.5 w-2 h-2 lg:w-3 lg:h-3"></button>
 				<!-- <img src="../public/logos/wah.jpg" alt="online dot" class="absolute bottom-1 right-1 w-2 h-2"> -->
 			</div>
-			<p style="text-shadow: 2rem;" class="text-xs font-medium lg:text-base lg:font-medium">htouil</p>
+			<p style="text-shadow: 20px;" class="text-xs font-medium lg:text-base lg:font-medium">htouil</p>
 			<button>
 				<img src="../public/logos/bell.png" alt="bell" class="relative transform origin-top transition-transform duration-300 hover:-rotate-12 w-4 h-4 lg:w-5 lg:h-5">
 			</button>
 			</img>
 		</div>
 	</header>
+
+	<!-- <div class="grid grid-cols-8 grid-rows-5 gap-8 justify-center m-5">
+		<div class="border border-solid border-black row-span-2 col-span-5">
+			<h1>Profil</h1>
+		</div>
+
+		<div class="border border-solid border-black row-start-3 row-span-3 col-span-5">
+			<h1>Game</h1>
+		</div>
+
+		<div class="border border-solid border-black col-start-6 col-span-3 row-span-5">
+			<h1>Friends</h1>
+		</div>
+	</div> -->
+	<div class="w-full">
+		<div class="grid grid-cols-8 grid-rows-5 gap-4 md:gap-8 m-5">
+			<div class="bg-cover bg-center border border-transparent h-full row-span-2 col-span-5 p-4" style="background-image: url('../public/images/rackets_cover_picture.jpeg');">
+				<div class="grid grid-cols-2 grid-rows-1 justify-between">
+					<p style="font-family: 'Diphylleia', serif; font-style: normal; text-shadow: 1px 1px 3px;" class="text-white max-[440px]:text-xs md:text-2xl">Good morning,<br>Hatim Touil</p>
+					<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-16 justify-self-end max-[440px]:size-12 md:size-20 lg:size-24">
+				</div>
+			</div>
+			
+			<div class="border border-solid border-black row-start-3 row-span-3 col-span-5">
+				<h1>Game</h1>
+			</div>
+			
+			<div class="border border-solid border-black col-start-6 col-span-3 row-span-5">
+				<h1>Friends</h1>
+			</div>
+		</div>
+	</div>
 
 	<script src="../src/app.js" type="module"></script>
 	<noscript>You need to enable JavaScript to run this app.</noscript>
