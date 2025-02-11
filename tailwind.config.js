@@ -2,7 +2,13 @@
 module.exports = {
   content: ["./*.html", "./pages/**/*.html", "./src/**/*.{ts,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        '2xs': ['0.625rem', {
+          lineHeight: '1rem',
+        }],
+      },
+    },
   },
   plugins: [],
 }
