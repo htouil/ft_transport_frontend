@@ -7,6 +7,9 @@ module.exports = {
         '2xs': ['0.625rem', {
           lineHeight: '1rem',
         }],
+        '3xs': ['0.5rem', {
+          lineHeight: '1rem',
+        }]
       },
     },
   },
