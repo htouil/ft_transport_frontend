@@ -40,11 +40,20 @@
 	left: 0;
 	top: 0;
 	z-index: -1;
-	transition-duration: 300ms;
+	transition-duration: 400ms;
+	transition-delay: 100ms;
 }
 
 .pink-btn:hover::after {
 	width: 100%;
+}
+
+.gamemod-btn::after {
+	content: "";
+	background: #374151;
+	height: 100%;
+	width: 0px;
+	border-radius: 0.75rem;
 }
 
 .wallpaper {
