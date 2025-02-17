@@ -36,5 +36,5 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPage(page);
         });
     });
-    loadPage('home');
+    loadPage('profil');
 });
