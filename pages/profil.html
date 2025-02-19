@@ -100,6 +100,7 @@
 					</button>
 				</div>
 				<div class="self-end">
+					<h1 class="text-white">Normal game options</h1>
 					<h1 class="text-white">Tournament options</h1>
 				</div>
 				<div class="grid grid-rows-2 gap-2">
@@ -115,50 +116,75 @@
 				<div class="row-span-1 grid grid-rows-3">
 					<h1 class="row-span-1 text-white">Performances</h1>
 					<div class="row-span-2 grid grid-cols-2 gap-2">
-						<div class="grid grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 self-center justify-self-center text-white" style="font-size: 0.625rem;">
+						<div class="grid grid-rows-3 border-2 border-white border-solid rounded-xl" style="background: #404251;">
+							<h2 class="row-span-1 self-center justify-self-center text-white text-2xs">
 								Matches played
 							</h2>
-							<div class="row-span-1 self-start justify-self-center">
+							<div class="row-span-2 self-start justify-self-center">
 								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
-						<div class="grid grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 self-center justify-self-center text-white" style="font-size: 0.625rem;">
+						<div class="grid grid-rows-3 border-2 border-white border-solid rounded-xl" style="background: #404251;">
+							<h2 class="row-span-1 self-center justify-self-center text-white text-2xs">
 								Tournaments played
 							</h2>
-							<div class="row-span-1 self-start justify-self-center">
+							<div class="row-span-2 self-start justify-self-center">
 								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
-						<div class="grid grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 self-center justify-self-center text-white" style="font-size: 0.625rem;">
-								Matches played
+						<div class="grid grid-rows-3 border-2 border-white border-solid rounded-xl" style="background: #404251;">
+							<h2 class="row-span-1 self-center justify-self-center text-white text-2xs">
+								Global rank
 							</h2>
-							<div class="row-span-1 self-start justify-self-center">
+							<div class="row-span-2 self-start justify-self-center">
 								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
-						<div class="grid grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 self-center justify-self-center text-white" style="font-size: 0.625rem;">
-								Tournaments played
+						<div class="grid grid-rows-3 border-2 border-white border-solid rounded-xl" style="background: #404251;">
+							<h2 class="row-span-1 self-center justify-self-center text-white text-2xs">
+								Total friends
 							</h2>
-							<div class="row-span-1 self-start justify-self-center">
+							<div class="row-span-2 self-start justify-self-center">
 								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row-span-1 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-					<!--the big one-->
+				<div class="row-span-1 grid grid-cols-5 border-2 border-white border-solid rounded-xl" style="background: #404251;">
+					<div class="col-span-2 grid grid-rows-2">
+						<div class="grid">
+							<h2 class="row-span-1 self-center justify-self-center text-white text-xs">
+								Your Level
+							</h2>
+							<div class="row-span-1 self-start justify-self-center">
+								<p class="text-base font-bold" style="color: #666495;">Level 7</p>
+							</div>
+						</div>
+						<div class="grid">
+							<h2 class="row-span-1 self-center justify-self-center text-white text-xs">
+								Your Xp
+							</h2>
+							<div class="row-span-1 self-start justify-self-center">
+								<p class="text-base font-bold" style="color: #666495;">31 725<span>xp</span></p>
+							</div>
+						</div>
+					</div>
+					<div class="grid col-span-3">
+						<svg class="w-24 h-24 place-self-center" viewBox="0 0 100 100">
+							<circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
+							<circle style="color: #666495" stroke-width="10" stroke-dasharray="282.6" stroke-dashoffset="calc(282.6 - (282.6 * 75 / 100))" stroke-linecap="round" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" transform="rotate(-90 50 50)" 	/>
+							<text x="50" y="50" text-anchor="middle" dy="0.3em" class="font-bold text-xl" style="fill: #666495">75%</text>
+						</svg>													
+					</div>
 				</div>
 			</div>
 		</div>
 		
 		<div class="col-start-6 col-span-3 row-span-5 border-solid border-black max-[639px]:hidden md:block">
 			<h1>Friends</h1>
+			<p>Friend List content...</p>
 		</div>
-		<div id="friends-panel" class="fixed top-0 right-0 bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full translate-x-full transform transition-transform duration-300 ease-in-out z-50 max-[639px]:block md:hidden">
+		<div id="friends-panel" class="fixed top-0 right-0 bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full translate-x-full transform transition-transform duration-500 ease-in-out z-50 max-[639px]:block md:hidden">
 			<button id="close-btn" class="absolute top-2 right-2 text-black size-fit">
 				<svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-8">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>

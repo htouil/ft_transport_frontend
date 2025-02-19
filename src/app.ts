@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () =>
 {
-	
 	const app = document.getElementById('app')!;
 	const navBtn = document.querySelectorAll('.nav-btn');
 	const navBar = document.querySelector('nav');
