@@ -11,8 +11,33 @@ document.addEventListener('DOMContentLoaded', () =>
 			const content = await response.text();
 			app.innerHTML = content;
 			hideNav(page);
-			document.getElementById('open-btn')?.addEventListener('click', openPanel);
-			document.getElementById('close-btn')?.addEventListener('click', closePanel);
+			const openbtn = document.getElementById('open-btn');
+			const closebtn = document.getElementById('close-btn');
+			const panel = document.getElementById('friends-panel');
+			const homebtn = document.querySelector('.home-btn') as HTMLAnchorElement | null;
+			openbtn?.addEventListener('click', (e) =>
+			{
+				e.stopPropagation();
+				if (panel)
+					panel.classList.remove('translate-x-full');
+			});
+
+			closebtn?.addEventListener('click', (e) =>
+			{
+				e.stopPropagation();
+				if (panel)
+					panel.classList.add('translate-x-full');
+			});
+
+			
+
+			document.addEventListener('click', (e) =>
+			{
+				const excludebtn = [openbtn, document.querySelector('home-btn')];
+				
+				if (panel && !panel.contains(e.target as Node) && !excludebtn.includes(e.target as HTMLElement))
+					panel.classList.add('translate-x-full');
+			});
 		}	
 		catch (error)
 		{
@@ -38,19 +63,5 @@ document.addEventListener('DOMContentLoaded', () =>
 			loadPage(page);
 		});	
 	});	
-	loadPage('profil');
+	loadPage('home');
 });	
-
-function openPanel(): void {
-	const panel = document.getElementById('friends-panel');
-	if (panel) {
-	  panel.classList.remove('translate-x-full');
-	}
-}
-  
-function closePanel(): void {
-	const panel = document.getElementById('friends-panel');
-	if (panel) {
-	  panel.classList.add('translate-x-full');
-	}
-}
