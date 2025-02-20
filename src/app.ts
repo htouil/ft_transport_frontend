@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () =>
 			app.innerHTML = content;
 			hideNav(page);
 			const openbtn = document.getElementById('open-btn');
-			const closebtn = document.getElementById('close-btn');
 			const panel = document.getElementById('friends-panel');
-			const homebtn = document.querySelector('.home-btn') as HTMLAnchorElement | null;
+			const otherbtn = document.querySelectorAll('.other-btn') as NodeListOf<HTMLAnchorElement>;
+
 			openbtn?.addEventListener('click', (e) =>
 			{
 				e.stopPropagation();
@@ -22,22 +22,19 @@ document.addEventListener('DOMContentLoaded', () =>
 					panel.classList.remove('translate-x-full');
 			});
 
-			closebtn?.addEventListener('click', (e) =>
-			{
-				e.stopPropagation();
-				if (panel)
-					panel.classList.add('translate-x-full');
-			});
-
-			
-
 			document.addEventListener('click', (e) =>
 			{
-				const excludebtn = [openbtn, document.querySelector('home-btn')];
-				
-				if (panel && !panel.contains(e.target as Node) && !excludebtn.includes(e.target as HTMLElement))
+				const clicked = (e.target as HTMLElement).closest('.other-btn');
+
+				if (panel && !panel.contains(e.target as Node) && !clicked)
 					panel.classList.add('translate-x-full');
+				if (clicked)
+				{
+					e.preventDefault();
+					panel?.classList.add('translate-x-full');
+				}
 			});
+
 		}	
 		catch (error)
 		{
