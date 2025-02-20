@@ -24,14 +24,30 @@ document.addEventListener('DOMContentLoaded', () =>
 
 			document.addEventListener('click', (e) =>
 			{
-				const clicked = (e.target as HTMLElement).closest('.other-btn');
+				const otherbtn = (e.target as HTMLElement).closest('.other-btn');
+				const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active') as HTMLElement | null;
 
-				if (panel && !panel.contains(e.target as Node) && !clicked)
-					panel.classList.add('translate-x-full');
-				if (clicked)
+				if (panel && !panel.contains(e.target as Node))
 				{
-					e.preventDefault();
-					panel?.classList.add('translate-x-full');
+					if (!otherbtn)
+						panel.classList.add('translate-x-full');
+					else
+					{
+						if (!(panel?.classList.contains('translate-x-full')))
+						{
+							e.preventDefault();
+						}
+						panel?.classList.add('translate-x-full');
+					}
+					if (activeButton)
+					{
+						activeButton.blur();
+						activeButton.style.pointerEvents = 'none';
+						setTimeout(() => {
+							activeButton.style.pointerEvents = '';
+						}, 10);
+						// activeButton.classList.remove('hover', 'focus', 'active');
+					}
 				}
 			});
 

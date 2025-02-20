@@ -27,12 +27,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     panel.classList.remove('translate-x-full');
             });
             document.addEventListener('click', (e) => {
-                const clicked = e.target.closest('.other-btn');
-                if (panel && !panel.contains(e.target) && !clicked)
-                    panel.classList.add('translate-x-full');
-                if (clicked) {
-                    e.preventDefault();
-                    panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
+                const otherbtn = e.target.closest('.other-btn');
+                const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active');
+                if (panel && !panel.contains(e.target)) {
+                    if (!otherbtn)
+                        panel.classList.add('translate-x-full');
+                    else {
+                        if (!(panel === null || panel === void 0 ? void 0 : panel.classList.contains('translate-x-full'))) {
+                            e.preventDefault();
+                        }
+                        panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
+                    }
+                    if (activeButton) {
+                        activeButton.blur();
+                        activeButton.style.pointerEvents = 'none';
+                        setTimeout(() => {
+                            activeButton.style.pointerEvents = '';
+                        }, 10);
+                        // activeButton.classList.remove('hover', 'focus', 'active');
+                    }
                 }
             });
         }
