@@ -180,20 +180,43 @@
 			</div>
 		</div>
 		
-		<div class="col-start-6 col-span-3 row-span-5 border-solid border-black max-[639px]:hidden md:block">
+		<div class="col-start-6 col-span-3 row-span-5 border-solid border-black max-[639px]:hidden sm:block">
 			<h1>Friends</h1>
 			<p>Friend List content...</p>
 		</div>
-		<div id="friends-panel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 max-[639px]:block md:hidden">
-			<button id="close-btn" class="absolute top-28 right-14 border-2 border-black rounded-lg text-black size-fit">
+		<div id="friends-panel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 max-[639px]:block sm:hidden">
+			<div class="fixed top-28 right-0 w-full h-fit grid grid-cols-1 grid-rows-5 p-2 gap-4">
+				<div class="row-span-1 grid place-content-end">
+					<button id="close-btn" class="border-2 border-black rounded-lg text-black size-fit">
+						<svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
+						</svg>
+					</button>
+				</div>
+				<div class="row-span-4 border h-fit p-1 bg-gradient-to-br from-red-400 to-blue-400 rounded-lg">
+					<div class="border-2 rounded-md p-4 border-transparent bg-transparent">
+						<h1>Friends</h1>
+						<p>Friend List content...</p>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="row-start-2 row-span-9 grid place-items-center">
+				<div class="border-2 p-1 bg-gradient-to-br from-red-400 to-blue-400 rounded-lg">
+					<div class="border-2 rounded-md p-4 border-transparent bg-transparent">
+						<h1>Friends</h1>
+						<p>Friend List content...</p>
+					</div>
+				</div>
+			</div> -->
+			<!-- <button id="close-btn" class="absolute top-28 right-14 border-2 border-black rounded-lg text-black size-fit">
 				<svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6">
 					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
 				</svg>
-			</button>
-			<div class="mt-40">
+			</button> -->
+			<!-- <div class="border-4 mt-40 friends-border">
 				<h1>Friends</h1>
 				<p>Friend List content...</p>
-			</div>
+			</div> -->
 		</div>
 	</div>
 

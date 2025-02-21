@@ -92,4 +92,8 @@
 	background: #6e8ca7;
 }
 
+.friends-border {
+	border-image-source: linear-gradient(to bottom left, #706ea7, #5487a8);
+}
+
 /* make a gradient border in the friends panel */
