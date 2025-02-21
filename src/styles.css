@@ -75,3 +75,21 @@
 	mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
  	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
 }
+
+.game-btn1 {
+	background: #706ea7;
+}
+
+.game-btn1:hover {
+	background: #7d7da3;
+}
+
+.game-btn2 {
+	background: #5883a8;
+}
+
+.game-btn2:hover {
+	background: #6e8ca7;
+}
+
+/* make a gradient border in the friends panel */

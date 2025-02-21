@@ -19,35 +19,48 @@ document.addEventListener('DOMContentLoaded', () => {
             app.innerHTML = content;
             hideNav(page);
             const openbtn = document.getElementById('open-btn');
+            const closebtn = document.getElementById('close-btn');
             const panel = document.getElementById('friends-panel');
-            const otherbtn = document.querySelectorAll('.other-btn');
+            // const otherbtn = document.querySelectorAll('.other-btn') as NodeListOf<HTMLAnchorElement>;
             openbtn === null || openbtn === void 0 ? void 0 : openbtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (panel)
-                    panel.classList.remove('translate-x-full');
+                panel === null || panel === void 0 ? void 0 : panel.classList.remove('translate-x-full');
+            });
+            closebtn === null || closebtn === void 0 ? void 0 : closebtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
             });
             document.addEventListener('click', (e) => {
-                const otherbtn = e.target.closest('.other-btn');
-                const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active');
-                if (panel && !panel.contains(e.target)) {
-                    if (!otherbtn)
-                        panel.classList.add('translate-x-full');
-                    else {
-                        if (!(panel === null || panel === void 0 ? void 0 : panel.classList.contains('translate-x-full'))) {
-                            e.preventDefault();
-                        }
-                        panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
-                    }
-                    if (activeButton) {
-                        activeButton.blur();
-                        activeButton.style.pointerEvents = 'none';
-                        setTimeout(() => {
-                            activeButton.style.pointerEvents = '';
-                        }, 10);
-                        // activeButton.classList.remove('hover', 'focus', 'active');
-                    }
-                }
+                if (panel && !panel.contains(e.target) && e.target !== openbtn)
+                    panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
             });
+            // document.addEventListener('click', (e) =>
+            // {
+            // 	const otherbtn = (e.target as HTMLElement).closest('.other-btn');
+            // 	const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active') as HTMLElement | null;
+            // 	if (panel && !panel.contains(e.target as Node))
+            // 	{
+            // 		if (!otherbtn)
+            // 			panel.classList.add('translate-x-full');
+            // 		else
+            // 		{
+            // 			if (!(panel?.classList.contains('translate-x-full')))
+            // 			{
+            // 				e.preventDefault();
+            // 			}
+            // 			panel?.classList.add('translate-x-full');
+            // 		}
+            // 		if (activeButton)
+            // 		{
+            // 			activeButton.blur();
+            // 			activeButton.style.pointerEvents = 'none';
+            // 			setTimeout(() => {
+            // 				activeButton.style.pointerEvents = '';
+            // 			}, 10);
+            // 			// activeButton.classList.remove('hover', 'focus', 'active');
+            // 		}
+            // 	}
+            // });
         }
         catch (error) {
             app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
