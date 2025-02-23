@@ -184,7 +184,7 @@
 			<h1>Friends</h1>
 			<p>Friend List content...</p>
 		</div>
-		<div id="friends-panel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 max-[639px]:block sm:hidden">
+		<div id="friends-panel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-0 transition-transform duration-500 ease-in-out z-50 max-[639px]:block sm:hidden">
 			<div class="fixed top-28 right-0 w-full h-fit grid grid-cols-1 grid-rows-5 p-2 gap-4">
 				<div class="row-span-1 grid place-content-end">
 					<button id="close-btn" class="border-2 border-black rounded-lg text-black size-fit">
@@ -193,10 +193,15 @@
 						</svg>
 					</button>
 				</div>
-				<div class="row-span-4 border h-fit p-1 bg-gradient-to-br from-red-400 to-blue-400 rounded-lg">
-					<div class="border-2 rounded-md p-4 border-transparent bg-transparent">
-						<h1>Friends</h1>
-						<p>Friend List content...</p>
+				<div class="grid row-span-4 border-4 h-fit p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
+					<h1 class="justify-self-center font-bold">Friends & History</h1>
+					<div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center" style="background: #3f4251;">
+						<button class="border-r border-white text-sm text-center size-full">Friends</button>
+						<button class="border-l border-white text-sm text-center size-full">History</button>
+					</div>
+					<h2 class="text-xs font-bold my-3">Friend's requests</h2>
+					<div class="">
+
 					</div>
 				</div>
 			</div>
