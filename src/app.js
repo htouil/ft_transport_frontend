@@ -25,42 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
             openbtn === null || openbtn === void 0 ? void 0 : openbtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 panel === null || panel === void 0 ? void 0 : panel.classList.remove('translate-x-full');
+                document.body.classList.add('overflow-hidden');
             });
             closebtn === null || closebtn === void 0 ? void 0 : closebtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
+                document.body.classList.remove('overflow-hidden');
             });
             document.addEventListener('click', (e) => {
-                if (panel && !panel.contains(e.target) && e.target !== openbtn)
+                if (panel && !panel.contains(e.target) && e.target !== openbtn) {
                     panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
+                    document.body.classList.remove('overflow-hidden');
+                }
             });
-            // document.addEventListener('click', (e) =>
-            // {
-            // 	const otherbtn = (e.target as HTMLElement).closest('.other-btn');
-            // 	const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active') as HTMLElement | null;
-            // 	if (panel && !panel.contains(e.target as Node))
-            // 	{
-            // 		if (!otherbtn)
-            // 			panel.classList.add('translate-x-full');
-            // 		else
-            // 		{
-            // 			if (!(panel?.classList.contains('translate-x-full')))
-            // 			{
-            // 				e.preventDefault();
-            // 			}
-            // 			panel?.classList.add('translate-x-full');
-            // 		}
-            // 		if (activeButton)
-            // 		{
-            // 			activeButton.blur();
-            // 			activeButton.style.pointerEvents = 'none';
-            // 			setTimeout(() => {
-            // 				activeButton.style.pointerEvents = '';
-            // 			}, 10);
-            // 			// activeButton.classList.remove('hover', 'focus', 'active');
-            // 		}
-            // 	}
-            // });
         }
         catch (error) {
             app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
@@ -81,3 +58,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     loadPage('profil');
 });
+// document.addEventListener('click', (e) =>
+// {
+// 	const otherbtn = (e.target as HTMLElement).closest('.other-btn');
+// 	const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active') as HTMLElement | null;
+// 	if (panel && !panel.contains(e.target as Node))
+// 	{
+// 		if (!otherbtn)
+// 			panel.classList.add('translate-x-full');
+// 		else
+// 		{
+// 			if (!(panel?.classList.contains('translate-x-full')))
+// 			{
+// 				e.preventDefault();
+// 			}
+// 			panel?.classList.add('translate-x-full');
+// 		}
+// 		if (activeButton)
+// 		{
+// 			activeButton.blur();
+// 			activeButton.style.pointerEvents = 'none';
+// 			setTimeout(() => {
+// 				activeButton.style.pointerEvents = '';
+// 			}, 10);
+// 			// activeButton.classList.remove('hover', 'focus', 'active');
+// 		}
+// 	}
+// });

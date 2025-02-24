@@ -20,49 +20,26 @@ document.addEventListener('DOMContentLoaded', () =>
 			{
 				e.stopPropagation();
 				panel?.classList.remove('translate-x-full');
+				document.body.classList.add('overflow-hidden');
 			});
 
 			closebtn?.addEventListener('click', (e) =>
 			{
 				e.stopPropagation();
 				panel?.classList.add('translate-x-full');
+				document.body.classList.remove('overflow-hidden');
 			});
 
 			document.addEventListener('click', (e) =>
 			{
 				if (panel && !panel.contains(e.target as Node) && e.target !== openbtn)
+				{
 					panel?.classList.add('translate-x-full');
+					document.body.classList.remove('overflow-hidden');
+				}
 			});
 
-			// document.addEventListener('click', (e) =>
-			// {
-			// 	const otherbtn = (e.target as HTMLElement).closest('.other-btn');
-			// 	const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active') as HTMLElement | null;
-
-			// 	if (panel && !panel.contains(e.target as Node))
-			// 	{
-			// 		if (!otherbtn)
-			// 			panel.classList.add('translate-x-full');
-			// 		else
-			// 		{
-			// 			if (!(panel?.classList.contains('translate-x-full')))
-			// 			{
-			// 				e.preventDefault();
-			// 			}
-			// 			panel?.classList.add('translate-x-full');
-			// 		}
-			// 		if (activeButton)
-			// 		{
-			// 			activeButton.blur();
-			// 			activeButton.style.pointerEvents = 'none';
-			// 			setTimeout(() => {
-			// 				activeButton.style.pointerEvents = '';
-			// 			}, 10);
-			// 			// activeButton.classList.remove('hover', 'focus', 'active');
-			// 		}
-			// 	}
-			// });
-
+			
 		}	
 		catch (error)
 		{
@@ -78,15 +55,44 @@ document.addEventListener('DOMContentLoaded', () =>
 			navBar.classList.add('hidden');
 		}	
 	};	
-
+	
 	navBtn.forEach(button =>
-	{
-		button.addEventListener('click', () =>
 		{
-			const page = (button as HTMLElement).dataset.page!;
-			console.log(`Navigating to: ${page}`);
-			loadPage(page);
+			button.addEventListener('click', () =>
+			{
+				const page = (button as HTMLElement).dataset.page!;
+				console.log(`Navigating to: ${page}`);
+				loadPage(page);
+			});	
 		});	
+		loadPage('profil');
 	});	
-	loadPage('profil');
-});	
+	
+	// document.addEventListener('click', (e) =>
+	// {
+	// 	const otherbtn = (e.target as HTMLElement).closest('.other-btn');
+	// 	const activeButton = document.querySelector('.other-btn:focus, .other-btn:hover, .other-btn:active') as HTMLElement | null;
+
+	// 	if (panel && !panel.contains(e.target as Node))
+	// 	{
+	// 		if (!otherbtn)
+	// 			panel.classList.add('translate-x-full');
+	// 		else
+	// 		{
+	// 			if (!(panel?.classList.contains('translate-x-full')))
+	// 			{
+	// 				e.preventDefault();
+	// 			}
+	// 			panel?.classList.add('translate-x-full');
+	// 		}
+	// 		if (activeButton)
+	// 		{
+	// 			activeButton.blur();
+	// 			activeButton.style.pointerEvents = 'none';
+	// 			setTimeout(() => {
+	// 				activeButton.style.pointerEvents = '';
+	// 			}, 10);
+	// 			// activeButton.classList.remove('hover', 'focus', 'active');
+	// 		}
+	// 	}
+	// });
