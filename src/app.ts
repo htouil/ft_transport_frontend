@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () =>
 				console.log(`Navigating to: ${page}`);
 				loadPage(page);
 			});	
-		});	
-		loadPage('profil');
+		});
+		loadPage('home');
 	});	
 	
 	// document.addEventListener('click', (e) =>

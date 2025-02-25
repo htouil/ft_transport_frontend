@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loadPage(page);
         });
     });
-    loadPage('profil');
+    loadPage('home');
 });
 // document.addEventListener('click', (e) =>
 // {
