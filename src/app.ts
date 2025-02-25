@@ -13,33 +13,49 @@ document.addEventListener('DOMContentLoaded', () =>
 			hideNav(page);
 			const openbtn = document.getElementById('open-btn');
 			const closebtn = document.getElementById('close-btn');
-			const panel = document.getElementById('friends-panel');
-			// const otherbtn = document.querySelectorAll('.other-btn') as NodeListOf<HTMLAnchorElement>;
+			const side_panel = document.getElementById('friends-panel');
+			const frs_btn = document.getElementById('friends-btn');
+			const htr_btn = document.getElementById('history-btn');
+			const frs_list = document.getElementById('friends-list');
+			const htr_list = document.getElementById('history-list');
 
 			openbtn?.addEventListener('click', (e) =>
 			{
 				e.stopPropagation();
-				panel?.classList.remove('translate-x-full');
+				side_panel?.classList.remove('translate-x-full');
 				document.body.classList.add('overflow-hidden');
+
+				frs_list?.classList.remove('hidden');
+				htr_list?.classList.add('hidden');
 			});
 
 			closebtn?.addEventListener('click', (e) =>
 			{
 				e.stopPropagation();
-				panel?.classList.add('translate-x-full');
+				side_panel?.classList.add('translate-x-full');
 				document.body.classList.remove('overflow-hidden');
 			});
 
 			document.addEventListener('click', (e) =>
 			{
-				if (panel && !panel.contains(e.target as Node) && e.target !== openbtn)
+				if (side_panel && !side_panel.contains(e.target as Node) && e.target !== openbtn)
 				{
-					panel?.classList.add('translate-x-full');
+					side_panel?.classList.add('translate-x-full');
 					document.body.classList.remove('overflow-hidden');
 				}
 			});
 
+			frs_btn?.addEventListener('click', () =>
+			{
+				frs_list?.classList.remove('hidden');
+				htr_list?.classList.add('hidden');
+			});
 			
+			htr_btn?.addEventListener('click', () =>
+			{
+				htr_list?.classList.remove('hidden');
+				frs_list?.classList.add('hidden');
+			});
 		}	
 		catch (error)
 		{
@@ -57,16 +73,16 @@ document.addEventListener('DOMContentLoaded', () =>
 	};	
 	
 	navBtn.forEach(button =>
+	{
+		button.addEventListener('click', () =>
 		{
-			button.addEventListener('click', () =>
-			{
-				const page = (button as HTMLElement).dataset.page!;
-				console.log(`Navigating to: ${page}`);
-				loadPage(page);
-			});	
-		});
-		loadPage('home');
-	});	
+			const page = (button as HTMLElement).dataset.page!;
+			console.log(`Navigating to: ${page}`);
+			loadPage(page);
+		});	
+	});
+	loadPage('home');
+});
 	
 	// document.addEventListener('click', (e) =>
 	// {
@@ -96,3 +112,5 @@ document.addEventListener('DOMContentLoaded', () =>
 	// 		}
 	// 	}
 	// });
+
+	// history.replaceState()

@@ -20,23 +20,36 @@ document.addEventListener('DOMContentLoaded', () => {
             hideNav(page);
             const openbtn = document.getElementById('open-btn');
             const closebtn = document.getElementById('close-btn');
-            const panel = document.getElementById('friends-panel');
-            // const otherbtn = document.querySelectorAll('.other-btn') as NodeListOf<HTMLAnchorElement>;
+            const side_panel = document.getElementById('friends-panel');
+            const frs_btn = document.getElementById('friends-btn');
+            const htr_btn = document.getElementById('history-btn');
+            const frs_list = document.getElementById('friends-list');
+            const htr_list = document.getElementById('history-list');
             openbtn === null || openbtn === void 0 ? void 0 : openbtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                panel === null || panel === void 0 ? void 0 : panel.classList.remove('translate-x-full');
+                side_panel === null || side_panel === void 0 ? void 0 : side_panel.classList.remove('translate-x-full');
                 document.body.classList.add('overflow-hidden');
+                frs_list === null || frs_list === void 0 ? void 0 : frs_list.classList.remove('hidden');
+                htr_list === null || htr_list === void 0 ? void 0 : htr_list.classList.add('hidden');
             });
             closebtn === null || closebtn === void 0 ? void 0 : closebtn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
+                side_panel === null || side_panel === void 0 ? void 0 : side_panel.classList.add('translate-x-full');
                 document.body.classList.remove('overflow-hidden');
             });
             document.addEventListener('click', (e) => {
-                if (panel && !panel.contains(e.target) && e.target !== openbtn) {
-                    panel === null || panel === void 0 ? void 0 : panel.classList.add('translate-x-full');
+                if (side_panel && !side_panel.contains(e.target) && e.target !== openbtn) {
+                    side_panel === null || side_panel === void 0 ? void 0 : side_panel.classList.add('translate-x-full');
                     document.body.classList.remove('overflow-hidden');
                 }
+            });
+            frs_btn === null || frs_btn === void 0 ? void 0 : frs_btn.addEventListener('click', () => {
+                frs_list === null || frs_list === void 0 ? void 0 : frs_list.classList.remove('hidden');
+                htr_list === null || htr_list === void 0 ? void 0 : htr_list.classList.add('hidden');
+            });
+            htr_btn === null || htr_btn === void 0 ? void 0 : htr_btn.addEventListener('click', () => {
+                htr_list === null || htr_list === void 0 ? void 0 : htr_list.classList.remove('hidden');
+                frs_list === null || frs_list === void 0 ? void 0 : frs_list.classList.add('hidden');
             });
         }
         catch (error) {
@@ -85,3 +98,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // 		}
 // 	}
 // });
+// history.replaceState()
