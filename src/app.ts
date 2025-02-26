@@ -73,11 +73,13 @@ const setupButtons = () => {
 
 const selectLocal = () => {
 	localBtn?.classList.add('game-btn');
+	localBtn?.classList.remove('hover:bg-gray-500');
 	onlineBtn?.classList.remove('game-btn');
 };
 //remove focus when game mode button selected
 const selectOnline = () => {
 	onlineBtn?.classList.add('game-btn');
+	onlineBtn?.classList.remove('hover:bg-gray-500');
 	localBtn?.classList.remove('game-btn');
 };
 

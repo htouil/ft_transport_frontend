@@ -71,11 +71,13 @@ const setupButtons = () => {
 };
 const selectLocal = () => {
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.add('game-btn');
+    localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.remove('hover:bg-gray-500');
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.remove('game-btn');
 };
 //remove focus when game mode button selected
 const selectOnline = () => {
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.add('game-btn');
+    onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.remove('hover:bg-gray-500');
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.remove('game-btn');
 };
 const openSidePanel = (e) => {
