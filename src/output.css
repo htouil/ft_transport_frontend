@@ -569,6 +569,11 @@ video {
 			@apply bg-purple-500 transition duration-500 after:content hover:bg-gradient-to-br hover:from-purple-500 hover:from-20% hover:via-purple-950 hover:via-50% hover:to-purple-950 hover:to-80%;
 		}	 */
 
+.game-btn {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
+}
+
 .fixed {
   position: fixed;
 }
@@ -607,18 +612,6 @@ video {
 
 .top-28 {
   top: 7rem;
-}
-
-.top-9 {
-  top: 2.25rem;
-}
-
-.top-2 {
-  top: 0.5rem;
-}
-
-.top-24 {
-  top: 6rem;
 }
 
 .z-0 {
@@ -665,10 +658,6 @@ video {
   grid-row: span 3 / span 3;
 }
 
-.row-span-4 {
-  grid-row: span 4 / span 4;
-}
-
 .row-span-5 {
   grid-row: span 5 / span 5;
 }
@@ -708,10 +697,6 @@ video {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
 }
 
 .flex {
@@ -874,11 +859,6 @@ video {
 
 .translate-x-full {
   --tw-translate-x: 100%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-x-0 {
-  --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1066,6 +1046,16 @@ video {
   border-radius: 0.75rem;
 }
 
+.rounded-l-md {
+  border-top-left-radius: 0.375rem;
+  border-bottom-left-radius: 0.375rem;
+}
+
+.rounded-r-md {
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1194,11 +1184,6 @@ video {
   padding-bottom: 0.25rem;
 }
 
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -1232,6 +1217,11 @@ video {
   line-height: 1.5rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1245,11 +1235,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -1293,11 +1278,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.blur {
-  --tw-blur: blur(8px);
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-transform {
@@ -1364,19 +1344,19 @@ video {
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
 }
 
-.game-btn1 {
+.play-btn1 {
   background: #706ea7;
 }
 
-.game-btn1:hover {
+.play-btn1:hover {
   background: #7d7da3;
 }
 
-.game-btn2 {
+.play-btn2 {
   background: #5883a8;
 }
 
-.game-btn2:hover {
+.play-btn2:hover {
   background: #6e8ca7;
 }
 
@@ -1384,7 +1364,19 @@ video {
   border-image-source: linear-gradient(to bottom left, #706ea7, #5487a8);
 }
 
-/* make a gradient border in the friends panel */
+.panel-btn {
+  background-color: #3f4251;
+  color: white;
+}
+
+.panel-btn:hover {
+  background-color: #646981;
+}
+
+.selected-panel-btn {
+  background-color: white;
+  color: #3f4251;
+}
 
 .hover\:-rotate-12:hover {
   --tw-rotate: -12deg;
@@ -1422,11 +1414,6 @@ video {
 .hover\:bg-slate-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(148 163 184 / var(--tw-bg-opacity, 1));
-}
-
-.focus\:bg-gray-600:focus {
-  --tw-bg-opacity: 1;
-  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
 }
 
 .active\:bg-gray-700:active {

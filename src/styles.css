@@ -28,6 +28,9 @@
 		/* .pink-btn {
 			@apply bg-purple-500 transition duration-500 after:content hover:bg-gradient-to-br hover:from-purple-500 hover:from-20% hover:via-purple-950 hover:via-50% hover:to-purple-950 hover:to-80%;
 		}	 */
+	.game-btn {
+		@apply bg-gray-600
+	}
 }
 
 .pink-btn::after {
@@ -76,19 +79,19 @@
  	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
 }
 
-.game-btn1 {
+.play-btn1 {
 	background: #706ea7;
 }
 
-.game-btn1:hover {
+.play-btn1:hover {
 	background: #7d7da3;
 }
 
-.game-btn2 {
+.play-btn2 {
 	background: #5883a8;
 }
 
-.game-btn2:hover {
+.play-btn2:hover {
 	background: #6e8ca7;
 }
 
@@ -96,4 +99,16 @@
 	border-image-source: linear-gradient(to bottom left, #706ea7, #5487a8);
 }
 
-/* make a gradient border in the friends panel */
+.panel-btn {
+	background-color: #3f4251;
+	color: white;
+}
+
+.panel-btn:hover {
+	background-color: #646981;
+}
+
+.selected-panel-btn {
+	background-color: white;
+	color: #3f4251;
+}
