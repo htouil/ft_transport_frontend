@@ -7,6 +7,12 @@ module.exports = {
         xs: {
           max: '639px',
         },
+        'max-521': {
+          max: '521px',
+        },
+        'max-503': {
+          max: '503px',
+        },
       },
       fontSize: {
         '2xs': ['0.625rem', {
@@ -14,7 +20,10 @@ module.exports = {
         }],
         '3xs': ['0.5rem', {
           lineHeight: '1rem',
-        }]
+        }],
+        '4xs': ['0.375rem', {
+          lineHeight: '1rem',
+        }],
       },
     },
   },
