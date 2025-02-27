@@ -194,17 +194,19 @@
 						</svg>
 					</button>
 				</div>
-				<div class="grid border-4 h-fit p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
-					<h1 class="justify-self-center font-bold">Friends & History</h1>
-					<div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center" style="background-color: #3f4251;">
-						<button id="friends-btn" class="border-r border-white text-sm text-center size-full rounded-l-md">Friends</button>
-						<button id="history-btn" class="border-l border-white text-sm text-center size-full rounded-r-md">History</button>
+				<div class="grid grid-rows-5 border-4 h-[600px] p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
+					<div class="grid row-span-1">
+						<h1 class="justify-self-center font-bold">Friends & History</h1>
+						<div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center h-5" style="background-color: #3f4251;">
+							<button id="friends-btn" class="border-r border-white text-sm text-center size-full rounded-l-md">Friends</button>
+							<button id="history-btn" class="border-l border-white text-sm text-center size-full rounded-r-md">History</button>
+						</div>
 					</div>
-					<div id="friends-list">
+					<div id="friends-list" class="row-span-4">
 						<!-- Friend's requests -->
 						<h2 class="text-xs font-bold my-3">Friend's requests</h2>
-						<div class="grid overflow-scroll overscroll-auto gap-2 h-36">
-							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl px-2" style="background: #3f4251;">
+						<div id="scrollable" class="grid rounded-lg overflow-y-scroll overscroll-auto pr-1 gap-2 h-44 scrollbar-hide">
+							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl pl-2 pr-4" style="background: #3f4251;">
 								<div class="col-span-2 flex items-center gap-2">
 									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8">
 									<div class="flex flex-col justify-items-center py-1">
@@ -212,7 +214,7 @@
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
 								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
+								<div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
 									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
 										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
@@ -226,7 +228,7 @@
 								</div>
 							</div>
 
-							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl px-2" style="background: #3f4251;">
+							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl pl-2 pr-4" style="background: #3f4251;">
 								<div class="col-span-2 flex items-center gap-2">
 									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8">
 									<div class="flex flex-col justify-items-center py-1">
@@ -234,7 +236,7 @@
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
 								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
+								<div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
 									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
 										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
@@ -248,7 +250,7 @@
 								</div>
 							</div>
 
-							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl px-2" style="background: #3f4251;">
+							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl pl-2 pr-4" style="background: #3f4251;">
 								<div class="col-span-2 flex items-center gap-2">
 									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8">
 									<div class="flex flex-col justify-items-center py-1">
@@ -256,7 +258,7 @@
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
 								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
+								<div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
 									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
 										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
@@ -270,7 +272,7 @@
 								</div>
 							</div>
 
-							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl px-2" style="background: #3f4251;">
+							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl pl-2 pr-4" style="background: #3f4251;">
 								<div class="col-span-2 flex items-center gap-2">
 									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8">
 									<div class="flex flex-col justify-items-center py-1">
@@ -278,7 +280,7 @@
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
 								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
+								<div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
 									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
 										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
@@ -294,7 +296,7 @@
 						</div>
 						<!-- Friends -->
 						<h2 class="text-xs font-bold my-3">Friends</h2>
-						<div class="grid overflow-scroll overscroll-auto mb-8 gap-2 h-36">
+						<div id="scrollable" class="grid rounded-lg overflow-y-scroll overscroll-auto pr-1 gap-2 h-44 scrollbar-hide">
 							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl px-2" style="background: #3f4251;">
 								<div class="col-span-2 flex items-center gap-2">
 									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8">
@@ -302,18 +304,6 @@
 										<strong class="max-503:text-2xs text-xs">htouil</strong>
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
-								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
-										</svg>
-									</button>
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-										</svg>
-									</button>
 								</div>
 							</div>
 
@@ -325,18 +315,6 @@
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
 								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
-										</svg>
-									</button>
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-										</svg>
-									</button>
-								</div>
 							</div>
 
 							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl px-2" style="background: #3f4251;">
@@ -347,18 +325,6 @@
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
 								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
-										</svg>
-									</button>
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-										</svg>
-									</button>
-								</div>
 							</div>
 
 							<div class="grid grid-cols-3 grid-rows-1 border rounded-xl px-2" style="background: #3f4251;">
@@ -368,57 +334,119 @@
 										<strong class="max-503:text-2xs text-xs">htouil</strong>
 										<span class="max-503:text-4xs text-3xs">Requested 3 days ago</span>
 									</div>
-								</div>
-								<div class="place-self-center grid grid-cols-2 gap-1 size-fit">
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
-										</svg>
-									</button>
-									<button class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
-										<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
-											<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
-										</svg>
-									</button>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div id="history-list" class="hidden">
-						<h2 class="text-xs font-bold my-3">Match history</h2>
-						<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-3 px-2 py-1" style="background-color: #8a3f47;">
-							<div class="grid grid-cols-2 grid-rows-1">
-								<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
-								<p class="justify-self-start self-center text-lg">1</p>
+					<div id="history-list" class="row-span-4 hidden">
+						<h2 class="text-xs font-bold my-2.5">Match history</h2>
+						<div id="scrollable" class="grid ronded-lg overflow-y-scroll overscroll-auto pr-1 h-[396px] scrollbar-hide">
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #8a3f47;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">1</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">3</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
 							</div>
-							<p class="place-self-center">VS</p>
-							<div class="grid grid-cols-2 grid-rows-1">
-								<p class="justify-self-end self-center text-lg">3</p>
-								<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+							
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #3f6f92;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">3</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">1</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
 							</div>
-						</div>
+							
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #60609b;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">2</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">2</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
+							</div>
 
-						<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-3 px-2 py-1" style="background-color: #3f6f92;">
-							<div class="grid grid-cols-2 grid-rows-1">
-								<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
-								<p class="justify-self-start self-center text-lg">3</p>
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #8a3f47;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">1</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">3</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
 							</div>
-							<p class="place-self-center">VS</p>
-							<div class="grid grid-cols-2 grid-rows-1">
-								<p class="justify-self-end self-center text-lg">1</p>
-								<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+							
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #3f6f92;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">3</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">1</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
 							</div>
-						</div>
+							
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #60609b;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">2</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">2</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
+							</div>
 
-						<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-3 px-2 py-1" style="background-color: #60609b;">
-							<div class="grid grid-cols-2 grid-rows-1">
-								<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
-								<p class="justify-self-start self-center text-lg">2</p>
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #8a3f47;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">1</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">3</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
 							</div>
-							<p class="place-self-center">VS</p>
-							<div class="grid grid-cols-2 grid-rows-1">
-								<p class="justify-self-end self-center text-lg">2</p>
-								<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+							
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #3f6f92;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">3</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">1</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
+							</div>
+							
+							<div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl my-1 px-2 py-1" style="background-color: #60609b;">
+								<div class="grid grid-cols-2 grid-rows-1">
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-start rounded-full size-8">
+									<p class="justify-self-start self-center text-lg">2</p>
+								</div>
+								<p class="place-self-center">VS</p>
+								<div class="grid grid-cols-2 grid-rows-1">
+									<p class="justify-self-end self-center text-lg">2</p>
+									<img src="../public/profil_pictures/htouil.jpeg" alt="htouil" class="justify-self-end rounded-full size-8">
+								</div>
 							</div>
 						</div>
 					</div>

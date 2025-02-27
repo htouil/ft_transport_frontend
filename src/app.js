@@ -20,6 +20,8 @@ let friendsBtn;
 let historyBtn;
 let friendsList;
 let historyList;
+let scrollable;
+// let scrollable: NodeListOf<HTMLElement> | null; // figure this one out for the other scrollables
 document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
@@ -40,6 +42,7 @@ const loadPage = (page) => __awaiter(void 0, void 0, void 0, function* () {
         app.innerHTML = content;
         hideNav(page);
         setupButtons();
+        setupScrollables();
     }
     catch (error) {
         app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
@@ -51,6 +54,7 @@ const hideNav = (page) => {
         navBar.classList.add('hidden');
     }
 };
+//BUTTONS:
 const setupButtons = () => {
     localBtn = document.getElementById('local-btn');
     onlineBtn = document.getElementById('online-btn');
@@ -73,12 +77,16 @@ const selectLocal = () => {
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.add('game-btn');
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.remove('hover:bg-gray-500');
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.remove('game-btn');
+    onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
+    localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
 };
 //remove focus when game mode button selected
 const selectOnline = () => {
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.add('game-btn');
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.remove('hover:bg-gray-500');
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.remove('game-btn');
+    localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
+    onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
 };
 const openSidePanel = (e) => {
     e.stopPropagation();
@@ -110,6 +118,22 @@ const showHistoryList = () => {
     historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.classList.add('selected-panel-btn');
     friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.classList.add('panel-btn');
     friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.classList.remove('selected-panel-btn');
+};
+//SCROLLABLES:
+const setupScrollables = () => {
+    scrollable = document.getElementById('scrollable');
+    scrollable === null || scrollable === void 0 ? void 0 : scrollable.addEventListener('scroll', handleScroll);
+};
+const handleScroll = () => {
+    let timeout;
+    showScrollbar();
+    timeout = setTimeout(hideScrollbar, 2000);
+};
+const showScrollbar = () => {
+    scrollable === null || scrollable === void 0 ? void 0 : scrollable.classList.remove('scrollbar-hide');
+};
+const hideScrollbar = () => {
+    scrollable === null || scrollable === void 0 ? void 0 : scrollable.classList.add('scrollbar-hide');
 };
 // document.addEventListener('DOMContentLoaded', () =>
 // {

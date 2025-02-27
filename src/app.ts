@@ -10,6 +10,8 @@ let friendsBtn: HTMLElement | null;
 let historyBtn: HTMLElement | null;
 let friendsList: HTMLElement | null;
 let historyList: HTMLElement | null;
+let scrollable: HTMLElement | null;
+// let scrollable: NodeListOf<HTMLElement> | null; // figure this one out for the other scrollables
 
 document.addEventListener('DOMContentLoaded', () => {
 	app = document.getElementById('app')!;
@@ -35,6 +37,7 @@ const loadPage = async (page: string) => {
 		app.innerHTML = content;
 		hideNav(page);
 		setupButtons();
+		setupScrollables();
 	}
 	catch (error)
 	{
@@ -51,6 +54,7 @@ const hideNav = (page: string) =>
 	}
 };
 
+//BUTTONS:
 const setupButtons = () => {
 	localBtn = document.getElementById('local-btn');
 	onlineBtn = document.getElementById('online-btn');
@@ -75,12 +79,16 @@ const selectLocal = () => {
 	localBtn?.classList.add('game-btn');
 	localBtn?.classList.remove('hover:bg-gray-500');
 	onlineBtn?.classList.remove('game-btn');
+	onlineBtn?.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
+	localBtn?.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
 };
 //remove focus when game mode button selected
 const selectOnline = () => {
 	onlineBtn?.classList.add('game-btn');
 	onlineBtn?.classList.remove('hover:bg-gray-500');
 	localBtn?.classList.remove('game-btn');
+	localBtn?.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
+	onlineBtn?.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
 };
 
 const openSidePanel = (e: Event) => {
@@ -117,7 +125,28 @@ const showHistoryList = () => {
 	historyBtn?.classList.add('selected-panel-btn');
 	friendsBtn?.classList.add('panel-btn');
 	friendsBtn?.classList.remove('selected-panel-btn');
-}
+};
+
+//SCROLLABLES:
+const setupScrollables = () => {
+	scrollable = document.getElementById('scrollable');
+	scrollable?.addEventListener('scroll', handleScroll);
+};
+
+const handleScroll = () => {
+	let timeout: NodeJS.Timeout;
+
+	showScrollbar();
+	timeout = setTimeout(hideScrollbar, 2000);
+};
+
+const showScrollbar = () => {
+	scrollable?.classList.remove('scrollbar-hide');
+};
+
+const hideScrollbar = () => {
+	scrollable?.classList.add('scrollbar-hide');
+};
 
 // document.addEventListener('DOMContentLoaded', () =>
 // {
