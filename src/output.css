@@ -734,6 +734,11 @@ video {
   height: 0.75rem;
 }
 
+.size-4 {
+  width: 1rem;
+  height: 1rem;
+}
+
 .size-5 {
   width: 1.25rem;
   height: 1.25rem;
@@ -788,6 +793,10 @@ video {
 
 .h-4 {
   height: 1rem;
+}
+
+.h-9 {
+  height: 2.25rem;
 }
 
 .h-fit {
@@ -1205,6 +1214,11 @@ video {
   line-height: 2rem;
 }
 
+.text-2xs {
+  font-size: 0.625rem;
+  line-height: 1rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1237,11 +1251,6 @@ video {
 
 .text-xs {
   font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.text-2xs {
-  font-size: 0.625rem;
   line-height: 1rem;
 }
 
@@ -1304,6 +1313,10 @@ video {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.html, body {
+  min-height: 450px;
 }
 
 .pink-btn::after {
@@ -1518,6 +1531,11 @@ video {
     height: 6rem;
   }
 
+  .md\:size-4 {
+    width: 1rem;
+    height: 1rem;
+  }
+
   .md\:size-5 {
     width: 1.25rem;
     height: 1.25rem;
@@ -1528,12 +1546,21 @@ video {
     height: 1.75rem;
   }
 
+  .md\:h-10 {
+    height: 2.5rem;
+  }
+
   .md\:h-3 {
     height: 0.75rem;
   }
 
   .md\:h-4 {
     height: 1rem;
+  }
+
+  .md\:h-fit {
+    height: -moz-fit-content;
+    height: fit-content;
   }
 
   .md\:w-20 {
@@ -1570,14 +1597,13 @@ video {
     line-height: 1rem;
   }
 
-  .md\:text-3xs {
-    font-size: 0.5rem;
-    line-height: 1rem;
-  }
-
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .md\:text-\[9px\] {
+    font-size: 9px;
   }
 
   .md\:text-base {
@@ -1653,12 +1679,24 @@ video {
     width: 1.25rem;
   }
 
+  .lg\:grid-rows-2 {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
   .lg\:items-center {
     align-items: center;
   }
 
   .lg\:justify-between {
     justify-content: space-between;
+  }
+
+  .lg\:gap-3 {
+    gap: 0.75rem;
+  }
+
+  .lg\:self-center {
+    align-self: center;
   }
 
   .lg\:p-1\.5 {
@@ -1687,6 +1725,11 @@ video {
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .lg\:text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 
   .lg\:font-medium {
@@ -1720,6 +1763,10 @@ video {
     width: 1rem;
   }
 
+  .xl\:gap-20 {
+    gap: 5rem;
+  }
+
   .xl\:justify-self-start {
     justify-self: start;
   }
@@ -1727,6 +1774,12 @@ video {
   .xl\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:gap-32 {
+    gap: 8rem;
   }
 }
 

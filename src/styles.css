@@ -33,6 +33,10 @@
 	}
 }
 
+.html, body {
+	min-height: 450px;
+}
+
 .pink-btn::after {
 	content: "";
 	background: linear-gradient(to top left, rgb(169, 85, 247) 20%, rgb(126 34 206) 50%, rgb(59 7 100) 80%);
