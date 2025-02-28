@@ -6,8 +6,8 @@ let localBtn: HTMLElement | null;
 let sidePanel: HTMLElement | null;
 let openBtn: HTMLElement | null;
 let closeBtn: HTMLElement | null;
-let friendsBtn: HTMLElement | null;
-let historyBtn: HTMLElement | null;
+let friendsBtn: NodeListOf<Element> | null;
+let historyBtn: NodeListOf<Element> | null;
 let friendsList: NodeListOf<Element> | null;
 let historyList: NodeListOf<Element> | null;
 
@@ -59,8 +59,8 @@ const setupButtons = () => {
 	sidePanel = document.getElementById('friends-panel');
 	openBtn = document.getElementById('open-btn');
 	closeBtn = document.getElementById('close-btn');
-	friendsBtn = document.querySelectorAll('.friends-btn') as NodeListOf<Element>;
-	historyBtn = document.getElementById('history-btn');
+	friendsBtn = document.querySelectorAll('.friends-btn');
+	historyBtn = document.querySelectorAll('.history-btn');
 	friendsList = document.querySelectorAll('.friends-list');
 	historyList = document.querySelectorAll('.history-list');
 
@@ -70,10 +70,13 @@ const setupButtons = () => {
 	closeBtn?.addEventListener('click', closeSidePanel);
 	document.addEventListener('click', handleOutsideClick);
 	friendsBtn?.forEach((element) => {
-		
+		element.addEventListener('click', showFriendsList);
 	});
-	friendsBtn?.addEventListener('click', showFriendsList);
-	historyBtn?.addEventListener('click', showHistoryList);
+	historyBtn?.forEach((element) => {
+		element.addEventListener('click', showHistoryList);
+	});
+	// friendsBtn?.addEventListener('click', showFriendsList);
+	// historyBtn?.addEventListener('click', showHistoryList);
 };
 
 const selectLocal = () => {
@@ -111,21 +114,37 @@ const handleOutsideClick = (e: Event) => {
 };
 
 const showFriendsList = () => {
-	friendsList?.classList.remove('hidden');
-	historyList?.classList.add('hidden');
-	friendsBtn?.classList.remove('panel-btn');
-	friendsBtn?.classList.add('selected-panel-btn');
-	historyBtn?.classList.add('panel-btn');
-	historyBtn?.classList.remove('selected-panel-btn');
+	friendsList?.forEach((element) => {
+		element?.classList.remove('hidden');
+	});
+	friendsBtn?.forEach((element) => {
+		element?.classList.remove('panel-btn');
+		element?.classList.add('selected-panel-btn');
+	});
+	historyList?.forEach((element) => {
+		element?.classList.add('hidden');
+	});
+	historyBtn?.forEach((element) => {
+		element?.classList.add('panel-btn');
+		element?.classList.remove('selected-panel-btn');
+	});
 };
 
 const showHistoryList = () => {
-	historyList?.classList.remove('hidden');
-	friendsList?.classList.add('hidden');
-	historyBtn?.classList.remove('panel-btn');
-	historyBtn?.classList.add('selected-panel-btn');
-	friendsBtn?.classList.add('panel-btn');
-	friendsBtn?.classList.remove('selected-panel-btn');
+	historyList?.forEach((element) => {
+		element?.classList.remove('hidden');
+	});
+	historyBtn?.forEach((element) => {
+		element?.classList.remove('panel-btn');
+		element?.classList.add('selected-panel-btn');
+	});
+	friendsList?.forEach((element) => {
+		element?.classList.add('hidden');
+	});
+	friendsBtn?.forEach((element) => {
+		element?.classList.add('panel-btn');
+		element?.classList.remove('selected-panel-btn');
+	});
 };
 
 //SCROLLABLES:

@@ -60,7 +60,7 @@ const setupButtons = () => {
     openBtn = document.getElementById('open-btn');
     closeBtn = document.getElementById('close-btn');
     friendsBtn = document.querySelectorAll('.friends-btn');
-    historyBtn = document.getElementById('history-btn');
+    historyBtn = document.querySelectorAll('.history-btn');
     friendsList = document.querySelectorAll('.friends-list');
     historyList = document.querySelectorAll('.history-list');
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.addEventListener('click', selectLocal);
@@ -69,9 +69,13 @@ const setupButtons = () => {
     closeBtn === null || closeBtn === void 0 ? void 0 : closeBtn.addEventListener('click', closeSidePanel);
     document.addEventListener('click', handleOutsideClick);
     friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.forEach((element) => {
+        element.addEventListener('click', showFriendsList);
     });
-    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.addEventListener('click', showFriendsList);
-    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.addEventListener('click', showHistoryList);
+    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.forEach((element) => {
+        element.addEventListener('click', showHistoryList);
+    });
+    // friendsBtn?.addEventListener('click', showFriendsList);
+    // historyBtn?.addEventListener('click', showHistoryList);
 };
 const selectLocal = () => {
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.add('game-btn');
@@ -104,20 +108,36 @@ const handleOutsideClick = (e) => {
         closeSidePanel();
 };
 const showFriendsList = () => {
-    friendsList === null || friendsList === void 0 ? void 0 : friendsList.classList.remove('hidden');
-    historyList === null || historyList === void 0 ? void 0 : historyList.classList.add('hidden');
-    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.classList.remove('panel-btn');
-    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.classList.add('selected-panel-btn');
-    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.classList.add('panel-btn');
-    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.classList.remove('selected-panel-btn');
+    friendsList === null || friendsList === void 0 ? void 0 : friendsList.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.remove('hidden');
+    });
+    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.remove('panel-btn');
+        element === null || element === void 0 ? void 0 : element.classList.add('selected-panel-btn');
+    });
+    historyList === null || historyList === void 0 ? void 0 : historyList.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.add('hidden');
+    });
+    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.add('panel-btn');
+        element === null || element === void 0 ? void 0 : element.classList.remove('selected-panel-btn');
+    });
 };
 const showHistoryList = () => {
-    historyList === null || historyList === void 0 ? void 0 : historyList.classList.remove('hidden');
-    friendsList === null || friendsList === void 0 ? void 0 : friendsList.classList.add('hidden');
-    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.classList.remove('panel-btn');
-    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.classList.add('selected-panel-btn');
-    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.classList.add('panel-btn');
-    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.classList.remove('selected-panel-btn');
+    historyList === null || historyList === void 0 ? void 0 : historyList.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.remove('hidden');
+    });
+    historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.remove('panel-btn');
+        element === null || element === void 0 ? void 0 : element.classList.add('selected-panel-btn');
+    });
+    friendsList === null || friendsList === void 0 ? void 0 : friendsList.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.add('hidden');
+    });
+    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.forEach((element) => {
+        element === null || element === void 0 ? void 0 : element.classList.add('panel-btn');
+        element === null || element === void 0 ? void 0 : element.classList.remove('selected-panel-btn');
+    });
 };
 //SCROLLABLES:
 const handleScroll = () => {
