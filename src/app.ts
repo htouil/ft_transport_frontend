@@ -10,8 +10,6 @@ let friendsBtn: HTMLElement | null;
 let historyBtn: HTMLElement | null;
 let friendsList: HTMLElement | null;
 let historyList: HTMLElement | null;
-let scrollable: HTMLElement | null;
-// let scrollable: NodeListOf<HTMLElement> | null; // figure this one out for the other scrollables
 
 document.addEventListener('DOMContentLoaded', () => {
 	app = document.getElementById('app')!;
@@ -37,7 +35,7 @@ const loadPage = async (page: string) => {
 		app.innerHTML = content;
 		hideNav(page);
 		setupButtons();
-		setupScrollables();
+		handleScroll();
 	}
 	catch (error)
 	{
@@ -128,25 +126,28 @@ const showHistoryList = () => {
 };
 
 //SCROLLABLES:
-const setupScrollables = () => {
-	scrollable = document.getElementById('scrollable');
-	scrollable?.addEventListener('scroll', handleScroll);
-};
-
 const handleScroll = () => {
-	let timeout: NodeJS.Timeout;
+	let scrollables = document.querySelectorAll('.scrollable');
+	
+	scrollables?.forEach((element) => {
+		let timeout: NodeJS.Timeout = setTimeout(() => {}, 0);
 
-	showScrollbar();
-	timeout = setTimeout(hideScrollbar, 2000);
+		element.addEventListener('scroll', () => showScrollbar(element as HTMLElement, timeout));
+		hideScrollbar(element as HTMLElement);
+	});
 };
 
-const showScrollbar = () => {
-	scrollable?.classList.remove('scrollbar-hide');
+const showScrollbar = (element: HTMLElement, timeout: NodeJS.Timeout) => {
+	element.classList.remove('scrollbar-none');
+	clearTimeout(timeout);
+	timeout = setTimeout(() => hideScrollbar(element), 1500);
 };
 
-const hideScrollbar = () => {
-	scrollable?.classList.add('scrollbar-hide');
+const hideScrollbar = (element: HTMLElement) => {
+	element.classList.add('scrollbar-none');
 };
+
+////////////////////////////////////////////////////////////
 
 // document.addEventListener('DOMContentLoaded', () =>
 // {

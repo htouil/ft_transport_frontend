@@ -20,8 +20,6 @@ let friendsBtn;
 let historyBtn;
 let friendsList;
 let historyList;
-let scrollable;
-// let scrollable: NodeListOf<HTMLElement> | null; // figure this one out for the other scrollables
 document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
@@ -42,7 +40,7 @@ const loadPage = (page) => __awaiter(void 0, void 0, void 0, function* () {
         app.innerHTML = content;
         hideNav(page);
         setupButtons();
-        setupScrollables();
+        handleScroll();
     }
     catch (error) {
         app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
@@ -120,21 +118,23 @@ const showHistoryList = () => {
     friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.classList.remove('selected-panel-btn');
 };
 //SCROLLABLES:
-const setupScrollables = () => {
-    scrollable = document.getElementById('scrollable');
-    scrollable === null || scrollable === void 0 ? void 0 : scrollable.addEventListener('scroll', handleScroll);
-};
 const handleScroll = () => {
-    let timeout;
-    showScrollbar();
-    timeout = setTimeout(hideScrollbar, 2000);
+    let scrollables = document.querySelectorAll('.scrollable');
+    scrollables === null || scrollables === void 0 ? void 0 : scrollables.forEach((element) => {
+        let timeout = setTimeout(() => { }, 0);
+        element.addEventListener('scroll', () => showScrollbar(element, timeout));
+        hideScrollbar(element);
+    });
 };
-const showScrollbar = () => {
-    scrollable === null || scrollable === void 0 ? void 0 : scrollable.classList.remove('scrollbar-hide');
+const showScrollbar = (element, timeout) => {
+    element.classList.remove('scrollbar-none');
+    clearTimeout(timeout);
+    timeout = setTimeout(() => hideScrollbar(element), 1500);
 };
-const hideScrollbar = () => {
-    scrollable === null || scrollable === void 0 ? void 0 : scrollable.classList.add('scrollbar-hide');
+const hideScrollbar = (element) => {
+    element.classList.add('scrollbar-none');
 };
+////////////////////////////////////////////////////////////
 // document.addEventListener('DOMContentLoaded', () =>
 // {
 // 	const app = document.getElementById('app')!;
