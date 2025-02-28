@@ -59,15 +59,17 @@ const setupButtons = () => {
     sidePanel = document.getElementById('friends-panel');
     openBtn = document.getElementById('open-btn');
     closeBtn = document.getElementById('close-btn');
-    friendsBtn = document.getElementById('friends-btn');
+    friendsBtn = document.querySelectorAll('.friends-btn');
     historyBtn = document.getElementById('history-btn');
-    friendsList = document.getElementById('friends-list');
-    historyList = document.getElementById('history-list');
+    friendsList = document.querySelectorAll('.friends-list');
+    historyList = document.querySelectorAll('.history-list');
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.addEventListener('click', selectLocal);
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.addEventListener('click', selectOnline);
     openBtn === null || openBtn === void 0 ? void 0 : openBtn.addEventListener('click', openSidePanel);
     closeBtn === null || closeBtn === void 0 ? void 0 : closeBtn.addEventListener('click', closeSidePanel);
     document.addEventListener('click', handleOutsideClick);
+    friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.forEach((element) => {
+    });
     friendsBtn === null || friendsBtn === void 0 ? void 0 : friendsBtn.addEventListener('click', showFriendsList);
     historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.addEventListener('click', showHistoryList);
 };

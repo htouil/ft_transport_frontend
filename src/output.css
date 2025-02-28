@@ -1414,6 +1414,10 @@ video {
   display: none;
 }
 
+.scrollbar-track-black {
+  --scrollbar-track: #000 !important;
+}
+
 .html, body {
   min-height: 450px;
 }
@@ -1500,9 +1504,9 @@ video {
   color: #3f4251;
 }
 
-.scrollable::-webkit-scrollbar-track {
-  background: red;
-}
+/* .scrollable::-webkit-scrollbar-track {
+	background: transparent;
+}  */
 
 .hover\:-rotate-12:hover {
   --tw-rotate: -12deg;
@@ -1960,4 +1964,3 @@ video {
     line-height: 1rem;
   }
 }
-  

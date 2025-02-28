@@ -8,8 +8,8 @@ let openBtn: HTMLElement | null;
 let closeBtn: HTMLElement | null;
 let friendsBtn: HTMLElement | null;
 let historyBtn: HTMLElement | null;
-let friendsList: HTMLElement | null;
-let historyList: HTMLElement | null;
+let friendsList: NodeListOf<Element> | null;
+let historyList: NodeListOf<Element> | null;
 
 document.addEventListener('DOMContentLoaded', () => {
 	app = document.getElementById('app')!;
@@ -59,16 +59,19 @@ const setupButtons = () => {
 	sidePanel = document.getElementById('friends-panel');
 	openBtn = document.getElementById('open-btn');
 	closeBtn = document.getElementById('close-btn');
-	friendsBtn = document.getElementById('friends-btn');
+	friendsBtn = document.querySelectorAll('.friends-btn') as NodeListOf<Element>;
 	historyBtn = document.getElementById('history-btn');
-	friendsList = document.getElementById('friends-list');
-	historyList = document.getElementById('history-list');
+	friendsList = document.querySelectorAll('.friends-list');
+	historyList = document.querySelectorAll('.history-list');
 
 	localBtn?.addEventListener('click', selectLocal);
 	onlineBtn?.addEventListener('click', selectOnline);
 	openBtn?.addEventListener('click', openSidePanel);
 	closeBtn?.addEventListener('click', closeSidePanel);
 	document.addEventListener('click', handleOutsideClick);
+	friendsBtn?.forEach((element) => {
+		
+	});
 	friendsBtn?.addEventListener('click', showFriendsList);
 	historyBtn?.addEventListener('click', showHistoryList);
 };
