@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
     navBtn = document.querySelectorAll('.nav-btn');
-    loadPage('profil');
+    loadPage('home');
     navBtn.forEach((button) => {
         button.addEventListener('click', () => {
             const page = button.dataset.page;
@@ -47,7 +47,7 @@ const loadPage = (page) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const hideNav = (page) => {
-    if (navBar && page === 'profil') {
+    if (navBar && (page === 'profil' || page === 'chat')) {
         navBar.classList.remove('flex');
         navBar.classList.add('hidden');
     }
