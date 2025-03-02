@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	navBar = document.querySelector('nav');
 	navBtn = document.querySelectorAll('.nav-btn') as NodeListOf<HTMLElement>;
 	
-	loadPage('home');
+	loadPage('profil');
 	navBtn.forEach((button) =>
 	{
 		button.addEventListener('click', () =>

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
     navBtn = document.querySelectorAll('.nav-btn');
-    loadPage('home');
+    loadPage('profil');
     navBtn.forEach((button) => {
         button.addEventListener('click', () => {
             const page = button.dataset.page;
