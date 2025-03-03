@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -10,7 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 let app;
 let navBar;
-let navBtn;
+let navBtns;
+let msgBtn;
+let homeBtn;
 let onlineBtn;
 let localBtn;
 let sidePanel;
@@ -23,33 +24,37 @@ let historyList;
 document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
-    navBtn = document.querySelectorAll('.nav-btn');
-    loadPage('profil');
-    navBtn.forEach((button) => {
+    navBtns = document.querySelectorAll('.nav-btn');
+    loadPage('home');
+    navBtns.forEach((button) => {
         button.addEventListener('click', () => {
             const page = button.dataset.page;
-            // console.log(`Navigating to: ${page}`);
             loadPage(page);
         });
     });
 });
-const loadPage = (page) => __awaiter(void 0, void 0, void 0, function* () {
+const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
     try {
         const response = yield fetch(`pages/${page}.html`);
         const content = yield response.text();
         app.innerHTML = content;
+        console.log(`nav to: ${page}`);
         hideNav(page);
-        setupButtons();
-        handleScroll();
+        if (page === 'profil') {
+            setupButtons();
+            handleScroll();
+        }
     }
     catch (error) {
         app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
     }
 });
 const hideNav = (page) => {
-    if (navBar && (page === 'profil' || page === 'chat')) {
-        navBar.classList.remove('flex');
-        navBar.classList.add('hidden');
+    if (navBar) {
+        if (page === 'home')
+            navBar.classList.remove('hidden');
+        else if (page === 'profil' || page === 'messages')
+            navBar.classList.add('hidden');
     }
 };
 //BUTTONS:
@@ -63,6 +68,10 @@ const setupButtons = () => {
     historyBtn = document.querySelectorAll('.history-btn');
     friendsList = document.querySelectorAll('.friends-list');
     historyList = document.querySelectorAll('.history-list');
+    msgBtn = document.querySelector('.msg-btn');
+    homeBtn = document.querySelector('.home-btn');
+    msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => { loadPage('messages'); });
+    homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => { loadPage('home'); });
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.addEventListener('click', selectLocal);
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.addEventListener('click', selectOnline);
     openBtn === null || openBtn === void 0 ? void 0 : openBtn.addEventListener('click', openSidePanel);

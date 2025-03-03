@@ -25,12 +25,12 @@
 		--tw-gradient-to: #3b0764 var(--tw-gradient-to-position);
 	}
 
-		/* .pink-btn {
-			@apply bg-purple-500 transition duration-500 after:content hover:bg-gradient-to-br hover:from-purple-500 hover:from-20% hover:via-purple-950 hover:via-50% hover:to-purple-950 hover:to-80%;
-		}	 */
-	.game-btn {
+	/* .pink-btn {
+		@apply bg-purple-500 transition duration-500 after:content hover:bg-gradient-to-br hover:from-purple-500 hover:from-20% hover:via-purple-950 hover:via-50% hover:to-purple-950 hover:to-80%;
+	}	 */
+	/* .game-btn {
 		@apply bg-gray-600
-	}
+	} */
 }
 
 .html, body {

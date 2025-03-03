@@ -1,6 +1,8 @@
 let app: HTMLElement;
 let navBar: HTMLElement | null;
-let navBtn: NodeListOf<HTMLElement> | null;
+let navBtns: NodeListOf<HTMLElement> | null;
+let msgBtn: HTMLElement | null;
+let homeBtn: HTMLElement | null;
 let onlineBtn: HTMLElement | null;
 let localBtn: HTMLElement | null;
 let sidePanel: HTMLElement | null;
@@ -14,15 +16,14 @@ let historyList: NodeListOf<Element> | null;
 document.addEventListener('DOMContentLoaded', () => {
 	app = document.getElementById('app')!;
 	navBar = document.querySelector('nav');
-	navBtn = document.querySelectorAll('.nav-btn') as NodeListOf<HTMLElement>;
-	
-	loadPage('profil');
-	navBtn.forEach((button) =>
+	navBtns = document.querySelectorAll('.nav-btn');
+
+	loadPage('home');
+	navBtns.forEach((button: HTMLElement) =>
 	{
 		button.addEventListener('click', () =>
 		{
-			const page = (button as HTMLElement).dataset.page!;
-			// console.log(`Navigating to: ${page}`);
+			const page = button.dataset.page!;
 			loadPage(page);
 		});
 	});
@@ -33,9 +34,13 @@ const loadPage = async (page: string) => {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
 		app.innerHTML = content;
+		console.log(`nav to: ${page}`);
 		hideNav(page);
-		setupButtons();
-		handleScroll();
+		if (page === 'profil')
+		{
+			setupButtons();
+			handleScroll();
+		}
 	}
 	catch (error)
 	{
@@ -45,10 +50,12 @@ const loadPage = async (page: string) => {
 
 const hideNav = (page: string) =>
 {
-	if (navBar && (page === 'profil' || page === 'chat'))
+	if (navBar)
 	{
-		navBar.classList.remove('flex');
-		navBar.classList.add('hidden');
+		if (page === 'home')
+			navBar.classList.remove('hidden');
+		else if (page === 'profil' || page === 'messages')
+			navBar.classList.add('hidden');
 	}
 };
 
@@ -63,7 +70,11 @@ const setupButtons = () => {
 	historyBtn = document.querySelectorAll('.history-btn');
 	friendsList = document.querySelectorAll('.friends-list');
 	historyList = document.querySelectorAll('.history-list');
+	msgBtn = document.querySelector('.msg-btn');
+	homeBtn = document.querySelector('.home-btn');
 
+	msgBtn?.addEventListener('click', () => {loadPage('messages')});
+	homeBtn?.addEventListener('click', () => {loadPage('home')});
 	localBtn?.addEventListener('click', selectLocal);
 	onlineBtn?.addEventListener('click', selectOnline);
 	openBtn?.addEventListener('click', openSidePanel);
@@ -75,8 +86,6 @@ const setupButtons = () => {
 	historyBtn?.forEach((element) => {
 		element.addEventListener('click', showHistoryList);
 	});
-	// friendsBtn?.addEventListener('click', showFriendsList);
-	// historyBtn?.addEventListener('click', showHistoryList);
 };
 
 const selectLocal = () => {

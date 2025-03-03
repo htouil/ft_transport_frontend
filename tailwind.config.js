@@ -13,20 +13,11 @@ module.exports = {
         'max-503': {
           max: '503px',
         },
-        'min-860': {
-          min: '860px',
+        'min-316': {
+          min: '316px',
         },
-        'min-890': {
-          min: '890px',
-        },
-        'min-980': {
-          min: '980px',
-        },
-        'min-1060': {
-          min: '1060px',
-        },
-        'min-1234': {
-          min: '1234px',
+        'min-1900': {
+          min: '1900px',
         },
       },
       fontSize: {
@@ -44,9 +35,3 @@ module.exports = {
   },
   plugins: [require('tailwind-scrollbar')],
 }
-
-// 860:w-60
-// 890:w-64
-// 980:w-72
-// 1060:w-80
-// 1234:w-96
