@@ -578,10 +578,6 @@ video {
 		@apply bg-gray-600
 	} */
 
-.static {
-  position: static;
-}
-
 .fixed {
   position: fixed;
 }

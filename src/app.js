@@ -25,13 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
     navBtns = document.querySelectorAll('.nav-btn');
+    history.replaceState({ page: 'home' }, '', '/home');
     loadPage('home');
     navBtns.forEach((button) => {
         button.addEventListener('click', () => {
             const page = button.dataset.page;
             loadPage(page);
+            history.pushState({ page }, '', `/${page}`);
         });
     });
+    window.onpopstate = (event) => {
+        var _a, _b;
+        console.log(`load: ${(_a = event.state) === null || _a === void 0 ? void 0 : _a.page}`);
+        if ((_b = event.state) === null || _b === void 0 ? void 0 : _b.page) {
+            loadPage(event.state.page);
+        }
+    };
 });
 const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
     try {
@@ -70,8 +79,14 @@ const setupButtons = () => {
     historyList = document.querySelectorAll('.history-list');
     msgBtn = document.querySelector('.msg-btn');
     homeBtn = document.querySelector('.home-btn');
-    msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => { loadPage('messages'); });
-    homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => { loadPage('home'); });
+    msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => {
+        loadPage('messages');
+        history.pushState({ page: 'messages' }, '', '/messages');
+    });
+    homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => {
+        loadPage('home');
+        history.pushState({ page: 'home' }, '', '/home');
+    });
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.addEventListener('click', selectLocal);
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.addEventListener('click', selectOnline);
     openBtn === null || openBtn === void 0 ? void 0 : openBtn.addEventListener('click', openSidePanel);
@@ -83,8 +98,6 @@ const setupButtons = () => {
     historyBtn === null || historyBtn === void 0 ? void 0 : historyBtn.forEach((element) => {
         element.addEventListener('click', showHistoryList);
     });
-    // friendsBtn?.addEventListener('click', showFriendsList);
-    // historyBtn?.addEventListener('click', showHistoryList);
 };
 const selectLocal = () => {
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.add('game-btn');

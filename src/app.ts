@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	navBar = document.querySelector('nav');
 	navBtns = document.querySelectorAll('.nav-btn');
 
+	history.replaceState({ page: 'home' }, '', '/home');
 	loadPage('home');
 	navBtns.forEach((button: HTMLElement) =>
 	{
@@ -25,8 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
 		{
 			const page = button.dataset.page!;
 			loadPage(page);
+			history.pushState({ page }, '', `/${page}`);
 		});
 	});
+	window.onpopstate = (event: PopStateEvent) => {
+		console.log(`load: ${event.state?.page}`);
+		if (event.state?.page) {
+			loadPage(event.state.page);
+		}
+	};
 });
 
 const loadPage = async (page: string) => {
@@ -73,8 +81,14 @@ const setupButtons = () => {
 	msgBtn = document.querySelector('.msg-btn');
 	homeBtn = document.querySelector('.home-btn');
 
-	msgBtn?.addEventListener('click', () => {loadPage('messages')});
-	homeBtn?.addEventListener('click', () => {loadPage('home')});
+	msgBtn?.addEventListener('click', () => {
+		loadPage('messages');
+		history.pushState({ page: 'messages' }, '', '/messages');
+	});
+	homeBtn?.addEventListener('click', () => {
+		loadPage('home');
+		history.pushState({ page: 'home' }, '', '/home');
+	});
 	localBtn?.addEventListener('click', selectLocal);
 	onlineBtn?.addEventListener('click', selectOnline);
 	openBtn?.addEventListener('click', openSidePanel);
