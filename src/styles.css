@@ -37,11 +37,6 @@
 	min-height: 450px;
 }
 
-#app {
-    opacity: 1;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-}
-
 .pink-btn::after {
 	content: "";
 	background: linear-gradient(to top left, rgb(169, 85, 247) 20%, rgb(126 34 206) 50%, rgb(59 7 100) 80%);
@@ -124,14 +119,4 @@
 
 .scrollable::-webkit-scrollbar {
 	display: none !important;
-}
-
-.slide-in {
-    transform: translateY(100%);
-    opacity: 0;
-}
-
-.slide-in-active {
-	transform: translateY(0);
-    opacity: 1;
 }

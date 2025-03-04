@@ -21,6 +21,7 @@ let friendsBtn;
 let historyBtn;
 let friendsList;
 let historyList;
+let returnBtn;
 document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
@@ -38,9 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     window.onpopstate = (event) => {
-        var _a, _b;
-        console.log(`load: ${(_a = event.state) === null || _a === void 0 ? void 0 : _a.page}`);
-        if ((_b = event.state) === null || _b === void 0 ? void 0 : _b.page) {
+        var _a;
+        // console.log(`load: ${event.state?.page}`);
+        if ((_a = event.state) === null || _a === void 0 ? void 0 : _a.page) {
             loadPage(event.state.page);
         }
     };
@@ -49,18 +50,15 @@ const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
     try {
         const response = yield fetch(`pages/${page}.html`);
         const content = yield response.text();
-        if (page === "messages") {
-            app.classList.add("slide-in");
-        }
-        else {
-            app.classList.remove("slide-in");
-        }
         app.innerHTML = content;
         // console.log(`nav to: ${page}`);
         hideNav(page);
         if (page === 'profil') {
-            setupButtons();
+            setupProfilButtons();
             handleScroll();
+        }
+        if (page === 'messages') {
+            setupMessagesButtons();
         }
     }
     catch (error) {
@@ -76,7 +74,7 @@ const hideNav = (page) => {
     }
 };
 //BUTTONS:
-const setupButtons = () => {
+const setupProfilButtons = () => {
     localBtn = document.getElementById('local-btn');
     onlineBtn = document.getElementById('online-btn');
     sidePanel = document.getElementById('friends-panel');
@@ -89,15 +87,8 @@ const setupButtons = () => {
     msgBtn = document.querySelector('.msg-btn');
     homeBtn = document.querySelector('.home-btn');
     msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => {
-        app.classList.add("slide-in");
-        setTimeout(() => {
-            loadPage('messages');
-            history.pushState({ page: 'messages' }, '', '?page=messages');
-            setTimeout(() => {
-                app.classList.remove("slide-in");
-                app.classList.add("slide-in-active");
-            }, 100);
-        }, 100);
+        loadPage('messages');
+        history.pushState({ page: 'messages' }, '', '?page=messages');
     });
     homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => {
         loadPage('home');
@@ -193,6 +184,13 @@ const showScrollbar = (element, timeout) => {
 };
 const hideScrollbar = (element) => {
     element.classList.add('scrollbar-none');
+};
+const setupMessagesButtons = () => {
+    returnBtn = document.querySelector('.return-btn');
+    returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => {
+        loadPage('profil');
+        history.pushState({ page: 'profil' }, '', '?page=profil');
+    });
 };
 ////////////////////////////////////////////////////////////
 // document.addEventListener('DOMContentLoaded', () =>

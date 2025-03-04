@@ -12,6 +12,7 @@ let friendsBtn: NodeListOf<Element> | null;
 let historyBtn: NodeListOf<Element> | null;
 let friendsList: NodeListOf<Element> | null;
 let historyList: NodeListOf<Element> | null;
+let returnBtn: HTMLElement | null;
 
 document.addEventListener('DOMContentLoaded', () => {
 	app = document.getElementById('app')!;
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 	window.onpopstate = (event: PopStateEvent) => {
-		console.log(`load: ${event.state?.page}`);
+		// console.log(`load: ${event.state?.page}`);
 		if (event.state?.page) {
 			loadPage(event.state.page);
 		}
@@ -45,18 +46,17 @@ const loadPage = async (page: string) => {
 	try {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
-		if (page === "messages") {
-            app.classList.add("slide-in");
-        } else {
-            app.classList.remove("slide-in");
-        }
 		app.innerHTML = content;
 		// console.log(`nav to: ${page}`);
 		hideNav(page);
 		if (page === 'profil')
 		{
-			setupButtons();
+			setupProfilButtons();
 			handleScroll();
+		}
+		if (page === 'messages')
+		{
+			setupMessagesButtons();
 		}
 	}
 	catch (error)
@@ -77,7 +77,7 @@ const hideNav = (page: string) =>
 };
 
 //BUTTONS:
-const setupButtons = () => {
+const setupProfilButtons = () => {
 	localBtn = document.getElementById('local-btn');
 	onlineBtn = document.getElementById('online-btn');
 	sidePanel = document.getElementById('friends-panel');
@@ -91,15 +91,8 @@ const setupButtons = () => {
 	homeBtn = document.querySelector('.home-btn');
 
 	msgBtn?.addEventListener('click', () => {
-		app.classList.add("slide-in");
-		setTimeout(() => {
-			loadPage('messages');
-			history.pushState({ page: 'messages' }, '', '?page=messages');
-			setTimeout(() => {
-				app.classList.remove("slide-in");
-				app.classList.add("slide-in-active");
-			}, 100);
-		}, 100);
+		loadPage('messages');
+		history.pushState({ page: 'messages' }, '', '?page=messages');
 	});
 	homeBtn?.addEventListener('click', () => {
 		loadPage('home');
@@ -206,6 +199,15 @@ const showScrollbar = (element: HTMLElement, timeout: NodeJS.Timeout) => {
 
 const hideScrollbar = (element: HTMLElement) => {
 	element.classList.add('scrollbar-none');
+};
+
+const setupMessagesButtons = () => {
+	returnBtn = document.querySelector('.return-btn');
+
+	returnBtn?.addEventListener('click', () => {
+		loadPage('profil');
+		history.pushState({ page: 'profil' }, '', '?page=profil');
+	});
 };
 
 ////////////////////////////////////////////////////////////
