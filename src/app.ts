@@ -18,15 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	navBar = document.querySelector('nav');
 	navBtns = document.querySelectorAll('.nav-btn');
 
-	history.replaceState({ page: 'home' }, '', '/home');
-	loadPage('home');
+	const urlParams = new URLSearchParams(window.location.search);
+    const initialPage = urlParams.get('page') || 'home';
+
+	console.log(`here: ${initialPage}`);
+	history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
+	loadPage(initialPage);
 	navBtns.forEach((button: HTMLElement) =>
 	{
 		button.addEventListener('click', () =>
 		{
 			const page = button.dataset.page!;
 			loadPage(page);
-			history.pushState({ page }, '', `/${page}`);
+			history.pushState({ page }, '', `?page=${page}`);
 		});
 	});
 	window.onpopstate = (event: PopStateEvent) => {
@@ -41,8 +45,13 @@ const loadPage = async (page: string) => {
 	try {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
+		if (page === "messages") {
+            app.classList.add("slide-in");
+        } else {
+            app.classList.remove("slide-in");
+        }
 		app.innerHTML = content;
-		console.log(`nav to: ${page}`);
+		// console.log(`nav to: ${page}`);
 		hideNav(page);
 		if (page === 'profil')
 		{
@@ -82,12 +91,19 @@ const setupButtons = () => {
 	homeBtn = document.querySelector('.home-btn');
 
 	msgBtn?.addEventListener('click', () => {
-		loadPage('messages');
-		history.pushState({ page: 'messages' }, '', '/messages');
+		app.classList.add("slide-in");
+		setTimeout(() => {
+			loadPage('messages');
+			history.pushState({ page: 'messages' }, '', '?page=messages');
+			setTimeout(() => {
+				app.classList.remove("slide-in");
+				app.classList.add("slide-in-active");
+			}, 100);
+		}, 100);
 	});
 	homeBtn?.addEventListener('click', () => {
 		loadPage('home');
-		history.pushState({ page: 'home' }, '', '/home');
+		history.pushState({ page: 'home' }, '', '?page=home');
 	});
 	localBtn?.addEventListener('click', selectLocal);
 	onlineBtn?.addEventListener('click', selectOnline);

@@ -25,13 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
     navBtns = document.querySelectorAll('.nav-btn');
-    history.replaceState({ page: 'home' }, '', '/home');
-    loadPage('home');
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialPage = urlParams.get('page') || 'home';
+    console.log(`here: ${initialPage}`);
+    history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
+    loadPage(initialPage);
     navBtns.forEach((button) => {
         button.addEventListener('click', () => {
             const page = button.dataset.page;
             loadPage(page);
-            history.pushState({ page }, '', `/${page}`);
+            history.pushState({ page }, '', `?page=${page}`);
         });
     });
     window.onpopstate = (event) => {
@@ -46,8 +49,14 @@ const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
     try {
         const response = yield fetch(`pages/${page}.html`);
         const content = yield response.text();
+        if (page === "messages") {
+            app.classList.add("slide-in");
+        }
+        else {
+            app.classList.remove("slide-in");
+        }
         app.innerHTML = content;
-        console.log(`nav to: ${page}`);
+        // console.log(`nav to: ${page}`);
         hideNav(page);
         if (page === 'profil') {
             setupButtons();
@@ -80,12 +89,19 @@ const setupButtons = () => {
     msgBtn = document.querySelector('.msg-btn');
     homeBtn = document.querySelector('.home-btn');
     msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => {
-        loadPage('messages');
-        history.pushState({ page: 'messages' }, '', '/messages');
+        app.classList.add("slide-in");
+        setTimeout(() => {
+            loadPage('messages');
+            history.pushState({ page: 'messages' }, '', '?page=messages');
+            setTimeout(() => {
+                app.classList.remove("slide-in");
+                app.classList.add("slide-in-active");
+            }, 100);
+        }, 100);
     });
     homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => {
         loadPage('home');
-        history.pushState({ page: 'home' }, '', '/home');
+        history.pushState({ page: 'home' }, '', '?page=home');
     });
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.addEventListener('click', selectLocal);
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.addEventListener('click', selectOnline);
