@@ -120,3 +120,27 @@
 .scrollable::-webkit-scrollbar {
 	display: none !important;
 }
+
+.return-button {
+    padding: 12px 24px;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.return-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.return-button::before {
+    content: '←';
+    margin-right: 8px;
+}
+
+.return-button::after {
+    content: 'Return';
+}
