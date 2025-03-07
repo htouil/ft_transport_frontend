@@ -7,9 +7,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+// home page:
 let app;
 let navBar;
 let navBtns;
+//profil page:
 let msgBtn;
 let homeBtn;
 let onlineBtn;
@@ -21,7 +23,10 @@ let friendsBtn;
 let historyBtn;
 let friendsList;
 let historyList;
+//messages page:
 let returnBtn;
+//host tournament page:
+let hostTournBtn;
 document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
@@ -69,7 +74,7 @@ const hideNav = (page) => {
     if (navBar) {
         if (page === 'home')
             navBar.classList.remove('hidden');
-        else if (page === 'profil' || page === 'messages')
+        else if (page === 'profil' || page === 'messages' || page === 'hosttourn')
             navBar.classList.add('hidden');
     }
 };
@@ -86,6 +91,7 @@ const setupProfilButtons = () => {
     historyList = document.querySelectorAll('.history-list');
     msgBtn = document.querySelector('.msg-btn');
     homeBtn = document.querySelector('.home-btn');
+    hostTournBtn = document.querySelector('.host-tourn-btn');
     msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => {
         loadPage('messages');
         history.pushState({ page: 'messages' }, '', '?page=messages');
@@ -93,6 +99,10 @@ const setupProfilButtons = () => {
     homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => {
         loadPage('home');
         history.pushState({ page: 'home' }, '', '?page=home');
+    });
+    hostTournBtn === null || hostTournBtn === void 0 ? void 0 : hostTournBtn.addEventListener('click', () => {
+        loadPage('hosttourn');
+        history.pushState({ page: 'hosttourn' }, '', '?page=hosttourn');
     });
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.addEventListener('click', selectLocal);
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.addEventListener('click', selectOnline);

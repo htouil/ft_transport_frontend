@@ -144,3 +144,60 @@
 .return-button::after {
     content: 'Return';
 }
+
+.whole {
+	margin-top: 15%;
+	margin-left: 8%;
+}
+
+.title
+{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exit {
+	display: block;
+	justify-content: end;
+	align-items: center;
+}
+
+.exitBt
+{
+  background-color: rgba(72,72,90,255);
+  border: none;
+  border-radius: 70px;
+  padding: 2px 2px;
+  margin-left: 20px;
+}
+
+.exitBt:hover
+{
+  background-color: white;
+  transition: 1s;
+}
+
+.text
+{
+  flex: 1;
+  text-align: center;
+}
+.texxt
+{
+  font-family: arial;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5%;
+}
+.ESC
+{
+  font-family: arial;
+  font-size: 10px;
+  text-align: end;
+  color: white;
+  margin-right: 20%;
+  margin-top: 10%;
+}

@@ -1,6 +1,8 @@
+// home page:
 let app: HTMLElement;
 let navBar: HTMLElement | null;
 let navBtns: NodeListOf<HTMLElement> | null;
+//profil page:
 let msgBtn: HTMLElement | null;
 let homeBtn: HTMLElement | null;
 let onlineBtn: HTMLElement | null;
@@ -12,7 +14,10 @@ let friendsBtn: NodeListOf<Element> | null;
 let historyBtn: NodeListOf<Element> | null;
 let friendsList: NodeListOf<Element> | null;
 let historyList: NodeListOf<Element> | null;
+//messages page:
 let returnBtn: HTMLElement | null;
+//host tournament page:
+let hostTournBtn: HTMLElement | null;
 
 document.addEventListener('DOMContentLoaded', () => {
 	app = document.getElementById('app')!;
@@ -71,7 +76,7 @@ const hideNav = (page: string) =>
 	{
 		if (page === 'home')
 			navBar.classList.remove('hidden');
-		else if (page === 'profil' || page === 'messages')
+		else if (page === 'profil' || page === 'messages' || page === 'hosttourn')
 			navBar.classList.add('hidden');
 	}
 };
@@ -89,6 +94,7 @@ const setupProfilButtons = () => {
 	historyList = document.querySelectorAll('.history-list');
 	msgBtn = document.querySelector('.msg-btn');
 	homeBtn = document.querySelector('.home-btn');
+	hostTournBtn = document.querySelector('.host-tourn-btn');
 
 	msgBtn?.addEventListener('click', () => {
 		loadPage('messages');
@@ -97,6 +103,10 @@ const setupProfilButtons = () => {
 	homeBtn?.addEventListener('click', () => {
 		loadPage('home');
 		history.pushState({ page: 'home' }, '', '?page=home');
+	});
+	hostTournBtn?.addEventListener('click', () => {
+		loadPage('hosttourn');
+		history.pushState({ page: 'hosttourn' }, '', '?page=hosttourn');
 	});
 	localBtn?.addEventListener('click', selectLocal);
 	onlineBtn?.addEventListener('click', selectOnline);
