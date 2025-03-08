@@ -23,10 +23,10 @@ let friendsBtn;
 let historyBtn;
 let friendsList;
 let historyList;
+let hostTournBtn;
 //messages page:
 let returnBtn;
 //host tournament page:
-let hostTournBtn;
 document.addEventListener('DOMContentLoaded', () => {
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
@@ -65,6 +65,9 @@ const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
         if (page === 'messages') {
             setupMessagesButtons();
         }
+        if (page === 'hosttourn') {
+            setupHostTournButtons();
+        }
     }
     catch (error) {
         app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
@@ -78,7 +81,7 @@ const hideNav = (page) => {
             navBar.classList.add('hidden');
     }
 };
-//BUTTONS:
+//Profil page:
 const setupProfilButtons = () => {
     localBtn = document.getElementById('local-btn');
     onlineBtn = document.getElementById('online-btn');
@@ -123,7 +126,6 @@ const selectLocal = () => {
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
 };
-//remove focus when game mode button selected
 const selectOnline = () => {
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.add('game-btn');
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.classList.remove('hover:bg-gray-500');
@@ -178,7 +180,6 @@ const showHistoryList = () => {
         element === null || element === void 0 ? void 0 : element.classList.remove('selected-panel-btn');
     });
 };
-//SCROLLABLES:
 const handleScroll = () => {
     let scrollables = document.querySelectorAll('.scrollable');
     scrollables === null || scrollables === void 0 ? void 0 : scrollables.forEach((element) => {
@@ -195,12 +196,40 @@ const showScrollbar = (element, timeout) => {
 const hideScrollbar = (element) => {
     element.classList.add('scrollbar-none');
 };
+//Messages page:
 const setupMessagesButtons = () => {
     returnBtn = document.querySelector('.return-btn');
     returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => {
         loadPage('profil');
         history.pushState({ page: 'profil' }, '', '?page=profil');
     });
+};
+//Host tournament page:
+const setupHostTournButtons = () => {
+    const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
+        "../public/images/cover_4.jpeg"];
+    let currIndex = 0;
+    const coverImage = document.getElementById("coverImage");
+    const coverImageInput = document.getElementById("coverImageInput");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    returnBtn = document.querySelector('.return-btn');
+    returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => {
+        loadPage('profil');
+        history.pushState({ page: 'profil' }, '', '?page=profil');
+    });
+    prevBtn === null || prevBtn === void 0 ? void 0 : prevBtn.addEventListener('click', () => {
+        currIndex = (currIndex - 1 + images.length) % images.length;
+        updateImage(currIndex, coverImage, coverImageInput, images);
+    });
+    nextBtn === null || nextBtn === void 0 ? void 0 : nextBtn.addEventListener('click', () => {
+        currIndex = (currIndex + 1) % images.length;
+        updateImage(currIndex, coverImage, coverImageInput, images);
+    });
+};
+const updateImage = (index, coverImage, coverImageInput, images) => {
+    coverImage.style.backgroundImage = `url('${images[index]}')`;
+    coverImageInput.value = images[index];
 };
 ////////////////////////////////////////////////////////////
 // document.addEventListener('DOMContentLoaded', () =>

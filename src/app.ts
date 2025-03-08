@@ -14,10 +14,10 @@ let friendsBtn: NodeListOf<Element> | null;
 let historyBtn: NodeListOf<Element> | null;
 let friendsList: NodeListOf<Element> | null;
 let historyList: NodeListOf<Element> | null;
+let hostTournBtn: HTMLElement | null;
 //messages page:
 let returnBtn: HTMLElement | null;
 //host tournament page:
-let hostTournBtn: HTMLElement | null;
 
 document.addEventListener('DOMContentLoaded', () => {
 	app = document.getElementById('app')!;
@@ -63,6 +63,10 @@ const loadPage = async (page: string) => {
 		{
 			setupMessagesButtons();
 		}
+		if (page === 'hosttourn')
+		{
+			setupHostTournButtons();
+		}
 	}
 	catch (error)
 	{
@@ -81,7 +85,7 @@ const hideNav = (page: string) =>
 	}
 };
 
-//BUTTONS:
+//Profil page:
 const setupProfilButtons = () => {
 	localBtn = document.getElementById('local-btn');
 	onlineBtn = document.getElementById('online-btn');
@@ -128,7 +132,7 @@ const selectLocal = () => {
 	onlineBtn?.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
 	localBtn?.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
 };
-//remove focus when game mode button selected
+
 const selectOnline = () => {
 	onlineBtn?.classList.add('game-btn');
 	onlineBtn?.classList.remove('hover:bg-gray-500');
@@ -189,7 +193,6 @@ const showHistoryList = () => {
 	});
 };
 
-//SCROLLABLES:
 const handleScroll = () => {
 	let scrollables = document.querySelectorAll('.scrollable');
 	
@@ -211,6 +214,7 @@ const hideScrollbar = (element: HTMLElement) => {
 	element.classList.add('scrollbar-none');
 };
 
+//Messages page:
 const setupMessagesButtons = () => {
 	returnBtn = document.querySelector('.return-btn');
 
@@ -218,6 +222,38 @@ const setupMessagesButtons = () => {
 		loadPage('profil');
 		history.pushState({ page: 'profil' }, '', '?page=profil');
 	});
+};
+
+//Host tournament page:
+const setupHostTournButtons = () => {
+	const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
+		 "../public/images/cover_4.jpeg"];
+	let currIndex = 0;
+
+	const coverImage = document.getElementById("coverImage");
+	const coverImageInput = document.getElementById("coverImageInput") as HTMLInputElement;
+	const prevBtn = document.getElementById("prevBtn");
+	const nextBtn = document.getElementById("nextBtn");
+	returnBtn = document.querySelector('.return-btn');
+
+	returnBtn?.addEventListener('click', () => {
+		loadPage('profil');
+		history.pushState({ page: 'profil' }, '', '?page=profil');
+	});
+
+	prevBtn?.addEventListener('click', () => {
+		currIndex = (currIndex - 1 + images.length) % images.length;
+    	updateImage(currIndex, coverImage, coverImageInput, images);
+	});
+	nextBtn?.addEventListener('click', () => {
+		currIndex = (currIndex + 1) % images.length;
+    	updateImage(currIndex, coverImage, coverImageInput, images);
+	});
+};
+
+const updateImage = (index: number, coverImage: HTMLElement, coverImageInput: HTMLInputElement, images: string[]) => {
+	coverImage.style.backgroundImage = `url('${images[index]}')`;
+	coverImageInput.value = images[index];
 };
 
 ////////////////////////////////////////////////////////////
