@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navBtns = document.querySelectorAll('.nav-btn');
     const urlParams = new URLSearchParams(window.location.search);
     const initialPage = urlParams.get('page') || 'home';
-    console.log(`here: ${initialPage}`);
+    // console.log(`here: ${initialPage}`);
     history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
     loadPage(initialPage);
     navBtns.forEach((button) => {
@@ -66,7 +66,7 @@ const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
             setupMessagesButtons();
         }
         if (page === 'hosttourn') {
-            setupHostTournButtons();
+            setupHostTournament();
         }
     }
     catch (error) {
@@ -80,6 +80,10 @@ const hideNav = (page) => {
         else if (page === 'profil' || page === 'messages' || page === 'hosttourn')
             navBar.classList.add('hidden');
     }
+};
+const loadnhistory = (toLoad) => {
+    loadPage(toLoad);
+    history.pushState({ page: toLoad }, '', `?page=${toLoad}`);
 };
 //Profil page:
 const setupProfilButtons = () => {
@@ -95,18 +99,9 @@ const setupProfilButtons = () => {
     msgBtn = document.querySelector('.msg-btn');
     homeBtn = document.querySelector('.home-btn');
     hostTournBtn = document.querySelector('.host-tourn-btn');
-    msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => {
-        loadPage('messages');
-        history.pushState({ page: 'messages' }, '', '?page=messages');
-    });
-    homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => {
-        loadPage('home');
-        history.pushState({ page: 'home' }, '', '?page=home');
-    });
-    hostTournBtn === null || hostTournBtn === void 0 ? void 0 : hostTournBtn.addEventListener('click', () => {
-        loadPage('hosttourn');
-        history.pushState({ page: 'hosttourn' }, '', '?page=hosttourn');
-    });
+    msgBtn === null || msgBtn === void 0 ? void 0 : msgBtn.addEventListener('click', () => loadnhistory('messages'));
+    homeBtn === null || homeBtn === void 0 ? void 0 : homeBtn.addEventListener('click', () => loadnhistory('home'));
+    hostTournBtn === null || hostTournBtn === void 0 ? void 0 : hostTournBtn.addEventListener('click', () => loadnhistory('hosttourn'));
     localBtn === null || localBtn === void 0 ? void 0 : localBtn.addEventListener('click', selectLocal);
     onlineBtn === null || onlineBtn === void 0 ? void 0 : onlineBtn.addEventListener('click', selectOnline);
     openBtn === null || openBtn === void 0 ? void 0 : openBtn.addEventListener('click', openSidePanel);
@@ -199,13 +194,13 @@ const hideScrollbar = (element) => {
 //Messages page:
 const setupMessagesButtons = () => {
     returnBtn = document.querySelector('.return-btn');
-    returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => {
-        loadPage('profil');
-        history.pushState({ page: 'profil' }, '', '?page=profil');
-    });
+    returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => loadnhistory('profil'));
 };
 //Host tournament page:
-const setupHostTournButtons = () => {
+const setupHostTournament = () => {
+    returnBtn = document.querySelector('.return-btn');
+    returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => loadnhistory('profil'));
+    const form = document.getElementById('tournamentForm');
     const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
         "../public/images/cover_4.jpeg"];
     let currIndex = 0;
@@ -213,11 +208,10 @@ const setupHostTournButtons = () => {
     const coverImageInput = document.getElementById("coverImageInput");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
-    returnBtn = document.querySelector('.return-btn');
-    returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => {
-        loadPage('profil');
-        history.pushState({ page: 'profil' }, '', '?page=profil');
-    });
+    updateImage(currIndex, coverImage, coverImageInput, images);
+    if (form)
+        form.addEventListener("submit", validateForm);
+    // console.log(`here: ${coverImageInput.value}`);
     prevBtn === null || prevBtn === void 0 ? void 0 : prevBtn.addEventListener('click', () => {
         currIndex = (currIndex - 1 + images.length) % images.length;
         updateImage(currIndex, coverImage, coverImageInput, images);
@@ -230,6 +224,33 @@ const setupHostTournButtons = () => {
 const updateImage = (index, coverImage, coverImageInput, images) => {
     coverImage.style.backgroundImage = `url('${images[index]}')`;
     coverImageInput.value = images[index];
+};
+const validateForm = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const inputs = form.querySelectorAll("input[required]");
+    let allValid = true;
+    inputs.forEach((input) => {
+        // fix input field style for error state:
+        if (!input.value.trim()) {
+            allValid = false;
+            input.classList.remove("active:ring-2");
+            input.classList.remove("active:ring-gray-300");
+            input.classList.add("ring");
+            input.classList.add("ring-red-500");
+            console.log(`here: '${input.value}'`);
+        }
+        else {
+            input.classList.remove("ring");
+            input.classList.remove("ring-red-500");
+            input.classList.add("active:ring-2");
+            input.classList.add("active:ring-gray-300");
+        }
+    });
+    if (allValid) {
+        alert("Form submitted successfully! 🎉");
+        //   form.submit();
+    }
 };
 ////////////////////////////////////////////////////////////
 // document.addEventListener('DOMContentLoaded', () =>
