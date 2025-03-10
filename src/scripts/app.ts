@@ -3,10 +3,9 @@ let app: HTMLElement;
 let navBar: HTMLElement | null;
 let navBtns: NodeListOf<HTMLElement> | null;
 //profil page:
-let msgBtn: HTMLElement | null;
 let homeBtn: HTMLElement | null;
-let onlineBtn: HTMLElement | null;
-let localBtn: HTMLElement | null;
+let settingsBtn: HTMLElement | null;
+let msgBtn: HTMLElement | null;
 let sidePanel: HTMLElement | null;
 let openBtn: HTMLElement | null;
 let closeBtn: HTMLElement | null;
@@ -14,6 +13,8 @@ let friendsBtn: NodeListOf<Element> | null;
 let historyBtn: NodeListOf<Element> | null;
 let friendsList: NodeListOf<Element> | null;
 let historyList: NodeListOf<Element> | null;
+let localBtn: HTMLElement | null;
+let onlineBtn: HTMLElement | null;
 let hostTournBtn: HTMLElement | null;
 //messages page:
 let returnBtn: HTMLElement | null;
@@ -67,6 +68,10 @@ const loadPage = async (page: string) => {
 		{
 			setupHostTournament();
 		}
+		if (page === 'settings')
+		{
+			setupSettingsButtons();
+		}
 	}
 	catch (error)
 	{
@@ -92,8 +97,9 @@ const loadnhistory = (toLoad: string) => {
 
 //Profil page:
 const setupProfilButtons = () => {
-	localBtn = document.getElementById('local-btn');
-	onlineBtn = document.getElementById('online-btn');
+	homeBtn = document.querySelector('.home-btn');
+	settingsBtn = document.querySelector('.settings-btn');
+	msgBtn = document.querySelector('.msg-btn');
 	sidePanel = document.getElementById('friends-panel');
 	openBtn = document.getElementById('open-btn');
 	closeBtn = document.getElementById('close-btn');
@@ -101,15 +107,13 @@ const setupProfilButtons = () => {
 	historyBtn = document.querySelectorAll('.history-btn');
 	friendsList = document.querySelectorAll('.friends-list');
 	historyList = document.querySelectorAll('.history-list');
-	msgBtn = document.querySelector('.msg-btn');
-	homeBtn = document.querySelector('.home-btn');
+	localBtn = document.getElementById('local-btn');
+	onlineBtn = document.getElementById('online-btn');
 	hostTournBtn = document.querySelector('.host-tourn-btn');
-
-	msgBtn?.addEventListener('click', () => loadnhistory('messages'));
+	
 	homeBtn?.addEventListener('click', () => loadnhistory('home'));
-	hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
-	localBtn?.addEventListener('click', selectLocal);
-	onlineBtn?.addEventListener('click', selectOnline);
+	settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
+	msgBtn?.addEventListener('click', () => loadnhistory('messages'));
 	openBtn?.addEventListener('click', openSidePanel);
 	closeBtn?.addEventListener('click', closeSidePanel);
 	document.addEventListener('click', handleOutsideClick);
@@ -119,6 +123,9 @@ const setupProfilButtons = () => {
 	historyBtn?.forEach((element) => {
 		element.addEventListener('click', showHistoryList);
 	});
+	localBtn?.addEventListener('click', selectLocal);
+	onlineBtn?.addEventListener('click', selectOnline);
+	hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
 };
 
 const selectLocal = () => {
@@ -152,7 +159,7 @@ const closeSidePanel = (e?: Event) => {
 
 const handleOutsideClick = (e: Event) => {
 	if (sidePanel && !sidePanel.contains(e.target as Node) && e.target !== openBtn)
-	closeSidePanel();
+		closeSidePanel();
 };
 
 const showFriendsList = () => {
@@ -194,7 +201,7 @@ const handleScroll = () => {
 	
 	scrollables?.forEach((element) => {
 		let timeout: NodeJS.Timeout = setTimeout(() => {}, 0);
-
+		
 		element.addEventListener('scroll', () => showScrollbar(element as HTMLElement, timeout));
 		hideScrollbar(element as HTMLElement);
 	});
@@ -212,36 +219,36 @@ const hideScrollbar = (element: HTMLElement) => {
 
 //Messages page:
 const setupMessagesButtons = () => {
-	returnBtn = document.querySelector('.return-btn');
-
+	returnBtn = document.querySelector('.rtn-profil-btn');
+	
 	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
 };
 
 //Host tournament page:
 const setupHostTournament = () => {
-	returnBtn = document.querySelector('.return-btn');
+	returnBtn = document.querySelector('.rtn-profil-btn');
 
 	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
-
+	
 	const form = document.getElementById('tournamentForm') as HTMLFormElement;
-
+	
 	const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
 		"../public/images/cover_4.jpeg"];
-	let currIndex = 0;
-	
-	const coverImage = document.getElementById("coverImage");
-	const coverImageInput = document.getElementById("coverImageInput") as HTMLInputElement;
-	const prevBtn = document.getElementById("prevBtn");
-	const nextBtn = document.getElementById("nextBtn");
-	
-	updateImage(currIndex, coverImage, coverImageInput, images);
-	if (form)
-		form.addEventListener("submit", validateForm);
-	// console.log(`here: ${coverImageInput.value}`);
-	prevBtn?.addEventListener('click', () => {
-		currIndex = (currIndex - 1 + images.length) % images.length;
+		let currIndex = 0;
+		
+		const coverImage = document.getElementById("coverImage");
+		const coverImageInput = document.getElementById("coverImageInput") as HTMLInputElement;
+		const prevBtn = document.getElementById("prevBtn");
+		const nextBtn = document.getElementById("nextBtn");
+		
 		updateImage(currIndex, coverImage, coverImageInput, images);
-	});
+		if (form)
+			form.addEventListener("submit", validateForm);
+		// console.log(`here: ${coverImageInput.value}`);
+		prevBtn?.addEventListener('click', () => {
+			currIndex = (currIndex - 1 + images.length) % images.length;
+			updateImage(currIndex, coverImage, coverImageInput, images);
+		});
 	nextBtn?.addEventListener('click', () => {
 		currIndex = (currIndex + 1) % images.length;
 		updateImage(currIndex, coverImage, coverImageInput, images);
@@ -255,10 +262,10 @@ const updateImage = (index: number, coverImage: HTMLElement, coverImageInput: HT
 
 const validateForm = (event: Event) => {
 	event.preventDefault();
-  
+	
 	const form = event.target as HTMLFormElement;
 	const inputs = form.querySelectorAll("input[required]");
-  
+	
 	let allValid = true;
 	inputs.forEach((input: HTMLInputElement) => {
 		// fix input field style for error state:
@@ -269,19 +276,33 @@ const validateForm = (event: Event) => {
 			input.classList.add("ring");
 			input.classList.add("ring-red-500");
 			console.log(`here: '${input.value}'`);
-	  	}
-	  	else {
+		}
+		else {
 			input.classList.remove("ring");
 			input.classList.remove("ring-red-500");
 			input.classList.add("active:ring-2");
 			input.classList.add("active:ring-gray-300");
-	 	}
+		}
 	});
-  
+	
 	if (allValid) {
-	  alert("Form submitted successfully! 🎉");
-	//   form.submit();
+		alert("Form submitted successfully! 🎉");
+		//   form.submit();
 	}
 };
 
 //////////////////////////////////////////////////////////////
+// figure out how to link .js files together in app.ts
+// import * as main3 from "./TS/Home_ts/main3";
+// import * as main5 from "./TS/Home_ts/main5";
+// import * as logIn from "./TS/Log_in_ts/logIn";
+// import * as profile from "./TS/Profile_ts/profile";
+// const { updateTransheadermain3 } = require("./TS/Home_ts/main3");
+// const { updateTransheadermain5 } = require("./TS/Home_ts/main5");
+// const { newHtmlUp, newHtmlIn, updateSignupForm } = require("./TS/Log_in_ts/logIn");
+
+const setupSettingsButtons = () => {
+	returnBtn = document.querySelector('.rtn-profil-btn');
+	
+	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
+};
