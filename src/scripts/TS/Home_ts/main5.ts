@@ -1,4 +1,4 @@
-const updateTransheadermain5 = () => {
+export const updateTransheadermain5 = () => {
     const main5 = [{
         title : 'Get started',
         key1 : 'Play Online',
@@ -35,9 +35,12 @@ const updateTransheadermain5 = () => {
         `
     });
     
-    document.querySelector('.js-wq1').innerHTML = htmlGen1;
+    const element = document.querySelector('.js-wq1');
+    if (element) {
+        element.innerHTML = htmlGen1;
+    }
     
     // console.log(htmlGen1);
 };
 
-module.exports = { updateTransheadermain5 };
+// module.exports = { updateTransheadermain5 };

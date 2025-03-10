@@ -1,5 +1,4 @@
-const newHtmlUp = `
-<div class="email_tag">
+export const newHtmlUp = /*html*/ `<div class="email_tag">
 <div class="names">
   <p class="email_text">
       First Name
@@ -51,9 +50,7 @@ Confirm Password
 SIGN IN
 </button>
 </div>`;
-
-const newHtmlIn = `
-<div class="email_tag">
+export const newHtmlIn = /*html*/ `<div class="email_tag">
 <p class="email_text">
   Email
 </p>
@@ -97,51 +94,40 @@ Creat an account
 </p>
 </div>
 `;
-
-const updateSignupForm = () => {
-	function visibility()
-	{
-		const on = '<img class="visibility_off" src="../public/logos/visibility_eye_on.svg">'
-		const off = '<img class="visibility_off" src="../public/logos/visibility_eye_off.svg">'
-		const input = document.querySelector('.password_input');
-
-		let btval = document.querySelector('.show_ps');
-		
-		if(btval.innerHTML === off && input.type === "password")
-			{
-				btval.innerHTML = on;
-				input.type = "text";
-			}
-			else
-			{
-				btval.innerHTML = off;
-				input.type = "password";
-			}
-		}
-		
-		document.querySelector('.show_ps').addEventListener('click', () => {
-		visibility();
-	});
-
-	document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT').forEach(button => {
-		button.addEventListener('click', () => {
-			document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT').forEach(btn => {
-				btn.classList.remove('line');
-			});
-			button.classList.add('line');
-		});
-	});
-	
-	const leet = document.querySelector('.segv2');
-	leet.innerHTML = newHtmlIn; 
-	
-	document.querySelector('.SIGN_UPBT').addEventListener('click', () =>{
-		leet.innerHTML = newHtmlUp;
-	});
-	
-	document.querySelector('.SIGN_INBT').addEventListener('click', () =>{
-		leet.innerHTML = newHtmlIn;
-	});	
+export const updateSignupForm = () => {
+    const leet = document.querySelector('.segv2');
+    let btval = document.querySelector('.show_ps');
+    let signBtns = document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT');
+    btval === null || btval === void 0 ? void 0 : btval.addEventListener('click', () => visibility);
+    signBtns === null || signBtns === void 0 ? void 0 : signBtns.forEach((button) => {
+        button.addEventListener('click', () => {
+            signBtns.forEach((btn) => {
+                btn.classList.remove('line');
+            });
+            button.classList.add('line');
+        });
+    });
+    leet.innerHTML = newHtmlIn;
+    let signupBtn = document.querySelector('.SIGN_UPBT');
+    let signinBtn = document.querySelector('.SIGN_INBT');
+    signupBtn === null || signupBtn === void 0 ? void 0 : signupBtn.addEventListener('click', () => {
+        leet.innerHTML = newHtmlUp;
+    });
+    signinBtn === null || signinBtn === void 0 ? void 0 : signinBtn.addEventListener('click', () => {
+        leet.innerHTML = newHtmlIn;
+    });
+    const visibility = () => {
+        const on = '<img class="visibility_off" src="../public/logos/visibility_eye_on.svg">';
+        const off = '<img class="visibility_off" src="../public/logos/visibility_eye_off.svg">';
+        const input = document.querySelector('.password_input');
+        if (btval.innerHTML === off && input.type === "password") {
+            btval.innerHTML = on;
+            input.type = "text";
+        }
+        else {
+            btval.innerHTML = off;
+            input.type = "password";
+        }
+    };
 };
-
-module.exports = { newHtmlUp, newHtmlIn, updateSignupForm };
+// module.exports = { newHtmlUp, newHtmlIn, updateSignupForm };

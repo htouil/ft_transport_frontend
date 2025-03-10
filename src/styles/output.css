@@ -1631,23 +1631,6 @@ body
   padding-bottom: 10px;
 }
 
-.SIGN_INBT,
-.SIGN_UPBT
-{
-  width: 50%;
-  border: none;
-  color: rgba(84,134,169,255);
-  background-color: rgb(26, 26, 46);
-  font-family: arial;
-  font-size: 8px;
-  padding-bottom: 5px;
-}
-
-.line
-{
-  border-bottom: 2px solid white;
-}
-
 /* .SIGN_INBT:active
 {
     border-bottom: 2px solid white;

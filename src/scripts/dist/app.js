@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navBar = document.querySelector('nav');
     navBtns = document.querySelectorAll('.nav-btn');
     const urlParams = new URLSearchParams(window.location.search);
-    const initialPage = urlParams.get('page') || 'home';
-    // console.log(`here: ${initialPage}`);
+    const initialPage = urlParams.get('page') || 'signup';
+    // console.log(`here:`);
     history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
     loadPage(initialPage);
     navBtns.forEach((button) => {
@@ -57,7 +57,7 @@ const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch(`pages/${page}.html`);
         const content = yield response.text();
         app.innerHTML = content;
-        // console.log(`nav to: ${page}`);
+        console.log(`nav to: ${page}`);
         hideNav(page);
         if (page === 'profil') {
             setupProfilButtons();
@@ -67,10 +67,13 @@ const loadPage = (page) => __awaiter(this, void 0, void 0, function* () {
             setupMessagesButtons();
         }
         if (page === 'hosttourn') {
-            setupHostTournament();
+            setupHostTournamentPage();
         }
         if (page === 'settings') {
             setupSettingsButtons();
+        }
+        if (page === 'signup') {
+            // setupSignupPage();
         }
     }
     catch (error) {
@@ -202,8 +205,8 @@ const setupMessagesButtons = () => {
     returnBtn = document.querySelector('.rtn-profil-btn');
     returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => loadnhistory('profil'));
 };
-//Host tournament page:
-const setupHostTournament = () => {
+//Host Tournament page:
+const setupHostTournamentPage = () => {
     returnBtn = document.querySelector('.rtn-profil-btn');
     returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => loadnhistory('profil'));
     const form = document.getElementById('tournamentForm');
@@ -259,13 +262,20 @@ const validateForm = (event) => {
     }
 };
 //////////////////////////////////////////////////////////////
+// figure out how to link .js files together in app.ts
 // import * as main3 from "./TS/Home_ts/main3";
 // import * as main5 from "./TS/Home_ts/main5";
-// import * as logIn from "./TS/Log_in_ts/logIn";
+// import * as login from "./TS/Log_in_ts/login";
 // import * as profile from "./TS/Profile_ts/profile";
-// const { updateTransheadermain3 } = require("./TS/Home_ts/main3");
-// const { updateTransheadermain5 } = require("./TS/Home_ts/main5");
-// const { newHtmlUp, newHtmlIn, updateSignupForm } = require("./TS/Log_in_ts/logIn");
+// import { updateTransheadermain3 } from "./TS/Home_ts/main3";
+// import { updateTransheadermain5 } from "./TS/Home_ts/main5";
+// import { newHtmlUp, newHtmlIn, updateSignupForm } from "../../TS/Log_in_ts/login";
+// //Signup page:
+// const setupSignupPage = () => {
+// 	updateSignupForm();
+// 	// updateTransheadermain3();
+// };
+//Settings page:
 const setupSettingsButtons = () => {
     returnBtn = document.querySelector('.rtn-profil-btn');
     returnBtn === null || returnBtn === void 0 ? void 0 : returnBtn.addEventListener('click', () => loadnhistory('profil'));

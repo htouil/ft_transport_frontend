@@ -1,4 +1,4 @@
-const updateTransheadermain3 = () => {
+export const updateTransheadermain3 = () => {
     const tag = [{
         logo : '../public/logos/add_person_logo.svg',
         tagTitle : 'Open an Account',
@@ -39,7 +39,9 @@ const updateTransheadermain3 = () => {
             `
     });
     
-    document.querySelector('.js-tag').innerHTML = htmlGen;  
+    document.querySelector('.js-tag').innerHTML = htmlGen;
+    const element = document.querySelector('.js-tag');
+    if (element) {
+        element.innerHTML = htmlGen;
+    }
 };
-
-module.exports = { updateTransheadermain3 };
