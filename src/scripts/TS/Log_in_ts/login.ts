@@ -99,14 +99,14 @@ Creat an account
 `;
 
 export const updateSignupForm = () => {
-	const leet = document.querySelector('.segv2');
+	const leet = document.querySelector('.segv2') as HTMLElement;
 	let btval = document.querySelector('.show_ps') as HTMLButtonElement;
 	let signBtns = document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT');
 	
 	btval?.addEventListener('click', () => visibility);
-	signBtns?.forEach((button: HTMLButtonElement) => {
+	signBtns?.forEach((button) => {
 		button.addEventListener('click', () => {
-			signBtns.forEach((btn: HTMLButtonElement) => {
+			signBtns.forEach((btn) => {
 				btn.classList.remove('line');
 			});
 			button.classList.add('line');
