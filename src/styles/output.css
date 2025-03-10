@@ -1,3 +1,179 @@
+.html, body {
+  min-height: 450px;
+}
+
+.pink-btn::after {
+  content: "";
+  background: linear-gradient(to top left, rgb(169, 85, 247) 20%, rgb(126 34 206) 50%, rgb(59 7 100) 80%);
+  height: 100%;
+  width: 0px;
+  border-radius: 0.75rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition-duration: 400ms;
+  transition-delay: 100ms;
+}
+
+.pink-btn:hover::after {
+  width: 100%;
+}
+
+/* check this why here */
+
+.gamemod-btn::after {
+  content: "";
+  background: #374151;
+  height: 100%;
+  width: 0px;
+  border-radius: 0.75rem;
+}
+
+.wallpaper {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(to bottom, #010102, #314860);
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+}
+
+.green-btn {
+  border-radius: 50%;
+  background: #338500;
+  box-shadow: inset 15px 15px 18px #276500 inset -15px -15px 18px #3fa500;
+}
+
+.faded-border {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
+}
+
+.play-btn1 {
+  background: #706ea7;
+}
+
+.play-btn1:hover {
+  background: #7d7da3;
+}
+
+.play-btn2 {
+  background: #5883a8;
+}
+
+.play-btn2:hover {
+  background: #6e8ca7;
+}
+
+.friends-border {
+  border-image-source: linear-gradient(to bottom left, #706ea7, #5487a8);
+}
+
+.panel-btn {
+  background-color: #3f4251;
+  color: white;
+}
+
+.panel-btn:hover {
+  background-color: #646981;
+}
+
+.selected-panel-btn {
+  background-color: white;
+  color: #3f4251;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none !important;
+}
+
+.return-button {
+  padding: 12px 24px;
+  background-color: #2196F3;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.return-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.return-button::before {
+  content: '←';
+  margin-right: 8px;
+}
+
+.return-button::after {
+  content: 'Return';
+}
+
+.whole {
+  margin-top: 15%;
+  margin-left: 8%;
+}
+
+.title
+{
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exit {
+  display: block;
+  justify-content: end;
+  align-items: center;
+}
+
+.exitBt
+{
+  background-color: rgba(72,72,90,255);
+  border: none;
+  border-radius: 70px;
+  padding: 2px 2px;
+  margin-left: 20px;
+}
+
+.exitBt:hover
+{
+  background-color: white;
+  transition: 1s;
+}
+
+.text
+{
+  flex: 1;
+  text-align: center;
+}
+
+.texxt
+{
+  font-family: arial;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 2%;
+}
+
+.ESC
+{
+  font-family: arial;
+  font-size: 10px;
+  text-align: end;
+  color: white;
+  margin-right: 20%;
+  margin-top: 10%;
+}
+
+/* @import "lotfi.css"; */
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -106,9 +282,7 @@
   --tw-contain-style:  ;
 }
 
-/*
-! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com
-*/
+/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -1291,11 +1465,6 @@ video {
   border-color: rgb(75 85 99 / var(--tw-border-opacity, 1));
 }
 
-.border-red-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
-}
-
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
@@ -1348,11 +1517,6 @@ video {
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
-}
-
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-50 {
@@ -1634,20 +1798,9 @@ video {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
-.ring-2 {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
 .ring-red-500 {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity, 1));
-}
-
-.ring-gray-300 {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity, 1));
 }
 
 .transition-all {
@@ -1698,180 +1851,6 @@ video {
 
 .scrollbar-none::-webkit-scrollbar {
   display: none;
-}
-
-.html, body {
-  min-height: 450px;
-}
-
-.pink-btn::after {
-  content: "";
-  background: linear-gradient(to top left, rgb(169, 85, 247) 20%, rgb(126 34 206) 50%, rgb(59 7 100) 80%);
-  height: 100%;
-  width: 0px;
-  border-radius: 0.75rem;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  transition-duration: 400ms;
-  transition-delay: 100ms;
-}
-
-.pink-btn:hover::after {
-  width: 100%;
-}
-
-/* check this why here */
-
-.gamemod-btn::after {
-  content: "";
-  background: #374151;
-  height: 100%;
-  width: 0px;
-  border-radius: 0.75rem;
-}
-
-.wallpaper {
-  min-height: 100vh;
-  margin: 0;
-  background: linear-gradient(to bottom, #010102, #314860);
-  background-attachment: fixed;
-  background-size: cover;
-  position: relative;
-}
-
-.green-btn {
-  border-radius: 50%;
-  background: #338500;
-  box-shadow: inset 15px 15px 18px #276500 inset -15px -15px 18px #3fa500;
-}
-
-.faded-border {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 90%);
-}
-
-.play-btn1 {
-  background: #706ea7;
-}
-
-.play-btn1:hover {
-  background: #7d7da3;
-}
-
-.play-btn2 {
-  background: #5883a8;
-}
-
-.play-btn2:hover {
-  background: #6e8ca7;
-}
-
-.friends-border {
-  border-image-source: linear-gradient(to bottom left, #706ea7, #5487a8);
-}
-
-.panel-btn {
-  background-color: #3f4251;
-  color: white;
-}
-
-.panel-btn:hover {
-  background-color: #646981;
-}
-
-.selected-panel-btn {
-  background-color: white;
-  color: #3f4251;
-}
-
-.scrollable::-webkit-scrollbar {
-  display: none !important;
-}
-
-.return-button {
-  padding: 12px 24px;
-  background-color: #2196F3;
-  color: white;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.return-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.return-button::before {
-  content: '←';
-  margin-right: 8px;
-}
-
-.return-button::after {
-  content: 'Return';
-}
-
-.whole {
-  margin-top: 15%;
-  margin-left: 8%;
-}
-
-.title
-{
-  width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.exit {
-  display: block;
-  justify-content: end;
-  align-items: center;
-}
-
-.exitBt
-{
-  background-color: rgba(72,72,90,255);
-  border: none;
-  border-radius: 70px;
-  padding: 2px 2px;
-  margin-left: 20px;
-}
-
-.exitBt:hover
-{
-  background-color: white;
-  transition: 1s;
-}
-
-.text
-{
-  flex: 1;
-  text-align: center;
-}
-
-.texxt
-{
-  font-family: arial;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 2%;
-}
-
-.ESC
-{
-  font-family: arial;
-  font-size: 10px;
-  text-align: end;
-  color: white;
-  margin-right: 20%;
-  margin-top: 10%;
 }
 
 .focus\:border-red-500:focus {
@@ -2034,12 +2013,6 @@ video {
 .active\:ring-2:active {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
-.active\:ring-0:active {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 

@@ -1,0 +1,200 @@
+.allinfo
+{
+    width: 70svw;
+    height: 70svh;
+    background-color: rgba(31,31,35,255);
+    margin-left: 2%;
+    margin-top: 5%;
+    border-radius: 40px;
+    /* border: 1px white solid; */
+    
+}
+.coverPic
+{
+    width: 70svw;
+    border-radius: 40px;
+    /* border: 1px white solid; */
+}
+.picinfo
+{
+    position: relative;
+}
+.userProfilePic
+{
+    position: absolute;
+    width: 15svw;
+    left: 5%;
+    top: 70%;
+    border-radius: 50%;
+    border: 8px rgba(31,31,35,255) solid;
+    min-width: 20px;
+}
+.svg1
+{
+    position: absolute;
+    background-color: rgba(79,80,89,255);
+    border-radius: 30px;
+    padding: 3px;
+    right: 5%;
+    top: 75%;
+    padding: clamp(1px, 1vw, 5px) clamp(0px, 2vw, 5px);
+    border: 4px rgba(31,31,35,255) solid;
+}
+.svg
+{
+    width: 2svw;
+}
+.svg2
+{
+    position: absolute;
+    background-color: rgba(79,80,89,255);
+    border-radius: 30px;
+    padding: 3px;
+    left: 5%;
+    top: 75%;
+    padding: clamp(1px, 1vw, 5px) clamp(0px, 2vw, 5px);
+    border: 4px rgba(31,31,35,255) solid;
+}
+.userProfileName
+{
+    color: white;
+    margin-left: 30%;
+    font-size: clamp(10px, 2vw, 30px);
+    padding-top: 1%;
+    /* background-color: red; */
+}
+.alldata
+{
+    width: 90%;
+    height: 310px;
+    margin-top: 15%;
+    background-color: rgba(42,45,48,255);
+    border-radius: 20px;
+    margin-left: 5%;
+}
+.online
+{
+    width: 3svw;
+    height: 3svh;
+    position: absolute;
+    background-color: rgba(2,254,53,255);
+    border-radius: 50%;
+    border: 6px rgba(31,31,35,255) solid;
+    left: 20%;
+    top: 110%;
+    /* transform: translate(-50%, -50%); */
+}
+.inputName
+{
+    width: 100%;
+    background-color: lightblue;
+    
+}
+.nameUser
+{
+    color: white;
+    font-size: 11px;
+    font-family: arial;
+    margin-left: 5%;
+    padding-top: 3%;
+    /* background-color: red; */
+}
+.nameinput
+{
+    height: 35px;
+    width: 80%;
+    background-color: rgba(42,45,48,255);
+    border: none;
+    color: white;
+}
+.fileddata
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.EditBt
+{
+    width: 10%;
+    height: 35px;
+    border: none;
+    margin-top: 2%;
+    border-radius: 20px;
+    color: white;
+    background-color: rgba(79,80,89,255);
+    font-family: arial;
+}
+.nameinput:focus
+{
+    border: none;
+    outline: black;
+}
+
+.allprofileinfo
+{
+    /* background-color: lightblue; */
+    position: relative;
+    /* display: flex; */
+}
+.allprofileinfo::after
+{
+    content: '';
+    width: 100%;
+    display: flex;
+    position: absolute;
+    height: 20%;
+    background-color: rgba(56,76,99,255);
+    filter: blur(70px);
+    z-index: -1;
+}
+.bordStyle
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* background-color: lightblue; */
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+}
+.boardColor
+{
+    color: white;
+    font-size: 20px;
+    /* background-color: red; */
+    /* margin-top: 60%; */
+    font-family: arial;
+}
+.DefaultBoard
+{
+    width: 90%;
+    height: 20%;
+    /* background-color: lightpink; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8%;
+}
+.Board
+{
+    width: 100%;
+    height: 100px;
+}
+.BoardName
+{
+    color: white;
+    font-size: 13px;
+    font-family: arial;
+    margin-left: 5%;
+
+}
+.checkpart
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

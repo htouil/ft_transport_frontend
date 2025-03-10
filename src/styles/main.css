@@ -1,0 +1,6 @@
+@import "./hatim.css";
+/* @import "lotfi.css"; */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

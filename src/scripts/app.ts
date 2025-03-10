@@ -80,7 +80,7 @@ const hideNav = (page: string) =>
 	{
 		if (page === 'home')
 			navBar.classList.remove('hidden');
-		else if (page === 'profil' || page === 'messages' || page === 'hosttourn')
+		else if (page === 'profil' || page === 'messages' || page === 'hosttourn' || page === 'settings')
 			navBar.classList.add('hidden');
 	}
 };
@@ -284,92 +284,4 @@ const validateForm = (event: Event) => {
 	}
 };
 
-////////////////////////////////////////////////////////////
-
-// document.addEventListener('DOMContentLoaded', () =>
-// {
-// 	const app = document.getElementById('app')!;
-// 	const navBtn = document.querySelectorAll('.nav-btn');
-// 	const navBar = document.querySelector('nav');
-	
-// 	const loadPage = async (page: string) =>
-// 	{
-// 		try {
-// 			const response = await fetch(`pages/${page}.html`);
-// 			const content = await response.text();
-// 			app.innerHTML = content;
-// 			hideNav(page);
-// 			const openbtn = document.getElementById('open-btn');
-// 			const closebtn = document.getElementById('close-btn');
-// 			const side_panel = document.getElementById('friends-panel');
-// 			const frs_btn = document.getElementById('friends-btn');
-// 			const htr_btn = document.getElementById('history-btn');
-// 			const frs_list = document.getElementById('friends-list');
-// 			const htr_list = document.getElementById('history-list');
-
-// 			openbtn?.addEventListener('click', (e) =>
-// 			{
-// 				e.stopPropagation();
-// 				side_panel?.classList.remove('translate-x-full');
-// 				document.body.classList.add('overflow-hidden');
-
-// 				frs_list?.classList.remove('hidden');
-// 				htr_list?.classList.add('hidden');
-// 			});
-
-// 			closebtn?.addEventListener('click', (e) =>
-// 			{
-// 				e.stopPropagation();
-// 				side_panel?.classList.add('translate-x-full');
-// 				document.body.classList.remove('overflow-hidden');
-// 			});
-
-// 			document.addEventListener('click', (e) =>
-// 			{
-// 				if (side_panel && !side_panel.contains(e.target as Node) && e.target !== openbtn)
-// 				{
-// 					side_panel?.classList.add('translate-x-full');
-// 					document.body.classList.remove('overflow-hidden');
-// 				}
-// 			});
-
-// 			frs_btn?.addEventListener('click', () =>
-// 			{
-// 				frs_list?.classList.remove('hidden');
-// 				htr_list?.classList.add('hidden');
-// 			});
-			
-// 			htr_btn?.addEventListener('click', () =>
-// 			{
-// 				htr_list?.classList.remove('hidden');
-// 				frs_list?.classList.add('hidden');
-// 			});
-// 		}	
-// 		catch (error)
-// 		{
-// 			app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
-// 		}
-// 	};	
-	
-// 	const hideNav = (page: string) =>
-// 	{
-// 		if (navBar && page === 'profil')
-// 		{
-// 			navBar.classList.remove('flex');
-// 			navBar.classList.add('hidden');
-// 		}
-// 	};
-
-// 	navBtn.forEach((button) =>
-// 	{
-// 		button.addEventListener('click', () =>
-// 		{
-// 			const page = (button as HTMLElement).dataset.page!;
-// 			console.log(`Navigating to: ${page}`);
-// 			loadPage(page);
-// 		});
-// 	});
-// 	loadPage('home');
-// });
-
-// history.replaceState()
+//////////////////////////////////////////////////////////////
