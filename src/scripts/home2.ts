@@ -1,4 +1,4 @@
-export const updateTransheadermain5 = () => {
+const updateTransheadermain5 = () => {
     const main5 = [{
         title : 'Get started',
         key1 : 'Play Online',
@@ -43,4 +43,4 @@ export const updateTransheadermain5 = () => {
     // console.log(htmlGen1);
 };
 
-// module.exports = { updateTransheadermain5 };
+module.exports = { updateTransheadermain5 };

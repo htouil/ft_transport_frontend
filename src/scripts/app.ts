@@ -1,3 +1,4 @@
+// import { updateSignupForm } from "./login";
 // home page:
 let app: HTMLElement;
 let navBar: HTMLElement | null;
@@ -240,7 +241,7 @@ const setupHostTournamentPage = () => {
 		"../public/images/cover_4.jpeg"];
 		let currIndex = 0;
 		
-		const coverImage = document.getElementById("coverImage");
+		const coverImage = document.getElementById("coverImage") as HTMLElement;
 		const coverImageInput = document.getElementById("coverImageInput") as HTMLInputElement;
 		const prevBtn = document.getElementById("prevBtn");
 		const nextBtn = document.getElementById("nextBtn");
@@ -268,10 +269,10 @@ const validateForm = (event: Event) => {
 	event.preventDefault();
 	
 	const form = event.target as HTMLFormElement;
-	const inputs = form.querySelectorAll("input[required]");
+	const inputs = form.querySelectorAll("input[required]") as NodeListOf<HTMLInputElement>;
 	
 	let allValid = true;
-	inputs.forEach((input: HTMLInputElement) => {
+	inputs.forEach((input) => {
 		// fix input field style for error state:
 		if (!input.value.trim()) {
 			allValid = false;
@@ -297,13 +298,12 @@ const validateForm = (event: Event) => {
 
 //////////////////////////////////////////////////////////////
 // figure out how to link .js files together in app.ts
-// import * as main3 from "./TS/Home_ts/main3";
-// import * as main5 from "./TS/Home_ts/main5";
-// import * as login from "./TS/Log_in_ts/login";
+// import * as home1 from "./home1";
+// import * as home2 from "./home2";
+// import * as login from "./login";
 // import * as profile from "./TS/Profile_ts/profile";
-// import { updateTransheadermain3 } from "./TS/Home_ts/main3";
-// import { updateTransheadermain5 } from "./TS/Home_ts/main5";
-// import { newHtmlUp, newHtmlIn, updateSignupForm } from "../../TS/Log_in_ts/login";
+// import { updateTransheadermain3 } from "./home1";
+// import { updateTransheadermain5 } from "./home2";
 
 // //Signup page:
 // const setupSignupPage = () => {
