@@ -1008,7 +1008,7 @@ body
   z-index: 2;
 }
 
-.title
+.titleSignup
 {
   /* background-color: bisque; */
   height: 50px;
@@ -1018,7 +1018,7 @@ body
   align-items: center;
 }
 
-.logo
+.logoSignup
 {
   width: 30px;
   height: 30px;
@@ -1097,8 +1097,9 @@ body
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   background-color: rgba(93,95,110,255);
-  border: none;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 .visibility_off
@@ -1113,8 +1114,7 @@ body
 }
 
 .password_input:focus,
-.email_input,
-.show_ps
+.email_input
 {
   border: none;
   outline: none;
@@ -1305,36 +1305,6 @@ body
   background-color: rgb(26, 26, 46);
 }
 
-.all
-{
-  width: 100%;
-  height: 450px;
-  display: flex;
-  position: relative;
-}
-
-.all::after
-{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  bottom: 30%;
-  left: 0;
-  background-color: rgba(84,134,169,255);
-  filter: blur(80px);
-  z-index: -1;
-}
-
-.left
-{
-  flex: 1;
-  /* background-color: lightpink; */
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
 .right
 {
   width: 250px;
@@ -1364,7 +1334,7 @@ body
   z-index: 5;
 }
 
-.tag
+.tag2
 {
   width: 270px;
   background-color: rgb(26, 26, 46);
@@ -1390,55 +1360,7 @@ body
   height: 30px;
 }
 
-.page_name
-{
-  color: white;
-  font-family: "ADLaM Display", serif;
-  font-size: 20px;
-}
-
-.segv
-{
-  width: 85%;
-  height: 70%;
-  /* background-color: lightblue; */
-  margin-left: 8%;
-}
-
-.email_text
-{
-  color: white;
-  font-family: arial;
-  font-size: 10px;
-}
-
-.email_input
-{
-  border: none;
-  height: 25px;
-  margin-top: -5px;
-  border-radius: 10px;
-  text-indent: 10px;
-  font-size: 10px;
-  background-color: rgba(93,95,110,255);
-  color: white;
-}
-
-.email_tag
-{
-  /* background-color: black; */
-  display: flex;
-  flex-direction: column;
-  /* margin-top: 10px; */
-}
-
-.password_tag
-{
-  display: flex;
-  flex-direction: column;
-}
-
-.password_input
+.password_input2
 {
   width: 90%;
   height: 25px;
@@ -1450,99 +1372,12 @@ body
   background-color: rgba(93,95,110,255);
 }
 
-.passwordl_text
-{
-  color: white;
-  font-family: arial;
-  font-size: 10px;
-  border: none;
-}
-
-.show_ps
+.show_ps2
 {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   background-color: rgba(93,95,110,255);
   border: none;
-  cursor: pointer;
-}
-
-.visibility_off
-{
-  height: 17px;
-}
-
-.password_container
-{
-  margin-top: -5px;
-  display: flex;
-}
-
-.password_input:focus,
-.email_input,
-.show_ps
-{
-  border: none;
-  outline: none;
-}
-
-.password_input::-moz-placeholder
-{
-  color: white;
-  font-size: 11px;
-}
-
-.password_input::placeholder
-{
-  color: white;
-  font-size: 11px;
-}
-
-.email_input::-moz-placeholder
-{
-  color: white;
-  font-size: 11px;
-}
-
-.email_input::placeholder
-{
-  color: white;
-  font-size: 11px;
-}
-
-.check
-{
-  /* background-color: lightpink; */
-  display: flex;
-  margin-top: 15px;
-  align-items: center;
-}
-
-.check_box
-{
-  width: 15px;
-  height: 15px;
-  cursor: pointer;
-}
-
-.remember_me
-{
-  color: white;
-  font-family: arial;
-  font-size: 10px;
-}
-
-.forgot_ps
-{
-  color: white;
-  font-family: arial;
-  font-size: 10px;
-  margin-left: auto;
-}
-
-.forgot_ps:hover
-{
-  color: rgba(84,134,169,255);
   cursor: pointer;
 }
 
@@ -1625,12 +1460,6 @@ body
   overflow: hidden;
 }
 
-.bts
-{
-  display: flex;
-  padding-bottom: 10px;
-}
-
 /* .SIGN_INBT:active
 {
     border-bottom: 2px solid white;
@@ -1643,14 +1472,6 @@ body
 .names
 {
   display: flex;
-}
-
-.email_text1
-{
-  color: white;
-  font-family: arial;
-  font-size: 10px;
-  margin-left: 80px;
 }
 
 .info
@@ -1711,7 +1532,7 @@ body
   margin-top: 10%;
 }
 
-.all
+.allTourn
 {
   width: 100%;
   height: 200px;
@@ -3105,6 +2926,10 @@ video {
   row-gap: 0.5rem;
 }
 
+.gap-y-6 {
+  row-gap: 1.5rem;
+}
+
 .place-self-start {
   place-self: start;
 }
@@ -3228,9 +3053,9 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
 }
 
-.border-gray-400 {
+.border-gray-100 {
   --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity, 1));
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
 }
 
 .border-gray-600 {
@@ -3248,11 +3073,6 @@ video {
   background-color: rgb(37 99 235 / var(--tw-bg-opacity, 1));
 }
 
-.bg-gray-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
-}
-
 .bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity, 1));
@@ -3261,6 +3081,11 @@ video {
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-700 {
@@ -3626,14 +3451,19 @@ video {
   display: none;
 }
 
-.focus\:border-red-500:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(239 68 68 / var(--tw-border-opacity, 1));
-}
-
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.focus\:outline-0:focus {
+  outline-width: 0px;
+}
+
+.focus\:ring:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
 .focus\:ring-2:focus {
@@ -3642,14 +3472,14 @@ video {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+.focus\:ring-gray-300:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(209 213 219 / var(--tw-ring-opacity, 1));
+}
+
 .focus\:ring-gray-400:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(156 163 175 / var(--tw-ring-opacity, 1));
-}
-
-.focus\:ring-red-500:focus {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(239 68 68 / var(--tw-ring-opacity, 1));
 }
 
 .group:hover .group-hover\:-translate-x-12 {
@@ -3687,14 +3517,8 @@ video {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.peer:checked ~ .peer-checked\:border-blue-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(30 64 175 / var(--tw-border-opacity, 1));
-}
-
-.peer:checked ~ .peer-checked\:bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1));
+.peer:checked ~ .peer-checked\:bg-blue-400\/70 {
+  background-color: rgb(96 165 250 / 0.7);
 }
 
 .peer:checked ~ .peer-checked\:opacity-100 {

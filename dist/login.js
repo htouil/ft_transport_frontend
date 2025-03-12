@@ -1,32 +1,125 @@
-"use strict";
-var updateSignupForm = function () {
-    var newHtmlUp = "<div class=\"email_tag\">\n\t<div class=\"names\">\n\t<p class=\"email_text\">\n\t\tFirst Name\n\t\t</p>\n\t\t<p class=\"email_text1\">\n\t\tLast Name\n\t\t</p>\n\t</div>\n\t<div class=\"info\">\n\t<input class=\"email_input\">\n\t<input class=\"email_input\">\n\t</div>\n\t</div>\n\t<div class=\"email_tag\">\n\t<p class=\"email_text\">\n\t\tUsername\n\t</p>\n\t<input class=\"email_input\">\n\t</div>\n\t<div class=\"email_tag\">\n\t<p class=\"email_text\">\n\t\tEmail\n\t</p>\n\t<input class=\"email_input\">\n\t</div>\n\t<div class=\"password_tag\">\n\t<p class=\"passwordl_text\">\n\tPassword\n\t</p>\n\t<div class=\"password_container\">\n\t\t<input class=\"password_input\" type=\"password\"\">\n\t\t<button class=\"show_ps\">\n\t\t<img class=\"visibility_off\" src=\"../public/logos/visibility_eye_off.svg\">\n\t\t</button>\n\t</div>\n\t</div>\n\t<div class=\"password_tag\">\n\t<p class=\"passwordl_text\">\n\tConfirm Password\n\t</p>\n\t<div class=\"password_container\">\n\t<input class=\"password_input\" type=\"password\">\n\t<button class=\"show_ps\">\n\t\t<img class=\"visibility_off\" src=\"../public/logos/visibility_eye_off.svg\">\n\t</button>\n\t</div>\n\t</div>\n\t<button class=\"sign_bt\">\n\tSIGN IN\n\t</button>\n\t</div>";
-    var newHtmlIn = "<div class=\"email_tag\">\n\t<p class=\"email_text\">\n\tEmail\n\t</p>\n\t<input class=\"email_input\">\n\t</div>\n\t<div class=\"password_tag\">\n\t<p class=\"passwordl_text\">\n\tPassword\n\t</p>\n\t<div class=\"password_container\">\n\t\t<input class=\"password_input\" type=\"password\">\n\t\t<button class=\"show_ps\">\n\t\t<img class=\"visibility_off\" src=\"../public/logos/visibility_eye_off.svg\">\n\t\t</button>\n\t</div>\n\t</div>\n\t<div class=\"check\">\n\t<input class=\"check_box\" type=\"checkbox\">\n\t<p class=\"remember_me\">\n\tRemember me\n\t</p>\n\t<p class=\"forgot_ps\">\n\tForgot your password?\n\t</p>\n\t</div>\n\t<button class=\"sign_bt\">\n\tSIGN IN\n\t</button>\n\t<p class=\"back\">\n\tOR USE\n\t</p>\n\t<button class=\"google_bt\">\n\t<img class=\"google_logo\" src=\"../public/logos/google_logo.svg\">\n\t</button>\n\t<div class=\"creat_acc\">\n\t<p class=\"new\">\n\tNew to <span class=\"name_page\">PingPong.io</span>\n\t</p>\n\t<p class=\"creat\">\n\tCreat an account \n\t</p>\n\t</div>\n\t";
-    var leet = document.querySelector('.segv2');
-    var btval = document.querySelector('.show_ps');
-    var signBtns = document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT');
-    btval === null || btval === void 0 ? void 0 : btval.addEventListener('click', function () { return visibility; });
-    signBtns === null || signBtns === void 0 ? void 0 : signBtns.forEach(function (button) {
-        button.addEventListener('click', function () {
-            signBtns.forEach(function (btn) {
+export const updateSignupForm = () => {
+    const newHtmlUp = /*html*/ `<div class="email_tag">
+	<div class="names">
+	<p class="email_text">
+		First Name
+		</p>
+		<p class="email_text1">
+		Last Name
+		</p>
+	</div>
+	<div class="info">
+	<input class="email_input">
+	<input class="email_input">
+	</div>
+	</div>
+	<div class="email_tag">
+	<p class="email_text">
+		Username
+	</p>
+	<input class="email_input">
+	</div>
+	<div class="email_tag">
+	<p class="email_text">
+		Email
+	</p>
+	<input class="email_input">
+	</div>
+	<div class="password_tag">
+	<p class="passwordl_text">
+	Password
+	</p>
+	<div class="password_container">
+		<input class="password_input" type="password"">
+		<button class="show_ps">
+		<img class="visibility_off" src="../public/logos/visibility_eye_off.svg">
+		</button>
+	</div>
+	</div>
+	<div class="password_tag">
+	<p class="passwordl_text">
+	Confirm Password
+	</p>
+	<div class="password_container">
+	<input class="password_input" type="password">
+	<button class="show_ps">
+		<img class="visibility_off" src="../public/logos/visibility_eye_off.svg">
+	</button>
+	</div>
+	</div>
+	<button class="sign_bt">
+	SIGN IN
+	</button>
+	</div>`;
+    const newHtmlIn = /*html*/ `<div class="email_tag">
+	<p class="email_text">
+	Email
+	</p>
+	<input class="email_input">
+	</div>
+	<div class="password_tag">
+	<p class="passwordl_text">
+	Password
+	</p>
+	<div class="password_container">
+		<input class="password_input" type="password">
+		<button class="show_ps">
+		<img class="visibility_off" src="../public/logos/visibility_eye_off.svg">
+		</button>
+	</div>
+	</div>
+	<div class="check">
+	<input class="check_box" type="checkbox">
+	<p class="remember_me">
+	Remember me
+	</p>
+	<p class="forgot_ps">
+	Forgot your password?
+	</p>
+	</div>
+	<button class="sign_bt">
+	SIGN IN
+	</button>
+	<p class="back">
+	OR USE
+	</p>
+	<button class="google_bt">
+	<img class="google_logo" src="../public/logos/google_logo.svg">
+	</button>
+	<div class="creat_acc">
+	<p class="new">
+	New to <span class="name_page">PingPong.io</span>
+	</p>
+	<p class="creat">
+	Creat an account 
+	</p>
+	</div>
+	`;
+    const leet = document.querySelector('.segv2');
+    let btval = document.querySelector('.show_ps');
+    let signBtns = document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT');
+    btval?.addEventListener('click', () => visibility);
+    signBtns?.forEach((button) => {
+        button.addEventListener('click', () => {
+            signBtns.forEach((btn) => {
                 btn.classList.remove('line');
             });
             button.classList.add('line');
         });
     });
     leet.innerHTML = newHtmlIn;
-    var signupBtn = document.querySelector('.SIGN_UPBT');
-    var signinBtn = document.querySelector('.SIGN_INBT');
-    signupBtn === null || signupBtn === void 0 ? void 0 : signupBtn.addEventListener('click', function () {
+    let signupBtn = document.querySelector('.SIGN_UPBT');
+    let signinBtn = document.querySelector('.SIGN_INBT');
+    signupBtn?.addEventListener('click', () => {
         leet.innerHTML = newHtmlUp;
     });
-    signinBtn === null || signinBtn === void 0 ? void 0 : signinBtn.addEventListener('click', function () {
+    signinBtn?.addEventListener('click', () => {
         leet.innerHTML = newHtmlIn;
     });
-    var visibility = function () {
-        var on = '<img class="visibility_off" src="../public/logos/visibility_eye_on.svg">';
-        var off = '<img class="visibility_off" src="../public/logos/visibility_eye_off.svg">';
-        var input = document.querySelector('.password_input');
+    const visibility = () => {
+        const on = '<img class="visibility_off" src="../public/logos/visibility_eye_on.svg">';
+        const off = '<img class="visibility_off" src="../public/logos/visibility_eye_off.svg">';
+        const input = document.querySelector('.password_input');
         if (btval.innerHTML === off && input.type === "password") {
             btval.innerHTML = on;
             input.type = "text";
@@ -37,5 +130,4 @@ var updateSignupForm = function () {
         }
     };
 };
-module.exports = { updateSignupForm: updateSignupForm };
-//# sourceMappingURL=login.js.map
+// module.exports = { updateSignupForm };

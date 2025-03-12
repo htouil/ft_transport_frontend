@@ -1,6 +1,5 @@
-"use strict";
-var updateTransheadermain5 = function () {
-    var main5 = [{
+const updateTransheadermain5 = () => {
+    const main5 = [{
             title: 'Get started',
             key1: 'Play Online',
             key2: 'Invite friends'
@@ -15,14 +14,27 @@ var updateTransheadermain5 = function () {
             key1: 'Support',
             key2: 'Sign up'
         }];
-    var htmlGen1 = '';
-    main5.forEach(function (main5) {
-        htmlGen1 += "\n        <div class=\"wq1\">\n        <p class=\"xp1\">\n        ".concat(main5.title, "\n        </p>\n        <p class=\"xr1\">\n        ").concat(main5.key1, "\n        </p>\n        <p class=\"xr1\">\n        ").concat(main5.key2, "\n        </p>\n        </div>\n        ");
+    let htmlGen1 = '';
+    main5.forEach((main5) => {
+        htmlGen1 += `
+        <div class="wq1">
+        <p class="xp1">
+        ${main5.title}
+        </p>
+        <p class="xr1">
+        ${main5.key1}
+        </p>
+        <p class="xr1">
+        ${main5.key2}
+        </p>
+        </div>
+        `;
     });
-    var element = document.querySelector('.js-wq1');
+    const element = document.querySelector('.js-wq1');
     if (element) {
         element.innerHTML = htmlGen1;
     }
+    // console.log(htmlGen1);
 };
-module.exports = { updateTransheadermain5: updateTransheadermain5 };
-//# sourceMappingURL=home2.js.map
+module.exports = { updateTransheadermain5 };
+export {};

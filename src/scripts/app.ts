@@ -1,4 +1,5 @@
-// import { updateSignupForm } from "./login";
+import { updateSignupForm } from "./login.js";
+
 // home page:
 let app: HTMLElement;
 let navBar: HTMLElement | null;
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	navBtns = document.querySelectorAll('.nav-btn');
 
 	const urlParams = new URLSearchParams(window.location.search);
-    const initialPage = urlParams.get('page') || 'signup';
+    const initialPage = urlParams.get('page') || 'home';
 
 	// console.log(`here:`);
 	history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
@@ -54,7 +55,7 @@ const loadPage = async (page: string) => {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
 		app.innerHTML = content;
-		console.log(`nav to: ${page}`);
+		// console.log(`nav to: ${page}`);
 		hideNav(page);
 		if (page === 'profil')
 		{
@@ -75,7 +76,7 @@ const loadPage = async (page: string) => {
 		}
 		if (page === 'signup')
 		{
-			// setupSignupPage();
+			setupSignupPage();
 		}
 	}
 	catch (error)
@@ -90,7 +91,7 @@ const hideNav = (page: string) =>
 	{
 		if (page === 'home')
 			navBar.classList.remove('hidden');
-		else if (page === 'profil' || page === 'messages' || page === 'hosttourn' || page === 'settings')
+		else
 			navBar.classList.add('hidden');
 	}
 };
@@ -134,23 +135,23 @@ const setupProfilButtons = () => {
 };
 
 const selectLocal = () => {
-	localBtn?.classList.add('game-btn');
+	localBtn?.classList.add('bg-gray-600');
 	localBtn?.classList.remove('hover:bg-gray-500');
-	onlineBtn?.classList.remove('game-btn');
-	onlineBtn?.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
-	localBtn?.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
+	onlineBtn?.classList.remove('bg-gray-600');
+	onlineBtn?.classList.add("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
+	localBtn?.classList.remove("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
 };
 
 const selectOnline = () => {
-	onlineBtn?.classList.add('game-btn');
+	onlineBtn?.classList.add('bg-gray-600');
 	onlineBtn?.classList.remove('hover:bg-gray-500');
-	localBtn?.classList.remove('game-btn');
-	localBtn?.classList.add('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
-	onlineBtn?.classList.remove('active:bg-gray-700 active:outline-none active:ring active:ring-gray-950');
+	localBtn?.classList.remove('bg-gray-600');
+	localBtn?.classList.add("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
+	onlineBtn?.classList.remove("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
 };
 
 const openSidePanel = (e: Event) => {
-	e.stopPropagation();
+	e?.stopPropagation();
 	sidePanel?.classList.remove('translate-x-full');
 	document.body.classList.add('overflow-hidden');
 	showFriendsList();
@@ -265,33 +266,47 @@ const updateImage = (index: number, coverImage: HTMLElement, coverImageInput: HT
 	coverImageInput.value = images[index];
 };
 
+// need to probably pass number to validateForm
 const validateForm = (event: Event) => {
 	event.preventDefault();
 	
 	const form = event.target as HTMLFormElement;
-	const inputs = form.querySelectorAll("input[required]") as NodeListOf<HTMLInputElement>;
+	const input = form.querySelector("input[required]") as HTMLInputElement;
+	const checkBoxes = form.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
+	const submitBtn = form.querySelector('button[type="submit') as HTMLButtonElement;
+	let number: number;
 	
 	let allValid = true;
-	inputs.forEach((input) => {
-		// fix input field style for error state:
-		if (!input.value.trim()) {
-			allValid = false;
-			input.classList.remove("active:ring-2");
-			input.classList.remove("active:ring-gray-300");
-			input.classList.add("ring");
-			input.classList.add("ring-red-500");
-			console.log(`here: '${input.value}'`);
-		}
-		else {
+	number = 0;
+	submitBtn.style.backgroundColor = "#8a8a92";
+	if (!input.value.trim()) {
+		allValid = false;
+		document.addEventListener('click', (event: Event) => {
 			input.classList.remove("ring");
 			input.classList.remove("ring-red-500");
-			input.classList.add("active:ring-2");
-			input.classList.add("active:ring-gray-300");
-		}
+		});
+		input.classList.add("ring");
+		input.classList.add("ring-red-500");
+		// console.log(`here: '${input.value}'`);
+	}
+	else {
+		input.classList.remove("ring");
+		input.classList.remove("ring-red-500");
+	}
+	checkBoxes.forEach((checkbox) => {
+		checkbox.addEventListener("change", () => {
+			if (checkbox.checked)
+			{
+				number++;
+				console.log(`number: ${number}`);
+			}
+			else
+			number--;
+		});
 	});
-	
-	if (allValid) {
+	if (allValid && number >= 3) {
 		alert("Form submitted successfully! 🎉");
+		submitBtn.style.backgroundColor = "#4b7694";
 		//   form.submit();
 	}
 };
@@ -305,15 +320,15 @@ const validateForm = (event: Event) => {
 // import { updateTransheadermain3 } from "./home1";
 // import { updateTransheadermain5 } from "./home2";
 
-// //Signup page:
-// const setupSignupPage = () => {
-// 	updateSignupForm();
-// 	// updateTransheadermain3();
-// };
-
 //Settings page:
 const setupSettingsButtons = () => {
 	returnBtn = document.querySelector('.rtn-profil-btn');
 	
 	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
+};
+
+//Signup page:
+const setupSignupPage = () => {
+	updateSignupForm();
+	// updateTransheadermain3();
 };

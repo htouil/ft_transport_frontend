@@ -1,4 +1,4 @@
-const updateSignupForm = () => {
+export const updateSignupForm = () => {
 	const newHtmlUp = /*html*/
 	`<div class="email_tag">
 	<div class="names">
@@ -144,4 +144,4 @@ const updateSignupForm = () => {
 	};
 };
 
-module.exports = { updateSignupForm };
+// module.exports = { updateSignupForm };
