@@ -198,9 +198,6 @@ const setupMessagesButtons = () => {
 };
 //Host Tournament page:
 const setupHostTournamentPage = () => {
-    returnBtn = document.querySelector('.rtn-profil-btn');
-    returnBtn?.addEventListener('click', () => loadnhistory('profil'));
-    const form = document.getElementById('tournamentForm');
     const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
         "../public/images/cover_4.jpeg"];
     let currIndex = 0;
@@ -208,23 +205,10 @@ const setupHostTournamentPage = () => {
     const coverImageInput = document.getElementById("coverImageInput");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
-    const checkBoxes = form.querySelectorAll('input[type="checkbox"]');
-    let number;
+    returnBtn = document.querySelector('.rtn-profil-btn');
+    returnBtn?.addEventListener('click', () => loadnhistory('profil'));
+    setupTournamentForm();
     updateImage(currIndex, coverImage, coverImageInput, images);
-    if (form) {
-        number = 0;
-        checkBoxes.forEach((checkbox) => {
-            checkbox.addEventListener("change", () => {
-                if (checkbox.checked) {
-                    number++;
-                }
-                else
-                    number--;
-            });
-            console.log(`number: ${number}`);
-        });
-        form.addEventListener("submit", (event) => { validateForm(event, number); });
-    }
     // console.log(`here: ${coverImageInput.value}`);
     prevBtn?.addEventListener('click', () => {
         currIndex = (currIndex - 1 + images.length) % images.length;
@@ -235,26 +219,36 @@ const setupHostTournamentPage = () => {
         updateImage(currIndex, coverImage, coverImageInput, images);
     });
 };
-const updateImage = (index, coverImage, coverImageInput, images) => {
-    coverImage.style.backgroundImage = `url('${images[index]}')`;
-    coverImageInput.value = images[index];
-};
-// need to probably pass number to validateForm
-const validateForm = (event, number) => {
-    event.preventDefault();
-    const form = event.target;
+const setupTournamentForm = () => {
+    const form = document.getElementById('tournamentForm');
+    const submitBtn = form.querySelector('button[type="submit]');
     const input = form.querySelector("input[required]");
-    // const checkBoxes = form.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
-    const submitBtn = form.querySelector('button[type="submit');
-    // let number: number;
+    const checkBoxes = form.querySelectorAll('input[type="checkbox"]');
+    // if (!submitBtn) return;
+    if (form) {
+        form.addEventListener("input", () => updateStartButton(input, submitBtn, checkBoxes));
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (updateStartButton(input, submitBtn, checkBoxes)) {
+                alert("Form submitted successfully! 🎉");
+                // if (submitBtn)
+                // 	submitBtn.style.setProperty("background-color", "#4b7694");
+                //   form.submit();
+            }
+        });
+    }
+};
+const updateStartButton = (input, submitBtn, checkBoxes) => {
     let allValid = true;
-    number = 0;
-    submitBtn.style.backgroundColor = "#8a8a92";
+    if (submitBtn)
+        submitBtn.style.backgroundColor = "#8a8a92";
     if (!input.value.trim()) {
         allValid = false;
         document.addEventListener('click', (event) => {
-            input.classList.remove("ring");
-            input.classList.remove("ring-red-500");
+            if (!Array.from(checkBoxes).includes(event.target)) {
+                input.classList.remove("ring");
+                input.classList.remove("ring-red-500");
+            }
         });
         input.classList.add("ring");
         input.classList.add("ring-red-500");
@@ -264,11 +258,34 @@ const validateForm = (event, number) => {
         input.classList.remove("ring");
         input.classList.remove("ring-red-500");
     }
-    if (allValid && number >= 3) {
-        alert("Form submitted successfully! 🎉");
-        submitBtn.style.backgroundColor = "#4b7694";
-        //   form.submit();
+    const checkedCount = Array.from(checkBoxes).filter(checkbox => checkbox.checked).length;
+    if (checkedCount < 3)
+        allValid = false;
+    // if (allValid)
+    // {
+    // 	if (submitBtn)
+    // 	{
+    // 		submitBtn.style.backgroundColor = "#4b7694";
+    // 		submitBtn.disabled = false;
+    // 	}
+    // }
+    // else
+    // {
+    // 	if (submitBtn)
+    // 	{
+    // 		submitBtn.style.backgroundColor = "#8a8a92";
+    // 		submitBtn.disabled = true;
+    // 	}
+    // }
+    if (submitBtn) {
+        submitBtn.style.setProperty("background-color", allValid ? "#4b7694" : "#8a8a92");
     }
+    console.log(`total: `);
+    return (allValid);
+};
+const updateImage = (index, coverImage, coverImageInput, images) => {
+    coverImage.style.backgroundImage = `url('${images[index]}')`;
+    coverImageInput.value = images[index];
 };
 //////////////////////////////////////////////////////////////
 // figure out how to link .js files together in app.ts
