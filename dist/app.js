@@ -208,9 +208,23 @@ const setupHostTournamentPage = () => {
     const coverImageInput = document.getElementById("coverImageInput");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
+    const checkBoxes = form.querySelectorAll('input[type="checkbox"]');
+    let number;
     updateImage(currIndex, coverImage, coverImageInput, images);
-    if (form)
-        form.addEventListener("submit", validateForm);
+    if (form) {
+        number = 0;
+        checkBoxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", () => {
+                if (checkbox.checked) {
+                    number++;
+                }
+                else
+                    number--;
+            });
+            console.log(`number: ${number}`);
+        });
+        form.addEventListener("submit", (event) => { validateForm(event, number); });
+    }
     // console.log(`here: ${coverImageInput.value}`);
     prevBtn?.addEventListener('click', () => {
         currIndex = (currIndex - 1 + images.length) % images.length;
@@ -226,13 +240,13 @@ const updateImage = (index, coverImage, coverImageInput, images) => {
     coverImageInput.value = images[index];
 };
 // need to probably pass number to validateForm
-const validateForm = (event) => {
+const validateForm = (event, number) => {
     event.preventDefault();
     const form = event.target;
     const input = form.querySelector("input[required]");
-    const checkBoxes = form.querySelectorAll('input[type="checkbox"]');
+    // const checkBoxes = form.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
     const submitBtn = form.querySelector('button[type="submit');
-    let number;
+    // let number: number;
     let allValid = true;
     number = 0;
     submitBtn.style.backgroundColor = "#8a8a92";
@@ -250,16 +264,6 @@ const validateForm = (event) => {
         input.classList.remove("ring");
         input.classList.remove("ring-red-500");
     }
-    checkBoxes.forEach((checkbox) => {
-        checkbox.addEventListener("change", () => {
-            if (checkbox.checked) {
-                number++;
-                console.log(`number: ${number}`);
-            }
-            else
-                number--;
-        });
-    });
     if (allValid && number >= 3) {
         alert("Form submitted successfully! 🎉");
         submitBtn.style.backgroundColor = "#4b7694";

@@ -101,7 +101,7 @@ export const updateSignupForm = () => {
 
 	const leet = document.querySelector('.segv2') as HTMLElement;
 	let btval = document.querySelector('.show_ps') as HTMLButtonElement;
-	let signBtns = document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT');
+	let signBtns = document.querySelectorAll('.SIGN_INBT, .SIGN_UPBT') as NodeListOf<HTMLButtonElement>;
 	
 	btval?.addEventListener('click', () => visibility);
 	signBtns?.forEach((button) => {

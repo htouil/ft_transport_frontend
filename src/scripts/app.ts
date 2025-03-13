@@ -240,21 +240,37 @@ const setupHostTournamentPage = () => {
 	
 	const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
 		"../public/images/cover_4.jpeg"];
-		let currIndex = 0;
-		
-		const coverImage = document.getElementById("coverImage") as HTMLElement;
-		const coverImageInput = document.getElementById("coverImageInput") as HTMLInputElement;
-		const prevBtn = document.getElementById("prevBtn");
-		const nextBtn = document.getElementById("nextBtn");
-		
-		updateImage(currIndex, coverImage, coverImageInput, images);
-		if (form)
-			form.addEventListener("submit", validateForm);
-		// console.log(`here: ${coverImageInput.value}`);
-		prevBtn?.addEventListener('click', () => {
-			currIndex = (currIndex - 1 + images.length) % images.length;
-			updateImage(currIndex, coverImage, coverImageInput, images);
+	let currIndex = 0;
+	
+	const coverImage = document.getElementById("coverImage") as HTMLElement;
+	const coverImageInput = document.getElementById("coverImageInput") as HTMLInputElement;
+	const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement;
+	const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement;
+	const checkBoxes = form.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
+	let number: number;
+	
+	updateImage(currIndex, coverImage, coverImageInput, images);
+	if (form)
+	{
+		number = 0;
+		checkBoxes.forEach((checkbox) => {
+			checkbox.addEventListener("change", () => {
+				if (checkbox.checked)
+				{
+					number++;
+				}
+				else
+				number--;
+			});
+			console.log(`number: ${number}`);
 		});
+		form.addEventListener("submit", (event: Event) => {validateForm(event, number)});
+	}
+	// console.log(`here: ${coverImageInput.value}`);
+	prevBtn?.addEventListener('click', () => {
+		currIndex = (currIndex - 1 + images.length) % images.length;
+		updateImage(currIndex, coverImage, coverImageInput, images);
+	});
 	nextBtn?.addEventListener('click', () => {
 		currIndex = (currIndex + 1) % images.length;
 		updateImage(currIndex, coverImage, coverImageInput, images);
@@ -267,14 +283,14 @@ const updateImage = (index: number, coverImage: HTMLElement, coverImageInput: HT
 };
 
 // need to probably pass number to validateForm
-const validateForm = (event: Event) => {
+const validateForm = (event: Event, number: number) => {
 	event.preventDefault();
 	
 	const form = event.target as HTMLFormElement;
 	const input = form.querySelector("input[required]") as HTMLInputElement;
-	const checkBoxes = form.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
+	// const checkBoxes = form.querySelectorAll('input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
 	const submitBtn = form.querySelector('button[type="submit') as HTMLButtonElement;
-	let number: number;
+	// let number: number;
 	
 	let allValid = true;
 	number = 0;
@@ -293,17 +309,6 @@ const validateForm = (event: Event) => {
 		input.classList.remove("ring");
 		input.classList.remove("ring-red-500");
 	}
-	checkBoxes.forEach((checkbox) => {
-		checkbox.addEventListener("change", () => {
-			if (checkbox.checked)
-			{
-				number++;
-				console.log(`number: ${number}`);
-			}
-			else
-			number--;
-		});
-	});
 	if (allValid && number >= 3) {
 		alert("Form submitted successfully! 🎉");
 		submitBtn.style.backgroundColor = "#4b7694";
