@@ -235,9 +235,9 @@ const updateStartButton = (input, submitBtn, inviteFriendsMode, invitedFriendsLi
     let allValid = true;
     const txtErrMsg = document.createElement('p');
     const boxErrMsg = document.createElement('p');
-    txtErrMsg.className = 'mt-2 text-red-500 text-xs';
+    txtErrMsg.className = 'max-550:mt-1 mt-2 text-red-500 max-550:text-2xs text-xs';
     txtErrMsg.textContent = 'Please provide a name for the tournament.';
-    boxErrMsg.className = 'mt-2 text-red-500 text-xs';
+    boxErrMsg.className = 'max-550:mt-1 mt-2 text-red-500 max-550:text-2xs text-xs';
     boxErrMsg.textContent = 'Please select at least 3 players.';
     submitBtn.style.backgroundColor = "#8a8a92";
     if (!input.value.trim()) {

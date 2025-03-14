@@ -7,14 +7,17 @@ module.exports = {
         xs: {
           max: '639px',
         },
-        'max-521': {
-          max: '521px',
+        'min-316': {
+          min: '316px',
         },
         'max-503': {
           max: '503px',
         },
-        'min-316': {
-          min: '316px',
+        'max-521': {
+          max: '521px',
+        },
+        'max-550': {
+          max: '550px',
         },
         'min-1900': {
           min: '1900px',
