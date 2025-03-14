@@ -155,6 +155,15 @@
   align-items: center;
 }
 
+.titleESC
+{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .exit {
 	display: block;
 	justify-content: end;
@@ -174,6 +183,16 @@
 {
   background-color: white;
   transition: 1s;
+}
+
+.ESC2
+{
+	font-family: arial;
+	font-size: 10px;
+	text-align: end;
+	color: white;
+	padding-right: 20%;
+	padding-top: 10%;
 }
 
 .text

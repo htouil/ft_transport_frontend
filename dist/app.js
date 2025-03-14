@@ -116,17 +116,11 @@ const setupProfilButtons = () => {
 };
 const selectLocal = () => {
     localBtn?.classList.add('bg-gray-600');
-    localBtn?.classList.remove('hover:bg-gray-500');
-    onlineBtn?.classList.remove('bg-gray-600');
-    onlineBtn?.classList.add("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
-    localBtn?.classList.remove("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
+    onlineBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 };
 const selectOnline = () => {
     onlineBtn?.classList.add('bg-gray-600');
-    onlineBtn?.classList.remove('hover:bg-gray-500');
-    localBtn?.classList.remove('bg-gray-600');
-    localBtn?.classList.add("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
-    onlineBtn?.classList.remove("active:bg-gray-700", "active:outline-none", "active:ring", "active:ring-gray-950");
+    localBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 };
 const openSidePanel = (e) => {
     e?.stopPropagation();
@@ -221,66 +215,57 @@ const setupHostTournamentPage = () => {
 };
 const setupTournamentForm = () => {
     const form = document.getElementById('tournamentForm');
-    const submitBtn = form.querySelector('button[type="submit]');
-    const input = form.querySelector("input[required]");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const input = form.querySelector('input[required]');
+    const inviteFriendsMode = document.getElementById('inviteFriendsMode');
+    const invitedFriendsList = document.getElementById('invitedFriendsList');
     const checkBoxes = form.querySelectorAll('input[type="checkbox"]');
-    // if (!submitBtn) return;
-    if (form) {
-        form.addEventListener("input", () => updateStartButton(input, submitBtn, checkBoxes));
-        form.addEventListener("submit", (event) => {
-            event.preventDefault();
-            if (updateStartButton(input, submitBtn, checkBoxes)) {
-                alert("Form submitted successfully! 🎉");
-                // if (submitBtn)
-                // 	submitBtn.style.setProperty("background-color", "#4b7694");
-                //   form.submit();
-            }
-        });
-    }
+    if (!submitBtn || !inviteFriendsMode || !form)
+        return;
+    form.addEventListener("input", () => updateStartButton(input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes));
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (updateStartButton(input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes)) {
+            alert("Form submitted successfully! 🎉");
+            //   form.submit();
+        }
+    });
 };
-const updateStartButton = (input, submitBtn, checkBoxes) => {
+const updateStartButton = (input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes) => {
     let allValid = true;
-    if (submitBtn)
-        submitBtn.style.backgroundColor = "#8a8a92";
+    const txtErrMsg = document.createElement('p');
+    const boxErrMsg = document.createElement('p');
+    txtErrMsg.className = 'mt-2 text-red-500 text-xs';
+    txtErrMsg.textContent = 'Please provide a name for the tournament.';
+    boxErrMsg.className = 'mt-2 text-red-500 text-xs';
+    boxErrMsg.textContent = 'Please select at least 3 players.';
+    submitBtn.style.backgroundColor = "#8a8a92";
     if (!input.value.trim()) {
         allValid = false;
-        document.addEventListener('click', (event) => {
-            if (!Array.from(checkBoxes).includes(event.target)) {
-                input.classList.remove("ring");
-                input.classList.remove("ring-red-500");
-            }
-        });
-        input.classList.add("ring");
-        input.classList.add("ring-red-500");
+        input.classList.add('ring', 'ring-red-500');
+        if (!input.nextElementSibling?.classList.contains('text-red-500'))
+            input.after(txtErrMsg);
         // console.log(`here: '${input.value}'`);
     }
     else {
-        input.classList.remove("ring");
-        input.classList.remove("ring-red-500");
+        input.classList.remove('ring', 'ring-red-500');
+        if (input.nextElementSibling?.classList.contains('text-red-500'))
+            input.nextElementSibling.remove();
     }
     const checkedCount = Array.from(checkBoxes).filter(checkbox => checkbox.checked).length;
-    if (checkedCount < 3)
+    // console.log(`total: `);
+    if (checkedCount < 3) {
         allValid = false;
-    // if (allValid)
-    // {
-    // 	if (submitBtn)
-    // 	{
-    // 		submitBtn.style.backgroundColor = "#4b7694";
-    // 		submitBtn.disabled = false;
-    // 	}
-    // }
-    // else
-    // {
-    // 	if (submitBtn)
-    // 	{
-    // 		submitBtn.style.backgroundColor = "#8a8a92";
-    // 		submitBtn.disabled = true;
-    // 	}
-    // }
-    if (submitBtn) {
-        submitBtn.style.setProperty("background-color", allValid ? "#4b7694" : "#8a8a92");
+        inviteFriendsMode.style.setProperty('border-color', '#ef4444');
+        if (!invitedFriendsList.nextElementSibling?.classList.contains('text-red-500'))
+            invitedFriendsList.after(boxErrMsg);
     }
-    console.log(`total: `);
+    else {
+        inviteFriendsMode.style.setProperty('border-color', '#5487a8');
+        if (invitedFriendsList.nextElementSibling?.classList.contains('text-red-500'))
+            invitedFriendsList.nextElementSibling.remove();
+    }
+    submitBtn.style.setProperty('background-color', allValid ? '#4b7694' : '#8a8a92');
     return (allValid);
 };
 const updateImage = (index, coverImage, coverImageInput, images) => {
