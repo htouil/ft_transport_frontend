@@ -194,9 +194,9 @@ const setupMessagesButtons = () => {
 const setupHostTournamentPage = () => {
     const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
         "../public/images/cover_4.jpeg"];
-    let currIndex = 0;
     const coverImage = document.getElementById("coverImage");
     const coverImageInput = document.getElementById("coverImageInput");
+    let currIndex = 0;
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     returnBtn = document.querySelector('.rtn-profil-btn');
@@ -235,9 +235,9 @@ const updateStartButton = (input, submitBtn, inviteFriendsMode, invitedFriendsLi
     let allValid = true;
     const txtErrMsg = document.createElement('p');
     const boxErrMsg = document.createElement('p');
-    txtErrMsg.className = 'max-550:mt-1 mt-2 text-red-500 max-550:text-2xs text-xs';
+    txtErrMsg.className = 'max-550:mt-1 mt-2 text-red-500 max-550:text-3xs xs:text-3xs sm:text-2xs text-xs lg:text-xs';
     txtErrMsg.textContent = 'Please provide a name for the tournament.';
-    boxErrMsg.className = 'max-550:mt-1 mt-2 text-red-500 max-550:text-2xs text-xs';
+    boxErrMsg.className = 'max-550:mt-1 mt-2 text-red-500 max-550:text-3xs xs:text-3xs sm:text-2xs text-xs lg:text-xs';
     boxErrMsg.textContent = 'Please select at least 3 players.';
     submitBtn.style.backgroundColor = "#8a8a92";
     if (!input.value.trim()) {
