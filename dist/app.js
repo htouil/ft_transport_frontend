@@ -6,6 +6,7 @@ let navBtns;
 //profil page:
 let homeBtn;
 let settingsBtn;
+let addFriendBtn;
 let msgBtn;
 let sidePanel;
 let openBtn;
@@ -87,7 +88,8 @@ const loadnhistory = (toLoad) => {
 const setupProfilButtons = () => {
     homeBtn = document.querySelector('.home-btn');
     settingsBtn = document.querySelector('.settings-btn');
-    msgBtn = document.querySelector('.msg-btn');
+    addFriendBtn = document.getElementById('addFriendBtn');
+    msgBtn = document.getElementById('msgBtn');
     sidePanel = document.getElementById('friends-panel');
     openBtn = document.getElementById('open-btn');
     closeBtn = document.getElementById('close-btn');
@@ -100,6 +102,7 @@ const setupProfilButtons = () => {
     hostTournBtn = document.querySelector('.host-tourn-btn');
     homeBtn?.addEventListener('click', () => loadnhistory('home'));
     settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
+    addFriendBtn?.addEventListener('click', showAddFriendPopup);
     msgBtn?.addEventListener('click', () => loadnhistory('messages'));
     openBtn?.addEventListener('click', openSidePanel);
     closeBtn?.addEventListener('click', closeSidePanel);
@@ -113,6 +116,12 @@ const setupProfilButtons = () => {
     localBtn?.addEventListener('click', selectLocal);
     onlineBtn?.addEventListener('click', selectOnline);
     hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
+};
+const showAddFriendPopup = () => {
+    const toBlur = document.getElementById('toBlur');
+    const toPop = document.getElementById('toPop');
+    toBlur.classList.add('blur-md');
+    toPop.classList.remove('hidden');
 };
 const selectLocal = () => {
     localBtn?.classList.add('bg-gray-600');

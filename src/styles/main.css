@@ -3,6 +3,7 @@
 @import "./Profile_css/profile.css";
 @import "./Sign_up_css/sing_up_main.css";
 @import "./Tournamment_css/tournamment.css";
+@import "./header.css";
 
 @tailwind base;
 @tailwind components;

@@ -7,6 +7,7 @@ let navBtns: NodeListOf<HTMLElement> | null;
 //profil page:
 let homeBtn: HTMLElement | null;
 let settingsBtn: HTMLElement | null;
+let addFriendBtn: HTMLElement | null;
 let msgBtn: HTMLElement | null;
 let sidePanel: HTMLElement | null;
 let openBtn: HTMLElement | null;
@@ -105,7 +106,8 @@ const loadnhistory = (toLoad: string) => {
 const setupProfilButtons = () => {
 	homeBtn = document.querySelector('.home-btn');
 	settingsBtn = document.querySelector('.settings-btn');
-	msgBtn = document.querySelector('.msg-btn');
+	addFriendBtn = document.getElementById('addFriendBtn');
+	msgBtn = document.getElementById('msgBtn');
 	sidePanel = document.getElementById('friends-panel');
 	openBtn = document.getElementById('open-btn');
 	closeBtn = document.getElementById('close-btn');
@@ -119,6 +121,7 @@ const setupProfilButtons = () => {
 	
 	homeBtn?.addEventListener('click', () => loadnhistory('home'));
 	settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
+	addFriendBtn?.addEventListener('click', showAddFriendPopup);
 	msgBtn?.addEventListener('click', () => loadnhistory('messages'));
 	openBtn?.addEventListener('click', openSidePanel);
 	closeBtn?.addEventListener('click', closeSidePanel);
@@ -132,6 +135,14 @@ const setupProfilButtons = () => {
 	localBtn?.addEventListener('click', selectLocal);
 	onlineBtn?.addEventListener('click', selectOnline);
 	hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
+};
+
+const showAddFriendPopup = () => {
+	const toBlur = document.getElementById('toBlur') as HTMLElement;
+	const toPop = document.getElementById('toPop') as HTMLElement;
+
+	toBlur.classList.add('blur-md');
+	toPop.classList.remove('hidden');
 };
 
 const selectLocal = () => {
