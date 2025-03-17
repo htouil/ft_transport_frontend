@@ -1,4 +1,6 @@
-import { updateSignupForm } from "./login.js";
+import { setupLoginPage } from "./login.js";
+import { updateHomeHeadermain3 } from "./home1.js";
+import { updateHomeHeadermain5 } from "./home2.js";
 
 // home page:
 let app: HTMLElement;
@@ -51,13 +53,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 });
 
-const loadPage = async (page: string) => {
+export const loadPage = async (page: string) => {
 	try {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
 		app.innerHTML = content;
 		// console.log(`nav to: ${page}`);
 		hideNav(page);
+		if (page === 'home')
+		{
+			setupHomePage();
+		}
+		if (page === 'login')
+		{
+			setupLoginPage();
+		}
 		if (page === 'profil')
 		{
 			setupProfilButtons();
@@ -75,10 +85,7 @@ const loadPage = async (page: string) => {
 		{
 			setupSettingsButtons();
 		}
-		if (page === 'signup')
-		{
-			setupSignupPage();
-		}
+		
 	}
 	catch (error)
 	{
@@ -86,7 +93,7 @@ const loadPage = async (page: string) => {
 	}
 };
 
-const hideNav = (page: string) =>
+export const hideNav = (page: string) =>
 {
 	if (navBar)
 	{
@@ -97,9 +104,15 @@ const hideNav = (page: string) =>
 	}
 };
 
-const loadnhistory = (toLoad: string) => {
+export const loadnhistory = (toLoad: string) => {
 	loadPage(toLoad);
 	history.pushState({ page: toLoad }, '', `?page=${toLoad}`);
+};
+
+//Home page:
+const setupHomePage = () => {
+	updateHomeHeadermain3();
+	updateHomeHeadermain5();
 };
 
 //Profil page:
@@ -140,9 +153,14 @@ const setupProfilButtons = () => {
 const showAddFriendPopup = () => {
 	const toBlur = document.getElementById('toBlur') as HTMLElement;
 	const toPop = document.getElementById('toPop') as HTMLElement;
+	const bud = document.getElementById('body') as HTMLElement;
 
+	bud?.classList.add('overflow-hidden');
+	toBlur.inert = true;
 	toBlur.classList.add('blur-md');
+	// toBlur.classList.add('overscroll-none');
 	toPop.classList.remove('hidden');
+	toPop.classList.add('flex');
 };
 
 const selectLocal = () => {
@@ -336,8 +354,8 @@ const updateImage = (index: number, coverImage: HTMLElement, coverImageInput: HT
 // import * as home2 from "./home2";
 // import * as login from "./login";
 // import * as profile from "./TS/Profile_ts/profile";
-// import { updateTransheadermain3 } from "./home1";
-// import { updateTransheadermain5 } from "./home2";
+// import { updateHomeHeadermain3 } from "./home1";
+// import { updateHomeHeadermain5 } from "./home2";
 
 //Settings page:
 const setupSettingsButtons = () => {
@@ -346,8 +364,7 @@ const setupSettingsButtons = () => {
 	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
 };
 
-//Signup page:
-const setupSignupPage = () => {
-	updateSignupForm();
-	// updateTransheadermain3();
-};
+// //Signup page:
+// const setupLoginPage = () => {
+	
+// };

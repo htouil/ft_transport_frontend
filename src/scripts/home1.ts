@@ -1,4 +1,6 @@
-const updateTransheadermain3 = () => {
+import { loadPage, hideNav, loadnhistory } from './app.js';
+
+export const updateHomeHeadermain3 = () => {
     const tag = [{
         logo : '../public/logos/add_person_logo.svg',
         tagTitle : 'Open an Account',
@@ -43,6 +45,9 @@ const updateTransheadermain3 = () => {
     if (element) {
         element.innerHTML = htmlGen;
     }
+    const loginPageBtn = document.getElementById('loginPageBtn') as HTMLButtonElement;
+
+    loginPageBtn?.addEventListener('click', () => loadnhistory('login'));
 };
 
-module.exports = { updateTransheadermain3 };
+// module.exports = { updateHomeHeadermain3 };

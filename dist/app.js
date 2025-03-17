@@ -1,4 +1,6 @@
-import { updateSignupForm } from "./login.js";
+import { setupLoginPage } from "./login.js";
+import { updateHomeHeadermain3 } from "./home1.js";
+import { updateHomeHeadermain5 } from "./home2.js";
 // home page:
 let app;
 let navBar;
@@ -44,13 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
-const loadPage = async (page) => {
+export const loadPage = async (page) => {
     try {
         const response = await fetch(`pages/${page}.html`);
         const content = await response.text();
         app.innerHTML = content;
         // console.log(`nav to: ${page}`);
         hideNav(page);
+        if (page === 'home') {
+            setupHomePage();
+        }
+        if (page === 'login') {
+            setupLoginPage();
+        }
         if (page === 'profil') {
             setupProfilButtons();
             handleScroll();
@@ -64,15 +72,12 @@ const loadPage = async (page) => {
         if (page === 'settings') {
             setupSettingsButtons();
         }
-        if (page === 'signup') {
-            setupSignupPage();
-        }
     }
     catch (error) {
         app.innerHTML = `<p class="text-red-500">Page not found.</p>`;
     }
 };
-const hideNav = (page) => {
+export const hideNav = (page) => {
     if (navBar) {
         if (page === 'home')
             navBar.classList.remove('hidden');
@@ -80,9 +85,14 @@ const hideNav = (page) => {
             navBar.classList.add('hidden');
     }
 };
-const loadnhistory = (toLoad) => {
+export const loadnhistory = (toLoad) => {
     loadPage(toLoad);
     history.pushState({ page: toLoad }, '', `?page=${toLoad}`);
+};
+//Home page:
+const setupHomePage = () => {
+    updateHomeHeadermain3();
+    updateHomeHeadermain5();
 };
 //Profil page:
 const setupProfilButtons = () => {
@@ -120,8 +130,13 @@ const setupProfilButtons = () => {
 const showAddFriendPopup = () => {
     const toBlur = document.getElementById('toBlur');
     const toPop = document.getElementById('toPop');
+    const bud = document.getElementById('body');
+    bud?.classList.add('overflow-hidden');
+    toBlur.inert = true;
     toBlur.classList.add('blur-md');
+    // toBlur.classList.add('overscroll-none');
     toPop.classList.remove('hidden');
+    toPop.classList.add('flex');
 };
 const selectLocal = () => {
     localBtn?.classList.add('bg-gray-600');
@@ -287,15 +302,13 @@ const updateImage = (index, coverImage, coverImageInput, images) => {
 // import * as home2 from "./home2";
 // import * as login from "./login";
 // import * as profile from "./TS/Profile_ts/profile";
-// import { updateTransheadermain3 } from "./home1";
-// import { updateTransheadermain5 } from "./home2";
+// import { updateHomeHeadermain3 } from "./home1";
+// import { updateHomeHeadermain5 } from "./home2";
 //Settings page:
 const setupSettingsButtons = () => {
     returnBtn = document.querySelector('.rtn-profil-btn');
     returnBtn?.addEventListener('click', () => loadnhistory('profil'));
 };
-//Signup page:
-const setupSignupPage = () => {
-    updateSignupForm();
-    // updateTransheadermain3();
-};
+// //Signup page:
+// const setupLoginPage = () => {
+// };

@@ -4,7 +4,7 @@
     display: flex;
     margin-left: 15%;
 }
-.part1
+.part-1
 {
 
     font-family: "Lexend Mega", serif;
@@ -14,7 +14,7 @@
     width: 100%;
 
 }
-.part2
+.part-2
 {
     font-family: arial;
     color: grey;
@@ -23,7 +23,7 @@
     padding-top: 1%;
 }
 
-.part2:hover
+.part-2:hover
 {
     color: white;
     transition: 1s;

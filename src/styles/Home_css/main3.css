@@ -21,7 +21,7 @@
     color: white;
     top: -6%;
     filter: blur(4px);
-    background-color: rgb(26, 26, 46);
+    background-color: rgba(20,20,41,255);
 }
 .main3::after
 {
@@ -31,7 +31,7 @@
     width: 100%;
     color: white;
     bottom: -6%;
-    background-color: rgb(26, 26, 46);
+    background-color: rgba(20,20,41,255);
     filter: blur(4px);
 }
 .info1

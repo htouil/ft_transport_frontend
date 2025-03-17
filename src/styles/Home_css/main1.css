@@ -6,7 +6,7 @@
     position: relative;
     /* background-color: tomato; */
 }
-.main::after
+/* .main::after
 {
     content: '';
     position: absolute;
@@ -15,7 +15,7 @@
     top: 9%;
     left: 41%;
     border-radius: 100%;
-    background-color: rgba(35,53,91,255);
+    background-color: rgba(20,20,41,255);
     filter: blur(56px);
     z-index: -1;
 
@@ -29,11 +29,11 @@
     top: 50%;
     left: 25%;
     border-radius: 100%;
-    background-color: rgba(35,53,91,255);
+    background-color: rgba(20,20,41,255);
     filter: blur(56px);
     z-index: -1;
 
-}
+} */
 .left
 {
     width: 300px;
@@ -55,7 +55,6 @@
   object-fit:fill;
     margin-top: -15%;
     margin-right: -5%;
-
 }
 .not
 {
@@ -63,7 +62,7 @@
     width: 30svw;
     height: 6%;
     bottom: 12%;
-    background-image: linear-gradient(to Right, rgb(26, 26, 46) -144px,rgb(26, 26, 46)119px);
+    background-color: rgba(20,20,41,255);
     filter: blur(4px);
 }
 .left-text

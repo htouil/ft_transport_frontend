@@ -1,0 +1,61 @@
+.login_name_lastName
+{
+    width: 100%;
+    display: flex;
+    gap: 2%;
+}
+.login_user_name
+{
+    flex: 1;
+}
+.login_user_Lastname
+{
+    flex: 1;
+}
+.login_name,
+.login_Lastname
+{
+    font-size: clamp(10px, 1vw, 43px);
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.input_login_name,
+.input_login_Lastname,
+.input_login_Username,
+.input_login_Email
+{
+    width: 100%;
+    height: clamp(10px, 2vw, 43px);
+    text-indent: 5%;
+    border-radius: 30px;
+    background-color: rgba(94,94,111,255);
+    border: none;
+    color: white;
+}
+
+.username_login2_info,
+.email_login2_info,
+.Password_login2_info,
+.confirm_ps_login2_info
+{
+    width: 100%;
+    height: 20%;
+}
+
+.username_login2_Text,
+.email_login2_Text,
+.password_login2_Text,
+.confirm_ps_Text
+{
+    font-size: clamp(10px, 1vw, 43px);
+    font-weight: bold;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    /* padding-bottom: -20%; */
+}
+.line
+{
+    padding-bottom: 3%;
+    border-bottom: 4px solid white; /* Underline only when active */
+}
