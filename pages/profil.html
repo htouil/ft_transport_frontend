@@ -38,7 +38,7 @@
     <header class="header_notif px-32">
         <button data-page="home" title="Home"
             class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
-            <img class=" size-16" src="../public/logos/pingpong_racket.png">
+            <img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
             <div class="logo-name_notif">
                 <p class="logo-name1_notif">
                     PingPong.io
@@ -62,7 +62,7 @@
         </div>
     </header>
 
-    <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 gap-x-4 xl:gap-x-20 m-16 mt-60 min-1900:mx-20">
+    <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 md:gap-x-4 lg:gap-x-10 xl:gap-x-16 2xl:gap-x-20 mt-40 2xl:mt-52 mx-16 min-1900:mx-20">
         <!-- Profil's setting -->
         <div class="grid grid-cols-1 grid-rows-7 row-span-2 col-span-5 gap-2 p-4 lg:p-6 items-center bg-cover bg-center bg-no-repeat border border-hidden rounded-2xl xs:row-span-2 xs:col-span-1 faded-border" style="background-image: url('../public/images/rackets_cover_picture.jpeg'); width: 100%;">
             <div class="relative grid grid-cols-2 grid-rows-1 row-span-3 justify-between items-center">
@@ -81,7 +81,7 @@
                 </button>
 			</div>
 			<div class="grid grid-cols-5 grid-rows-2 row-span-1 gap-y-2 w-fit justify-self-end xs:grid-cols-4 xs:mr-4 sm:mr-4 md:mr-3">
-				<button type="button" id="addFriendBtn" class="grid grid-cols-4 grid-rows-1 col-start-5 xs:col-start-4 border border-hidden rounded-xl place-items-center relative z-0 bg-purple-500 pink-btn overflow-hidden xs:w-20 xs:h-5 sm:w-20 sm:h-5 md:w-20 md:h-4 lg:w-20 lg:h-5 xl:w-24 xl:h-5">
+				<button type="button" id="addNewFriendShowBtn" class="grid grid-cols-4 grid-rows-1 col-start-5 xs:col-start-4 border border-hidden rounded-xl place-items-center relative z-0 bg-purple-500 pink-btn overflow-hidden xs:w-20 xs:h-5 sm:w-20 sm:h-5 md:w-20 md:h-4 lg:w-20 lg:h-5 xl:w-24 xl:h-5">
 					<svg xmlns="http://www.w3.org/2000/svg" height="12" width="15" viewBox="0 0 640 512" class="w-3 h-2.5 lg:w-3.5 lg:h-2.5 xl:w-4 xl:h-3">
 						<path fill="#ffffff" d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
 					</svg>
@@ -103,20 +103,20 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-2 row-start-3 row-span-3 col-span-5 gap-5 xl:gap-20 2xl:gap-32 xs:row-span-2 xs:col-span-1 md:h-fit"> <!-- Game's setting -->
+		<div class="grid grid-cols-2 row-start-3 row-span-3 col-span-5 xs:gap-3 sm:gap-5 xl:gap-20 2xl:gap-32 xs:row-span-2 xs:col-span-1 md:h-fit"> <!-- Game's setting -->
 			<div class="grid grid-rows-5 gap-2.5 md:h-fit">
 				<div>
-					<h1 class="font-bold text-white">Modes & Options</h1>
+					<h1 class="font-bold xs:text-sm sm:text-sm md:text-base text-white">Modes & Options</h1>
 				</div>
 				<div class="grid grid-rows-3 lg:grid-rows-2 gap-1 md:h-fit">
-					<h2 class="text-white md:text-base">Game mode</h2>
-					<div class="row-span-2 grid grid-cols-2 xs:gap-4 gap-8 w-full h-3/4 md:h-10 border-2 text-sm border-white border-solid rounded-xl bg-gray-400 place-self-start place-items-center">
-						<button type="button" id="local-btn" class="flex items-center place-content-center gap-2.5 border-hidden rounded-xl w-10/12 bg-gray-600 hover:bg-gray-500 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
-							<img src="../public/logos/signal-sign.svg" class="size-5 md:size-4">
+					<h2 class="xs:text-sm sm:text-sm md:text-base text-white">Game mode</h2>
+					<div class="row-span-2 grid grid-cols-2  xs:gap-4 sm:gap-4 md:gap-4 max-870:gap-2 lg:gap-8 w-full h-3/4 md:h-10 border-2 text-sm border-white border-solid rounded-xl bg-gray-400 place-self-start place-items-center">
+						<button type="button" id="local-btn" class="flex items-center place-content-center max-565:gap-1.5 gap-2.5 border-hidden rounded-xl w-10/12 bg-gray-600 hover:bg-gray-500 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
+							<img src="../public/logos/signal-sign.svg" class="max-870:size-4 size-5">
 							<p class="text-white">Local</p>
 						</button>
-						<button type="button" id="online-btn" class="flex items-center place-content-center gap-2.5 border-hidden rounded-xl w-10/12 hover:bg-gray-500 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
-							<svg data-slot="icon" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-4">
+						<button type="button" id="online-btn" class="flex items-center place-content-center max-565:gap-1.5 gap-2.5 border-hidden rounded-xl w-10/12 hover:bg-gray-500 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
+							<svg data-slot="icon" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="max-870:size-4 size-5">
 								<path clip-rule="evenodd" fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM8.547 4.505a8.25 8.25 0 1 0 11.672 8.214l-.46-.46a2.252 2.252 0 0 1-.422-.586l-1.08-2.16a.414.414 0 0 0-.663-.107.827.827 0 0 1-.812.21l-1.273-.363a.89.89 0 0 0-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.211.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 0 1-1.81 1.025 1.055 1.055 0 0 1-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.654-.261a2.25 2.25 0 0 1-1.384-2.46l.007-.042a2.25 2.25 0 0 1 .29-.787l.09-.15a2.25 2.25 0 0 1 2.37-1.048l1.178.236a1.125 1.125 0 0 0 1.302-.795l.208-.73a1.125 1.125 0 0 0-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 0 1-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 0 1-1.458-1.137l1.279-2.132Z"></path>
 							</svg>
 							<p class="text-white">Online</p>
@@ -124,60 +124,60 @@
 					</div>
 				</div>
 				<div class="grid grid-rows-2 gap-2 md:h-fit">
-					<h2 class="self-end text-white">Normal game options</h2>
-					<button type="button" class="self-start border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 hover:bg-slate-400 play-btn1">
-						<p class="text-white">Play solo</p>
+					<h2 class="self-end xs:text-sm sm:text-sm md:text-base text-white">Normal game options</h2>
+					<button type="button" class="self-start border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play solo</p>
 					</button>
 				</div>	
 				<div class="grid grid-rows-2 gap-2 md:h-fit">
 					<button type="button" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
-						<p class="text-white">Play with friends</p>
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play with friends</p>
 					</button>
-					<h2 class="self-end text-white">Tournament options</h2>
+					<h2 class="self-end xs:text-sm sm:text-sm md:text-base text-white">Tournament options</h2>
 				</div>
 				<div class="grid grid-rows-2 gap-2 lg:gap-3 md:h-fit">
 					<button type="button" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
-						<p class="text-white">Join a tournament</p>
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Join a tournament</p>
 					</button>
 					<button type="button" data-page="hosttourn" class="host-tourn-btn border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
-						<p class="text-white">Host a tournament</p>
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Host a tournament</p>
 					</button>
 				</div>
 			</div>
 			<div class="grid grid-rows-2 gap-6">
 				<div class="row-span-1 grid grid-rows-3">
-					<h1 class="row-span-1 font-bold text-white">Performances</h1>
+					<h1 class="row-span-1 font-bold xs:text-sm sm:text-sm md:text-base text-white">Performances</h1>
 					<div class="row-span-2 grid grid-cols-2 gap-2">
-						<div class="grid grid-rows-3 lg:grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 justify-self-center self-end lg:self-center text-center text-white max-521:text-3xs text-2xs md:text-[9px] lg:text-xs">
+						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
+							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs">
 								Matches played
 							</h2>
-							<div class="grid row-span-2">
-								<p class="self-center justify-self-center text-2xl font-bold" style="color: #666495;">15</p>
+							<div class="flex flex-1 self-center items-center">
+								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
-						<div class="grid grid-rows-3 lg:grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 justify-self-center self-end lg:self-center text-center text-white max-521:text-3xs text-2xs md:text-[9px] lg:text-xs">
+						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
+							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs">
 								Tournaments played
 							</h2>
-							<div class="grid row-span-2">
-								<p class="self-center justify-self-center text-2xl font-bold" style="color: #666495;">15</p>
+							<div class="flex flex-1 self-center items-center">
+								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
-						<div class="grid grid-rows-3 lg:grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 justify-self-center self-end lg:self-center text-center text-white max-521:text-3xs text-2xs md:text-[9px] lg:text-xs">
+						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
+							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs">
 								Global rank
 							</h2>
-							<div class="grid row-span-2">
-								<p class="self-center justify-self-center text-2xl font-bold" style="color: #666495;">15</p>
+							<div class="flex flex-1 self-center items-center">
+								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
-						<div class="grid grid-rows-3 lg:grid-rows-2 border-2 border-white border-solid rounded-xl" style="background: #404251;">
-							<h2 class="row-span-1 justify-self-center self-end lg:self-center text-center text-white max-521:text-3xs text-2xs md:text-[9px] lg:text-xs">
+						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
+							<h2 class="justify-self-center self-center lg:self-center text-center text-white xs:text-4xs text-2xs md:text-[8px] lg:text-xs">
 								Total friends
 							</h2>
-							<div class="grid row-span-2">
-								<p class="self-center justify-self-center text-2xl font-bold" style="color: #666495;">15</p>
+							<div class="flex flex-1 self-center items-center">
+								<p class="text-2xl font-bold" style="color: #666495;">15</p>
 							</div>
 						</div>
 					</div>
@@ -185,24 +185,24 @@
 				<div class="row-span-1 grid grid-cols-5 border-2 border-white border-solid rounded-xl" style="background: #404251;">
 					<div class="col-span-2 grid grid-rows-2">
 						<div class="grid">
-							<h2 class="row-span-1 self-center justify-self-center text-white text-xs">
+							<h2 class="row-span-1 self-center justify-self-center text-white xs:text-2xs text-xs">
 								Your Level
 							</h2>
 							<div class="row-span-1 self-start justify-self-center">
-								<p class="text-base font-bold" style="color: #666495;">Level 7</p>
+								<p class="xs:text-xs text-base font-bold" style="color: #666495;">Level 7</p>
 							</div>
 						</div>
 						<div class="grid">
-							<h2 class="row-span-1 self-center justify-self-center text-white text-xs">
+							<h2 class="row-span-1 self-center justify-self-center text-white xs:text-2xs text-xs">
 								Your Xp
 							</h2>
 							<div class="row-span-1 self-start justify-self-center">
-								<p class="text-base font-bold" style="color: #666495;">31 725<span>xp</span></p>
+								<p class="xs:text-xs text-base font-bold" style="color: #666495;">31 725<span>xp</span></p>
 							</div>
 						</div>
 					</div>
 					<div class="grid col-span-3">
-						<svg class="w-24 h-24 place-self-center" viewBox="0 0 100 100">
+						<svg class="xs:size-20 size-24 place-self-center" viewBox="0 0 100 100">
 							<circle class="text-gray-300" stroke-width="10" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" />
 							<circle style="color: #666495" stroke-width="10" stroke-dasharray="282.6" stroke-dashoffset="calc(282.6 - (282.6 * 75 / 100))" stroke-linecap="round" stroke="currentColor" fill="transparent" r="45" cx="50" cy="50" transform="rotate(-90 50 50)" 	/>
 							<text x="50" y="50" text-anchor="middle" dy="0.3em" class="font-bold text-xl" style="fill: #666495">75%</text>
@@ -213,7 +213,7 @@
 		</div>
 		<!-- friends for md: (fix responsivity on the width of the tags)-->
 		<div class="col-start-6 col-span-3 row-span-5 border-solid border-black hidden md:block md:h-fit">
-			<div class="grid grid-rows-5 border-4 h-[780px] mt-5 p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
+			<div class="grid grid-rows-5 border-4 md:h-[780px] lg:h-[872px] mt-5 p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
 				<div class="grid row-span-1">
 					<h1 class="justify-self-center font-bold">Friends & History</h1>
 					<div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center h-5" style="background-color: #3f4251;">
@@ -223,18 +223,18 @@
 				</div>
 				<div class="row-span-4 friends-list">
 					<!-- Friend's requests -->
-					<h2 class="text-xs font-bold my-3">Friend's requests</h2>
-					<div class="grid gap-2 rounded-lg overflow-y-scroll overscroll-auto h-60 scrollable">
-						<div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4" style="background: #3f4251;">
-							<div class="col-span-2 flex items-center gap-2">
+					<h2 class="text-xs font-bold my-3 2xl:mt-0">Friend's requests</h2>
+					<div class="flex flex-col flex-1 md:gap-2 lg:gap-3 rounded-lg overflow-y-auto overscroll-auto md:h-60 lg:h-[270px] 2xl:h-[295px] scrollable">
+						<div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 max-814:pl-1.5 pl-2 max-814:pr-1.5 pr-4" style="background: #3f4251;">
+							<div class="col-span-2 flex items-center max-814:gap-1 gap-2">
 								<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8 xl:size-9 2xl:size-10">
 								<div class="flex flex-col justify-items-center py-1">
 									<strong class="md:text-xs lg:text-sm xl:text-base">htouil</strong>
 									<span class="md:text-3xs lg:text-2xs">Requested 3 days ago</span>
 								</div>
 							</div>
-							<div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+							<div class="self-center justify-self-end grid grid-cols-2 md:gap-1 2xl:gap-3 size-fit">
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
@@ -243,7 +243,7 @@
                                         </path>
                                     </svg>
                                 </button>
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -255,9 +255,9 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4"
+                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 max-814:pl-1.5 pl-2 max-814:pr-1.5 pr-4"
                             style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center gap-2">
+                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
                                     class="rounded-full size-8 xl:size-9 2xl:size-10">
                                 <div class="flex flex-col justify-items-center py-1">
@@ -265,8 +265,8 @@
                                     <span class="md:text-3xs lg:text-2xs">Requested 3 days ago</span>
                                 </div>
                             </div>
-                            <div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+                            <div class="self-center justify-self-end grid grid-cols-2 md:gap-1 2xl:gap-3 size-fit">
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
@@ -275,7 +275,7 @@
                                         </path>
                                     </svg>
                                 </button>
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -287,9 +287,9 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4"
+                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 max-814:pl-1.5 pl-2 max-814:pr-1.5 pr-4"
                             style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center gap-2">
+                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
                                     class="rounded-full size-8 xl:size-9 2xl:size-10">
                                 <div class="flex flex-col justify-items-center py-1">
@@ -297,8 +297,8 @@
                                     <span class="md:text-3xs lg:text-2xs">Requested 3 days ago</span>
                                 </div>
                             </div>
-                            <div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+                            <div class="self-center justify-self-end grid grid-cols-2 md:gap-1 2xl:gap-3 size-fit">
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
@@ -307,7 +307,7 @@
                                         </path>
                                     </svg>
                                 </button>
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -319,9 +319,9 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4"
+                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 max-814:pl-1.5 pl-2 max-814:pr-1.5 pr-4"
                             style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center gap-2">
+                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
                                     class="rounded-full size-8 xl:size-9 2xl:size-10">
                                 <div class="flex flex-col justify-items-center py-1">
@@ -329,8 +329,8 @@
                                     <span class="md:text-3xs lg:text-2xs">Requested 3 days ago</span>
                                 </div>
                             </div>
-                            <div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+                            <div class="self-center justify-self-end grid grid-cols-2 md:gap-1 2xl:gap-3 size-fit">
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
@@ -339,7 +339,7 @@
                                         </path>
                                     </svg>
                                 </button>
-                                <button type="button" class="grid place-items-center border border-black rounded-lg w-7"
+                                <button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4"
                                     style="background-color: #343644;">
                                     <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
                                         viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
@@ -352,11 +352,11 @@
                         </div>
                     </div>
                     <!-- Friends -->
-                    <h2 class="text-xs font-bold mt-14 mb-3">Friends</h2>
-                    <div class="grid rounded-lg overflow-y-scroll overscroll-auto pr-1 gap-2 h-60 scrollable">
-                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 px-2"
+                    <h2 class="text-xs font-bold mt-14 2xl:mt-8 mb-3">Friends</h2>
+                    <div class="flex flex-col flex-1 rounded-lg overflow-y-auto overscroll-auto md:gap-2 lg:gap-3 md:h-60 lg:h-[270px] 2xl:h-[295px] scrollable">
+                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 px-2"
                             style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center gap-2">
+                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
                                     class="rounded-full size-8 xl:size-9 2xl:size-10">
                                 <div class="flex flex-col justify-items-center py-1">
@@ -366,9 +366,9 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 px-2"
+                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 px-2"
                             style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center gap-2">
+                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
                                     class="rounded-full size-8 xl:size-9 2xl:size-10">
                                 <div class="flex flex-col justify-items-center py-1">
@@ -378,9 +378,9 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 px-2"
+                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 px-2"
                             style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center gap-2">
+                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
                                     class="rounded-full size-8 xl:size-9 2xl:size-10">
                                 <div class="flex flex-col justify-items-center py-1">
@@ -390,9 +390,9 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 px-2"
+                        <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 px-2"
                             style="background: #3f4251;">
-                            <div class="col-span-2 flex items-center gap-2">
+                            <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
                                     class="rounded-full size-8 xl:size-9 2xl:size-10">
                                 <div class="flex flex-col justify-items-center py-1">
@@ -406,8 +406,8 @@
                 <!-- History -->
                 <div class="row-span-4 hidden history-list">
                     <h2 class="text-xs font-bold my-2.5">Match history</h2>
-                    <div class="grid ronded-lg overflow-y-scroll overscroll-auto pr-1 h-[550px] scrollable">
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                    <div class="flex flex-col md:gap-2 lg:gap-3.5 ronded-lg overflow-y-auto overscroll-auto md:h-[570px] lg:h-[640px] scrollable">
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #8a3f47;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -422,7 +422,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #3f6f92;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -437,7 +437,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #60609b;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -452,7 +452,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #8a3f47;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -467,7 +467,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #3f6f92;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -482,7 +482,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #60609b;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -497,7 +497,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #8a3f47;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -512,7 +512,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #3f6f92;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -527,7 +527,7 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #60609b;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
                                 <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -545,35 +545,33 @@
                 </div>
             </div>
         </div>
-        <!-- need to fill the div above -->
-        <div id="friends-panel"
-            class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 block md:hidden">
-            <div class="fixed top-28 right-0 w-full h-fit grid p-2 gap-4">
+        <!-- Side panel -->
+        <div id="friends-panel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 block md:hidden">
+            <div class="fixed top-52 w-full h-fit grid p-2 gap-4">
                 <div class="grid place-content-end">
-                    <button id="close-btn" class="border-2 border-black rounded-lg text-black size-fit">
-                        <svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6">
+                    <button id="close-btn" class="border-2 border-white rounded-lg text-white size-fit">
+                        <svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
-                <div class="grid grid-rows-5 border-4 h-[833px] p-2 bg-transparent rounded-2xl text-white"
-                    style="border-color: #5487a8;">
+                <div class="grid grid-rows-5 border-4 h-[833px] p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
                     <div class="grid row-span-1">
                         <h1 class="justify-self-center font-bold">Friends & History</h1>
-                        <div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center h-5"
-                            style="background-color: #3f4251;">
-                            <button type="button"
-                                class="border-r border-white text-sm text-center size-full rounded-l-md friends-btn">Friends</button>
-                            <button type="button"
-                                class="border-l border-white text-sm text-center size-full rounded-r-md history-btn">History</button>
+                        <div class="grid grid-cols-2 grid-rows-1 mt-5 border rounded-lg place-items-center h-5" style="background-color: #3f4251;">
+                            <button type="button"class="border-r border-white text-sm text-center size-full rounded-l-md friends-btn">
+                                Friends
+                            </button>
+                            <button type="button" class="border-l border-white text-sm text-center size-full rounded-r-md history-btn">
+                                History
+                            </button>
                         </div>
                     </div>
                     <div class="row-span-4 friends-list">
                         <!-- Friend's requests -->
                         <h2 class="text-xs font-bold my-3">Friend's requests</h2>
-                        <div class="grid rounded-lg overflow-y-scroll overscroll-auto pr-1 gap-2 h-60 scrollable">
-                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4"
+                        <div class="flex flex-col rounded-lg overflow-y-auto overscroll-auto pr-1 gap-2 h-64 scrollable">
+                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 max-527:pr-2 pr-4"
                                 style="background: #3f4251;">
                                 <div class="col-span-2 flex items-center gap-2">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -607,7 +605,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4"
+                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 max-527:pr-2 pr-4"
                                 style="background: #3f4251;">
                                 <div class="col-span-2 flex items-center gap-2">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -641,7 +639,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4"
+                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 max-527:pr-2 pr-4"
                                 style="background: #3f4251;">
                                 <div class="col-span-2 flex items-center gap-2">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -675,7 +673,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 pr-4"
+                            <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 pl-2 max-527:pr-2 pr-4"
                                 style="background: #3f4251;">
                                 <div class="col-span-2 flex items-center gap-2">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -711,7 +709,7 @@
                         </div>
                         <!-- Friends -->
                         <h2 class="text-xs font-bold mt-14 mb-3">Friends</h2>
-                        <div class="grid rounded-lg overflow-y-scroll overscroll-auto pr-1 gap-2 h-60 scrollable">
+                        <div class="flex flex-col rounded-lg overflow-y-auto overscroll-auto pr-1 gap-2 h-64 scrollable">
                             <div class="grid grid-cols-3 grid-rows-1 border rounded-xl h-12 px-2"
                                 style="background: #3f4251;">
                                 <div class="col-span-2 flex items-center gap-2">
@@ -761,10 +759,11 @@
                             </div>
                         </div>
                     </div>
+                    <!-- History -->
                     <div class="row-span-4 hidden history-list">
                         <h2 class="text-xs font-bold my-2.5">Match history</h2>
-                        <div class="grid ronded-lg overflow-y-scroll overscroll-auto pr-1 h-[600px] scrollable">
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                        <div class="flex flex-col gap-2 ronded-lg overflow-y-auto overscroll-auto pr-1 h-[600px] scrollable">
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #8a3f47;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -779,7 +778,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #3f6f92;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -794,7 +793,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #60609b;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -809,7 +808,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #8a3f47;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -824,7 +823,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #3f6f92;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -839,7 +838,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #60609b;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -854,7 +853,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #8a3f47;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -869,7 +868,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #3f6f92;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -884,7 +883,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 my-1.5 px-2 py-1"
+                            <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                                 style="background-color: #60609b;">
                                 <div class="grid grid-cols-2 grid-rows-1">
                                     <img src="../public/profile_pictures/htouil.jpeg" alt="htouil"
@@ -905,14 +904,20 @@
         </div>
     </div>
     <!-- stop scrolling -->
-    <form id="toPop" class="absolute hidden flex-col gap-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[500px] border rounded-2xl p-10 bg-sky-800 text-center">
+    <form id="toPop" class="absolute hidden flex-col gap-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[370px] border rounded-2xl p-8 bg-sky-800 text-center">
+        <button type="button" id="addNewFriendCloseBtn" class="flex gap-0.5 justify-self-center self-end text-white">
+            <p class="self-center text-lg">close</p>
+            <svg data-slot="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-10">
+                <path clip-rule="evenodd" fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z"></path>
+            </svg>
+        </button>
         <label for="addNewFriend" class="text-white text-center text-lg"> Add Friends...</label>
         <input type="search" id="addNewFriend" name="addNewFriend" placeholder="Enter the player's ID or real name..." class="text-gray-300 border-none rounded-lg bg-gray-500/50 focus:outline-none h-9 px-4">
         <button type="button" class="text-white border-2 rounded-xl border-neutral-600 w-1/2 h-8 self-center transition ease-in-out duration-150 shadow-sm bg-sky-900 hover:bg-sky-950 active:scale-95">
             Search
         </button>
         <div class="rounded-xl flex-1 bg-sky-900">
-            .
+            
         </div>
     </form>
 </body>

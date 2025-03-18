@@ -13,11 +13,23 @@ module.exports = {
         'max-503': {
           max: '503px',
         },
-        'max-521': {
-          max: '521px',
+        'max-575': {
+          max: '575px',
+        },
+        'max-527': {
+          max: '527px',
         },
         'max-550': {
           max: '550px',
+        },
+        'max-565': {
+          max: '565px',
+        },
+        'max-814': {
+          max: '814px',
+        },
+        'max-870': {
+          max: '870px',
         },
         'min-1900': {
           min: '1900px',

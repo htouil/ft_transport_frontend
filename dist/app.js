@@ -8,7 +8,8 @@ let navBtns;
 //profil page:
 let homeBtn;
 let settingsBtn;
-let addFriendBtn;
+let addNewFriendShowBtn;
+let addNewFriendCloseBtn;
 let msgBtn;
 let sidePanel;
 let openBtn;
@@ -98,7 +99,8 @@ const setupHomePage = () => {
 const setupProfilButtons = () => {
     homeBtn = document.querySelector('.home-btn');
     settingsBtn = document.querySelector('.settings-btn');
-    addFriendBtn = document.getElementById('addFriendBtn');
+    addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn');
+    addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn');
     msgBtn = document.getElementById('msgBtn');
     sidePanel = document.getElementById('friends-panel');
     openBtn = document.getElementById('open-btn');
@@ -112,7 +114,8 @@ const setupProfilButtons = () => {
     hostTournBtn = document.querySelector('.host-tourn-btn');
     homeBtn?.addEventListener('click', () => loadnhistory('home'));
     settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
-    addFriendBtn?.addEventListener('click', showAddFriendPopup);
+    addNewFriendShowBtn?.addEventListener('click', showAddNewFriendPopup);
+    addNewFriendCloseBtn?.addEventListener('click', closeAddNewFriendPopup);
     msgBtn?.addEventListener('click', () => loadnhistory('messages'));
     openBtn?.addEventListener('click', openSidePanel);
     closeBtn?.addEventListener('click', closeSidePanel);
@@ -127,16 +130,25 @@ const setupProfilButtons = () => {
     onlineBtn?.addEventListener('click', selectOnline);
     hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
 };
-const showAddFriendPopup = () => {
+const showAddNewFriendPopup = () => {
     const toBlur = document.getElementById('toBlur');
     const toPop = document.getElementById('toPop');
-    const bud = document.getElementById('body');
-    bud?.classList.add('overflow-hidden');
+    // const main = document.getElementById('app') as HTMLElement;
+    // document.body.classList.remove('flex');
+    // document.body.classList.add('overflow-hidden');
+    // document.body.style.overflow = 'hidden';
     toBlur.inert = true;
-    toBlur.classList.add('blur-md');
-    // toBlur.classList.add('overscroll-none');
+    toBlur.classList.add('blur-sm');
     toPop.classList.remove('hidden');
     toPop.classList.add('flex');
+};
+const closeAddNewFriendPopup = () => {
+    const toBlur = document.getElementById('toBlur');
+    const toPop = document.getElementById('toPop');
+    toBlur.inert = false;
+    toBlur.classList.remove('blur-sm');
+    toPop.classList.add('hidden');
+    toPop.classList.remove('flex');
 };
 const selectLocal = () => {
     localBtn?.classList.add('bg-gray-600');
@@ -146,19 +158,19 @@ const selectOnline = () => {
     onlineBtn?.classList.add('bg-gray-600');
     localBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 };
-const openSidePanel = (e) => {
-    e?.stopPropagation();
+const openSidePanel = (event) => {
+    event?.stopPropagation();
     sidePanel?.classList.remove('translate-x-full');
     document.body.classList.add('overflow-hidden');
     showFriendsList();
 };
-const closeSidePanel = (e) => {
-    e?.stopPropagation();
+const closeSidePanel = (event) => {
+    event?.stopPropagation();
     sidePanel?.classList.add('translate-x-full');
     document.body.classList.remove('overflow-hidden');
 };
-const handleOutsideClick = (e) => {
-    if (sidePanel && !sidePanel.contains(e.target) && e.target !== openBtn)
+const handleOutsideClick = (event) => {
+    if (sidePanel && !sidePanel.contains(event.target) && event.target !== openBtn)
         closeSidePanel();
 };
 const showFriendsList = () => {

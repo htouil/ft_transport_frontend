@@ -5,24 +5,25 @@ import { updateHomeHeadermain5 } from "./home2.js";
 // home page:
 let app: HTMLElement;
 let navBar: HTMLElement | null;
-let navBtns: NodeListOf<HTMLElement> | null;
+let navBtns: NodeListOf<HTMLButtonElement> | null;
 //profil page:
-let homeBtn: HTMLElement | null;
-let settingsBtn: HTMLElement | null;
-let addFriendBtn: HTMLElement | null;
-let msgBtn: HTMLElement | null;
+let homeBtn: HTMLButtonElement | null;
+let settingsBtn: HTMLButtonElement | null;
+let addNewFriendShowBtn: HTMLButtonElement | null;
+let addNewFriendCloseBtn: HTMLButtonElement | null;
+let msgBtn: HTMLButtonElement | null;
 let sidePanel: HTMLElement | null;
-let openBtn: HTMLElement | null;
-let closeBtn: HTMLElement | null;
-let friendsBtn: NodeListOf<Element> | null;
-let historyBtn: NodeListOf<Element> | null;
-let friendsList: NodeListOf<Element> | null;
-let historyList: NodeListOf<Element> | null;
-let localBtn: HTMLElement | null;
-let onlineBtn: HTMLElement | null;
-let hostTournBtn: HTMLElement | null;
+let openBtn: HTMLButtonElement | null;
+let closeBtn: HTMLButtonElement | null;
+let friendsBtn: NodeListOf<HTMLButtonElement> | null;
+let historyBtn: NodeListOf<HTMLButtonElement> | null;
+let friendsList: NodeListOf<HTMLButtonElement> | null;
+let historyList: NodeListOf<HTMLButtonElement> | null;
+let localBtn: HTMLButtonElement | null;
+let onlineBtn: HTMLButtonElement | null;
+let hostTournBtn: HTMLButtonElement | null;
 //messages page:
-let returnBtn: HTMLElement | null;
+let returnBtn: HTMLButtonElement | null;
 //host tournament page:
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -119,22 +120,24 @@ const setupHomePage = () => {
 const setupProfilButtons = () => {
 	homeBtn = document.querySelector('.home-btn');
 	settingsBtn = document.querySelector('.settings-btn');
-	addFriendBtn = document.getElementById('addFriendBtn');
-	msgBtn = document.getElementById('msgBtn');
+	addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
+	addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
+	msgBtn = document.getElementById('msgBtn') as HTMLButtonElement;
 	sidePanel = document.getElementById('friends-panel');
-	openBtn = document.getElementById('open-btn');
-	closeBtn = document.getElementById('close-btn');
+	openBtn = document.getElementById('open-btn') as HTMLButtonElement;
+	closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
 	friendsBtn = document.querySelectorAll('.friends-btn');
 	historyBtn = document.querySelectorAll('.history-btn');
 	friendsList = document.querySelectorAll('.friends-list');
 	historyList = document.querySelectorAll('.history-list');
-	localBtn = document.getElementById('local-btn');
-	onlineBtn = document.getElementById('online-btn');
+	localBtn = document.getElementById('local-btn') as HTMLButtonElement;
+	onlineBtn = document.getElementById('online-btn') as HTMLButtonElement;
 	hostTournBtn = document.querySelector('.host-tourn-btn');
 	
 	homeBtn?.addEventListener('click', () => loadnhistory('home'));
 	settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
-	addFriendBtn?.addEventListener('click', showAddFriendPopup);
+	addNewFriendShowBtn?.addEventListener('click', showAddNewFriendPopup);
+	addNewFriendCloseBtn?.addEventListener('click', closeAddNewFriendPopup);
 	msgBtn?.addEventListener('click', () => loadnhistory('messages'));
 	openBtn?.addEventListener('click', openSidePanel);
 	closeBtn?.addEventListener('click', closeSidePanel);
@@ -150,18 +153,29 @@ const setupProfilButtons = () => {
 	hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
 };
 
-const showAddFriendPopup = () => {
+const showAddNewFriendPopup = () => {
 	const toBlur = document.getElementById('toBlur') as HTMLElement;
 	const toPop = document.getElementById('toPop') as HTMLElement;
-	const bud = document.getElementById('body') as HTMLElement;
+	// const main = document.getElementById('app') as HTMLElement;
 
-	bud?.classList.add('overflow-hidden');
+	// document.body.classList.remove('flex');
+	// document.body.classList.add('overflow-hidden');
+	// document.body.style.overflow = 'hidden';
 	toBlur.inert = true;
-	toBlur.classList.add('blur-md');
-	// toBlur.classList.add('overscroll-none');
+	toBlur.classList.add('blur-sm');
 	toPop.classList.remove('hidden');
 	toPop.classList.add('flex');
 };
+
+const closeAddNewFriendPopup = () => {
+	const toBlur = document.getElementById('toBlur') as HTMLElement;
+	const toPop = document.getElementById('toPop') as HTMLElement;
+
+	toBlur.inert = false;
+	toBlur.classList.remove('blur-sm');
+	toPop.classList.add('hidden');
+	toPop.classList.remove('flex');
+}
 
 const selectLocal = () => {
 	localBtn?.classList.add('bg-gray-600');
@@ -173,21 +187,21 @@ const selectOnline = () => {
 	localBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 };
 
-const openSidePanel = (e: Event) => {
-	e?.stopPropagation();
+const openSidePanel = (event: Event) => {
+	event?.stopPropagation();
 	sidePanel?.classList.remove('translate-x-full');
 	document.body.classList.add('overflow-hidden');
 	showFriendsList();
 };
 
-const closeSidePanel = (e?: Event) => {
-	e?.stopPropagation();
+const closeSidePanel = (event?: Event) => {
+	event?.stopPropagation();
 	sidePanel?.classList.add('translate-x-full');
 	document.body.classList.remove('overflow-hidden');
 };
 
-const handleOutsideClick = (e: Event) => {
-	if (sidePanel && !sidePanel.contains(e.target as Node) && e.target !== openBtn)
+const handleOutsideClick = (event: Event) => {
+	if (sidePanel && !sidePanel.contains(event.target as Node) && event.target !== openBtn)
 		closeSidePanel();
 };
 

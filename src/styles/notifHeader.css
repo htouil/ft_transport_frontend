@@ -43,6 +43,7 @@ body
 .logo-pic_notif
 {
     width: 3svw;
+    min-width: 35px;    
     /* background-color: red; */
 }
 .logo-name_notif
@@ -82,9 +83,10 @@ body
 {
     display: flex;
     align-items: center;
-    min-width: 10svw;
+    /* min-width: 10svw; */
     width: 20svw;
     justify-content: end;
+    min-width: 250px;
 }
 .log-in-bt1_notif
 {
