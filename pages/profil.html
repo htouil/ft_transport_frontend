@@ -35,7 +35,7 @@
 			</img>
 		</div>
 	</header> -->
-    <header class="header_notif px-32">
+    <header class="header_notif max-635:px-14 px-24 lg:px-32">
         <button data-page="home" title="Home"
             class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
             <img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
@@ -62,7 +62,7 @@
         </div>
     </header>
 
-    <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 md:gap-x-4 lg:gap-x-10 xl:gap-x-16 2xl:gap-x-20 mt-40 2xl:mt-52 mx-16 min-1900:mx-20">
+    <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 md:gap-x-4 lg:gap-x-10 xl:gap-x-12 2xl:gap-x-20 mt-28 md:mt-36 lg:mt-40 2xl:mt-52 mx-16 min-1900:mx-20">
         <!-- Profil's setting -->
         <div class="grid grid-cols-1 grid-rows-7 row-span-2 col-span-5 gap-2 p-4 lg:p-6 items-center bg-cover bg-center bg-no-repeat border border-hidden rounded-2xl xs:row-span-2 xs:col-span-1 faded-border" style="background-image: url('../public/images/rackets_cover_picture.jpeg'); width: 100%;">
             <div class="relative grid grid-cols-2 grid-rows-1 row-span-3 justify-between items-center">
@@ -74,7 +74,7 @@
 						<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
 					</svg>
 				</button>
-				<button type="button" id="open-btn" class="absolute border-2 border-black bg-gray-500 rounded-full bottom-0 right-0 size-8 hover:scale-125 block md:hidden">
+				<button type="button" id="openSidePanelBtn" class="absolute border-2 border-black bg-gray-500 rounded-full bottom-0 right-0 size-8 hover:scale-125 block md:hidden">
                     <svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-5 translate-x-1">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
                     </svg>
@@ -103,7 +103,7 @@
 			</div>
 		</div>
 
-		<div class="grid grid-cols-2 row-start-3 row-span-3 col-span-5 xs:gap-3 sm:gap-5 xl:gap-20 2xl:gap-32 xs:row-span-2 xs:col-span-1 md:h-fit"> <!-- Game's setting -->
+		<div class="grid grid-cols-2 row-start-3 row-span-3 col-span-5 xs:gap-3 sm:gap-5 xl:gap-16 2xl:gap-32 xs:row-span-2 xs:col-span-1 md:h-fit"> <!-- Game's setting -->
 			<div class="grid grid-rows-5 gap-2.5 md:h-fit">
 				<div>
 					<h1 class="font-bold xs:text-sm sm:text-sm md:text-base text-white">Modes & Options</h1>
@@ -211,7 +211,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- friends for md: (fix responsivity on the width of the tags)-->
+
 		<div class="col-start-6 col-span-3 row-span-5 border-solid border-black hidden md:block md:h-fit">
 			<div class="grid grid-rows-5 border-4 md:h-[780px] lg:h-[872px] mt-5 p-2 bg-transparent rounded-2xl text-white" style="border-color: #5487a8;">
 				<div class="grid row-span-1">
@@ -224,7 +224,7 @@
 				<div class="row-span-4 friends-list">
 					<!-- Friend's requests -->
 					<h2 class="text-xs font-bold my-3 2xl:mt-0">Friend's requests</h2>
-					<div class="flex flex-col flex-1 md:gap-2 lg:gap-3 rounded-lg overflow-y-auto overscroll-auto md:h-60 lg:h-[270px] 2xl:h-[295px] scrollable">
+					<div class="flex flex-col md:gap-2 lg:gap-3 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-auto md:h-60 lg:h-[270px] xl:h-[295px] scrollable">
 						<div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 max-814:pl-1.5 pl-2 max-814:pr-1.5 pr-4" style="background: #3f4251;">
 							<div class="col-span-2 flex items-center max-814:gap-1 gap-2">
 								<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full size-8 xl:size-9 2xl:size-10">
@@ -352,8 +352,8 @@
                         </div>
                     </div>
                     <!-- Friends -->
-                    <h2 class="text-xs font-bold mt-14 2xl:mt-8 mb-3">Friends</h2>
-                    <div class="flex flex-col flex-1 rounded-lg overflow-y-auto overscroll-auto md:gap-2 lg:gap-3 md:h-60 lg:h-[270px] 2xl:h-[295px] scrollable">
+                    <h2 class="text-xs font-bold mt-14 xl:mt-8 mb-3">Friends</h2>
+                    <div class="flex flex-col border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-auto md:gap-2 lg:gap-3 md:h-60 lg:h-[270px] 2xl:h-[295px] scrollable">
                         <div class="grid grid-cols-3 grid-rows-1 border rounded-xl md:h-12 xl:h-14 2xl:h-16 px-2"
                             style="background: #3f4251;">
                             <div class="col-span-2 flex items-center max-814:gap-1 gap-2">
@@ -406,7 +406,7 @@
                 <!-- History -->
                 <div class="row-span-4 hidden history-list">
                     <h2 class="text-xs font-bold my-2.5">Match history</h2>
-                    <div class="flex flex-col md:gap-2 lg:gap-3.5 ronded-lg overflow-y-auto overscroll-auto md:h-[570px] lg:h-[640px] scrollable">
+                    <div class="flex flex-col md:gap-2 lg:gap-3.5 border-t-4 border-b-4 border-gray-300 py-2 rounded-lg overflow-y-auto overscroll-auto md:h-[570px] lg:h-[640px] scrollable">
                         <div class="grid grid-cols-3 grid-rows-1 border items-center rounded-xl h-14 px-2 py-1"
                             style="background-color: #8a3f47;">
                             <div class="grid grid-cols-2 grid-rows-1 md:gap-2 lg:gap-0">
@@ -546,10 +546,10 @@
             </div>
         </div>
         <!-- Side panel -->
-        <div id="friends-panel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 block md:hidden">
+        <div id="sidePanel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 block md:hidden">
             <div class="fixed top-52 w-full h-fit grid p-2 gap-4">
                 <div class="grid place-content-end">
-                    <button id="close-btn" class="border-2 border-white rounded-lg text-white size-fit">
+                    <button id="closeSidePanelBtn" class="border-2 border-white rounded-lg text-white size-fit">
                         <svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
                         </svg>
@@ -903,21 +903,30 @@
             </div>
         </div>
     </div>
-    <!-- stop scrolling -->
-    <form id="toPop" class="absolute hidden flex-col gap-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[370px] border rounded-2xl p-8 bg-sky-800 text-center">
-        <button type="button" id="addNewFriendCloseBtn" class="flex gap-0.5 justify-self-center self-end text-white">
-            <p class="self-center text-lg">close</p>
-            <svg data-slot="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-10">
+
+    <form id="toPop" class="absolute hidden flex-col gap-2 lg:gap-3 2xl:gap-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-80 lg:w-[480px] lg:h-[260px] xl:w-[550px] 2xl:w-[700px] xl:h-[300px] 2xl:h-[370px] border rounded-2xl p-3 lg:p-4 xl:p-5 2xl:p-8 bg-sky-800 text-center">
+        <button type="button" id="addNewFriendcloseSidePanelBtn" class="flex gap-0.5 justify-self-center self-end text-white transition ease-in-out active:scale-95">
+            <p class="self-center text-sm lg:text-base 2xl:text-lg">close</p>
+            <svg data-slot="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-7 lg:size-9 2xl:size-10">
                 <path clip-rule="evenodd" fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z"></path>
             </svg>
         </button>
-        <label for="addNewFriend" class="text-white text-center text-lg"> Add Friends...</label>
-        <input type="search" id="addNewFriend" name="addNewFriend" placeholder="Enter the player's ID or real name..." class="text-gray-300 border-none rounded-lg bg-gray-500/50 focus:outline-none h-9 px-4">
-        <button type="button" class="text-white border-2 rounded-xl border-neutral-600 w-1/2 h-8 self-center transition ease-in-out duration-150 shadow-sm bg-sky-900 hover:bg-sky-950 active:scale-95">
+        <label for="addNewFriend" class="text-white text-center lg:text-lg 2xl:text-xl"> Add Friends...</label>
+        <input type="search" id="addNewFriend" name="addNewFriend" placeholder="Enter the player's ID or real name..." class="text-gray-300 border-none rounded-lg bg-gray-500/50 focus:outline-none h-9 px-4 placeholder:text-sm 2xl:placeholder:text-base">
+        <button type="button" class="text-white text-sm 2xl:text-base border-2 rounded-xl border-neutral-600 w-1/2 h-6 lg:h-7 2xl:h-9 self-center transition ease-in-out bg-sky-900 hover:bg-sky-950 active:scale-95">
             Search
         </button>
-        <div class="rounded-xl flex-1 bg-sky-900">
-            
+        <div class="rounded-xl flex flex-1 justify-between lg:px-6 xl:px-8 2xl:px-10 bg-sky-900">
+            <div class="flex gap-3 items-center">
+                <img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="rounded-full lg:size-9 xl:size-12 2xl:size-16">
+                <div class="flex flex-col py-1 items-start text-white">
+                    <strong class="lg:text-base xl:text-xl 2xl:text-2xl">htouil</strong>
+                    <p class="lg:text-2xs xl:text-xs 2xl:text-sm">Level 7</p>
+                </div>
+            </div>
+            <button type="button" class="rounded-lg bg-sky-900 lg:w-24 xl:w-28 lg:h-3/5 xl:h-1/2 text-white transition self-center shadow-[0_1px_3px_rgba(0,0,0,0.5)] hover:bg-sky-950 hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.5)] active:scale-[0.995]">
+                Add
+            </button>
         </div>
     </form>
 </body>

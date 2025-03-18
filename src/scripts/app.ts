@@ -10,11 +10,11 @@ let navBtns: NodeListOf<HTMLButtonElement> | null;
 let homeBtn: HTMLButtonElement | null;
 let settingsBtn: HTMLButtonElement | null;
 let addNewFriendShowBtn: HTMLButtonElement | null;
-let addNewFriendCloseBtn: HTMLButtonElement | null;
+let addNewFriendcloseSidePanelBtn: HTMLButtonElement | null;
 let msgBtn: HTMLButtonElement | null;
 let sidePanel: HTMLElement | null;
-let openBtn: HTMLButtonElement | null;
-let closeBtn: HTMLButtonElement | null;
+let openSidePanelBtn: HTMLButtonElement | null;
+let closeSidePanelBtn: HTMLButtonElement | null;
 let friendsBtn: NodeListOf<HTMLButtonElement> | null;
 let historyBtn: NodeListOf<HTMLButtonElement> | null;
 let friendsList: NodeListOf<HTMLButtonElement> | null;
@@ -121,11 +121,11 @@ const setupProfilButtons = () => {
 	homeBtn = document.querySelector('.home-btn');
 	settingsBtn = document.querySelector('.settings-btn');
 	addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
-	addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
+	addNewFriendcloseSidePanelBtn = document.getElementById('addNewFriendcloseSidePanelBtn') as HTMLButtonElement;
 	msgBtn = document.getElementById('msgBtn') as HTMLButtonElement;
-	sidePanel = document.getElementById('friends-panel');
-	openBtn = document.getElementById('open-btn') as HTMLButtonElement;
-	closeBtn = document.getElementById('close-btn') as HTMLButtonElement;
+	sidePanel = document.getElementById('sidePanel');
+	openSidePanelBtn = document.getElementById('openSidePanelBtn') as HTMLButtonElement;
+	closeSidePanelBtn = document.getElementById('closeSidePanelBtn') as HTMLButtonElement;
 	friendsBtn = document.querySelectorAll('.friends-btn');
 	historyBtn = document.querySelectorAll('.history-btn');
 	friendsList = document.querySelectorAll('.friends-list');
@@ -137,10 +137,10 @@ const setupProfilButtons = () => {
 	homeBtn?.addEventListener('click', () => loadnhistory('home'));
 	settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
 	addNewFriendShowBtn?.addEventListener('click', showAddNewFriendPopup);
-	addNewFriendCloseBtn?.addEventListener('click', closeAddNewFriendPopup);
+	addNewFriendcloseSidePanelBtn?.addEventListener('click', closeAddNewFriendPopup);
 	msgBtn?.addEventListener('click', () => loadnhistory('messages'));
-	openBtn?.addEventListener('click', openSidePanel);
-	closeBtn?.addEventListener('click', closeSidePanel);
+	openSidePanelBtn?.addEventListener('click', openSidePanel);
+	closeSidePanelBtn?.addEventListener('click', closeSidePanel);
 	document.addEventListener('click', handleOutsideClick);
 	friendsBtn?.forEach((element) => {
 		element.addEventListener('click', showFriendsList);
@@ -158,13 +158,12 @@ const showAddNewFriendPopup = () => {
 	const toPop = document.getElementById('toPop') as HTMLElement;
 	// const main = document.getElementById('app') as HTMLElement;
 
-	// document.body.classList.remove('flex');
-	// document.body.classList.add('overflow-hidden');
-	// document.body.style.overflow = 'hidden';
 	toBlur.inert = true;
 	toBlur.classList.add('blur-sm');
 	toPop.classList.remove('hidden');
 	toPop.classList.add('flex');
+	sidePanel?.classList.remove('block');
+	sidePanel?.classList.add('hidden');
 };
 
 const closeAddNewFriendPopup = () => {
@@ -175,6 +174,8 @@ const closeAddNewFriendPopup = () => {
 	toBlur.classList.remove('blur-sm');
 	toPop.classList.add('hidden');
 	toPop.classList.remove('flex');
+	sidePanel?.classList.add('block');
+	sidePanel?.classList.remove('hidden');
 }
 
 const selectLocal = () => {
@@ -201,7 +202,7 @@ const closeSidePanel = (event?: Event) => {
 };
 
 const handleOutsideClick = (event: Event) => {
-	if (sidePanel && !sidePanel.contains(event.target as Node) && event.target !== openBtn)
+	if (sidePanel && !sidePanel.contains(event.target as Node) && event.target !== openSidePanelBtn)
 		closeSidePanel();
 };
 

@@ -25,6 +25,12 @@ module.exports = {
         'max-565': {
           max: '565px',
         },
+        'max-595': {
+          max: '595px',
+        },
+        'max-635': {
+          max: '635px',
+        },
         'max-814': {
           max: '814px',
         },
