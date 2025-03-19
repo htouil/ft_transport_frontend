@@ -1,6 +1,7 @@
 import { setupLoginPage } from "./login.js";
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
+import { notificationHeader } from "./components.js";
 
 // home page:
 let app: HTMLElement;
@@ -23,18 +24,19 @@ let localBtn: HTMLButtonElement | null;
 let onlineBtn: HTMLButtonElement | null;
 let hostTournBtn: HTMLButtonElement | null;
 //messages page:
-let returnBtn: HTMLButtonElement | null;
+let rtnProfilBtn: HTMLButtonElement | null;
 //host tournament page:
 
 document.addEventListener('DOMContentLoaded', () => {
+	const urlParams = new URLSearchParams(window.location.search);
+    const initialPage = urlParams.get('page') || 'home';
+
 	app = document.getElementById('app')!;
 	navBar = document.querySelector('nav');
 	navBtns = document.querySelectorAll('.nav-btn');
 
-	const urlParams = new URLSearchParams(window.location.search);
-    const initialPage = urlParams.get('page') || 'home';
-
 	// console.log(`here:`);
+	customElements.define('notification-header', notificationHeader);
 	history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
 	loadPage(initialPage);
 	navBtns.forEach((button: HTMLElement) =>
@@ -86,7 +88,6 @@ export const loadPage = async (page: string) => {
 		{
 			setupSettingsButtons();
 		}
-		
 	}
 	catch (error)
 	{
@@ -98,7 +99,7 @@ export const hideNav = (page: string) =>
 {
 	if (navBar)
 	{
-		if (page === 'home')
+		if (page === 'home1')
 			navBar.classList.remove('hidden');
 		else
 			navBar.classList.add('hidden');
@@ -263,14 +264,13 @@ const hideScrollbar = (element: HTMLElement) => {
 
 //Messages page:
 const setupMessagesButtons = () => {
-	returnBtn = document.querySelector('.rtn-profil-btn');
+	rtnProfilBtn = document.querySelector('.rtnProfilBtn');
 	
-	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
+	rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
 };
 
 //Host Tournament page:
 const setupHostTournamentPage = () => {
-
 	const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
 		"../public/images/cover_4.jpeg"];
 	const coverImage = document.getElementById("coverImage") as HTMLElement;
@@ -279,12 +279,10 @@ const setupHostTournamentPage = () => {
 	const prevBtn = document.getElementById("prevBtn") as HTMLButtonElement;
 	const nextBtn = document.getElementById("nextBtn") as HTMLButtonElement;
 
-	returnBtn = document.querySelector('.rtn-profil-btn');
-	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
-
 	setupTournamentForm();
 	updateImage(currIndex, coverImage, coverImageInput, images);
-	// console.log(`here: ${coverImageInput.value}`);
+	rtnProfilBtn = document.querySelector('.rtnProfilBtn');
+	rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
 	prevBtn?.addEventListener('click', () => {
 		currIndex = (currIndex - 1 + images.length) % images.length;
 		updateImage(currIndex, coverImage, coverImageInput, images);
@@ -374,9 +372,9 @@ const updateImage = (index: number, coverImage: HTMLElement, coverImageInput: HT
 
 //Settings page:
 const setupSettingsButtons = () => {
-	returnBtn = document.querySelector('.rtn-profil-btn');
+	rtnProfilBtn = document.querySelector('.rtnProfilBtn');
 	
-	returnBtn?.addEventListener('click', () => loadnhistory('profil'));
+	rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
 };
 
 // //Signup page:

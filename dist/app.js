@@ -1,6 +1,7 @@
 import { setupLoginPage } from "./login.js";
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
+import { notificationHeader } from "./components.js";
 // home page:
 let app;
 let navBar;
@@ -22,15 +23,16 @@ let localBtn;
 let onlineBtn;
 let hostTournBtn;
 //messages page:
-let returnBtn;
+let rtnProfilBtn;
 //host tournament page:
 document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialPage = urlParams.get('page') || 'home';
     app = document.getElementById('app');
     navBar = document.querySelector('nav');
     navBtns = document.querySelectorAll('.nav-btn');
-    const urlParams = new URLSearchParams(window.location.search);
-    const initialPage = urlParams.get('page') || 'home';
     // console.log(`here:`);
+    customElements.define('notification-header', notificationHeader);
     history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
     loadPage(initialPage);
     navBtns.forEach((button) => {
@@ -80,7 +82,7 @@ export const loadPage = async (page) => {
 };
 export const hideNav = (page) => {
     if (navBar) {
-        if (page === 'home')
+        if (page === 'home1')
             navBar.classList.remove('hidden');
         else
             navBar.classList.add('hidden');
@@ -224,8 +226,8 @@ const hideScrollbar = (element) => {
 };
 //Messages page:
 const setupMessagesButtons = () => {
-    returnBtn = document.querySelector('.rtn-profil-btn');
-    returnBtn?.addEventListener('click', () => loadnhistory('profil'));
+    rtnProfilBtn = document.querySelector('.rtnProfilBtn');
+    rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
 };
 //Host Tournament page:
 const setupHostTournamentPage = () => {
@@ -236,11 +238,10 @@ const setupHostTournamentPage = () => {
     let currIndex = 0;
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
-    returnBtn = document.querySelector('.rtn-profil-btn');
-    returnBtn?.addEventListener('click', () => loadnhistory('profil'));
     setupTournamentForm();
     updateImage(currIndex, coverImage, coverImageInput, images);
-    // console.log(`here: ${coverImageInput.value}`);
+    rtnProfilBtn = document.querySelector('.rtnProfilBtn');
+    rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
     prevBtn?.addEventListener('click', () => {
         currIndex = (currIndex - 1 + images.length) % images.length;
         updateImage(currIndex, coverImage, coverImageInput, images);
@@ -319,8 +320,8 @@ const updateImage = (index, coverImage, coverImageInput, images) => {
 // import { updateHomeHeadermain5 } from "./home2";
 //Settings page:
 const setupSettingsButtons = () => {
-    returnBtn = document.querySelector('.rtn-profil-btn');
-    returnBtn?.addEventListener('click', () => loadnhistory('profil'));
+    rtnProfilBtn = document.querySelector('.rtnProfilBtn');
+    rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
 };
 // //Signup page:
 // const setupLoginPage = () => {

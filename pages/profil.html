@@ -15,29 +15,8 @@
 </head>
 
 <body class="relative">
-    <!-- <header class="flex justify-between items-center transform min-w-72 min-316:p-4 min-316:ml-7 min-316:mr-7 mt-5 lg:mt-5">
-		<button type="button" data-page="home" title="Home" class="home-btn inline-flex origin-center transition-transform duration-300 hover:scale-110 gap-1 ml-2 sm:ml-5 md:ml-10 lg:justify-between lg:items-center">
-			<img src="../public/logos/racket_logo.png" alt="Racket" class="self-center justify-self-center  size-8 md:size-10 lg:size-12">
-			<div>
-				<p class="text-2xl md:text-4xl lg:text-5xl">PongHub</p>
-				<p class="text-xs md:text-md lg:text-base">Table Heroes</p>
-			</div>
-		</button>
-		<div class="relative border-hidden rounded-lg bg-gray-500 flex items-center justify-center mr-2 sm:mr-5 md:mr-10 w-20 lg:h-10 lg:w-24">
-			<div class="relative">
-				<img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="relative rounded-full p-1 size-7 lg:size-10 lg:p-1.5">
-				<button type="button" title="online" class="absolute green-btn bottom-0.5 right-0.5 size-2 lg:size-2.5"></button>
-			</div>
-			<p class="text-xs font-medium lg:text-base lg:font-medium" style="text-shadow: 20px;">htouil</p>
-			<button type="button">
-				<img src="../public/logos/bell.png" alt="bell" class="relative origin-top transition-transform duration-300 hover:-rotate-12 w-4 h-4 lg:w-5 lg:h-5">
-			</button>
-			</img>
-		</div>
-	</header> -->
-    <header class="header_notif max-635:px-14 px-24 lg:px-32">
-        <button data-page="home" title="Home"
-            class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
+    <!-- <header class="header_notif max-635:px-14 px-24 lg:px-32">
+        <button data-page="home" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
             <img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
             <div class="logo-name_notif">
                 <p class="logo-name1_notif">
@@ -56,11 +35,11 @@
                 <p class="user_name_header">
                     alotfi
                 </p>
-                <img class="user_notification_header"
-                    src="../public/logos/bell.svg">
+                <img class="user_notification_header" src="../public/logos/bell.svg">
             </button>
         </div>
-    </header>
+    </header> -->
+    <notification-header></notification-header>
 
     <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 md:gap-x-4 lg:gap-x-10 xl:gap-x-12 2xl:gap-x-20 mt-28 md:mt-36 lg:mt-40 2xl:mt-52 mx-16 min-1900:mx-20">
         <!-- Profil's setting -->
@@ -547,9 +526,9 @@
         </div>
         <!-- Side panel -->
         <div id="sidePanel" class="fixed top-0 right-0 border-l-2 border-black bg-gradient-to-b from-bgclrstart to-bgclrend w-1/2 h-full transform translate-x-full transition-transform duration-500 ease-in-out z-50 block md:hidden">
-            <div class="fixed top-52 w-full h-fit grid p-2 gap-4">
+            <div class="fixed top-[85px] w-full h-fit grid p-2 gap-4">
                 <div class="grid place-content-end">
-                    <button id="closeSidePanelBtn" class="border-2 border-white rounded-lg text-white size-fit">
+                    <button id="closeSidePanelBtn" class="border-2 border-white rounded-lg text-white size-fit" style="border-color: #5487a8;">
                         <svg data-slot="icon" fill="none" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
                         </svg>
