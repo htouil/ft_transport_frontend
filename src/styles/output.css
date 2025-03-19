@@ -970,8 +970,8 @@ video {
   top: 50%;
 }
 
-.top-\[85px\] {
-  top: 85px;
+.top-\[80px\] {
+  top: 80px;
 }
 
 .z-0 {
@@ -1124,6 +1124,10 @@ video {
   margin-top: 1.5rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -1153,11 +1157,6 @@ video {
   height: 2.5rem;
 }
 
-.size-16 {
-  width: 4rem;
-  height: 4rem;
-}
-
 .size-2 {
   width: 0.5rem;
   height: 0.5rem;
@@ -1171,6 +1170,11 @@ video {
 .size-3 {
   width: 0.75rem;
   height: 0.75rem;
+}
+
+.size-4 {
+  width: 1rem;
+  height: 1rem;
 }
 
 .size-5 {
@@ -1214,6 +1218,10 @@ video {
   height: 50%;
 }
 
+.h-11 {
+  height: 2.75rem;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -1242,12 +1250,12 @@ video {
   height: 1.25rem;
 }
 
-.h-6 {
-  height: 1.5rem;
+.h-56 {
+  height: 14rem;
 }
 
-.h-64 {
-  height: 16rem;
+.h-6 {
+  height: 1.5rem;
 }
 
 .h-7 {
@@ -1266,16 +1274,16 @@ video {
   height: 270px;
 }
 
-.h-\[600px\] {
-  height: 600px;
+.h-\[500px\] {
+  height: 500px;
 }
 
 .h-\[60px\] {
   height: 60px;
 }
 
-.h-\[833px\] {
-  height: 833px;
+.h-\[700px\] {
+  height: 700px;
 }
 
 .h-fit {
@@ -1571,6 +1579,10 @@ video {
 
 .overscroll-auto {
   overscroll-behavior: auto;
+}
+
+.overscroll-contain {
+  overscroll-behavior: contain;
 }
 
 .whitespace-pre-wrap {
@@ -2346,6 +2358,11 @@ video {
     height: 7rem;
   }
 
+  .sm\:size-5 {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
   .sm\:size-6 {
     width: 1.5rem;
     height: 1.5rem;
@@ -2416,6 +2433,14 @@ video {
 
   .sm\:gap-5 {
     gap: 1.25rem;
+  }
+
+  .sm\:justify-self-start {
+    justify-self: start;
+  }
+
+  .sm\:justify-self-end {
+    justify-self: end;
   }
 
   .sm\:p-4 {
@@ -3095,6 +3120,10 @@ video {
     margin-top: 0px;
   }
 
+  .\32xl\:mt-5 {
+    margin-top: 1.25rem;
+  }
+
   .\32xl\:mt-52 {
     margin-top: 13rem;
   }
@@ -3140,8 +3169,8 @@ video {
     height: 24rem;
   }
 
-  .\32xl\:h-\[295px\] {
-    height: 295px;
+  .\32xl\:h-\[300px\] {
+    height: 300px;
   }
 
   .\32xl\:h-\[375px\] {
@@ -3158,6 +3187,10 @@ video {
 
   .\32xl\:w-\[700px\] {
     width: 700px;
+  }
+
+  .\32xl\:gap-2 {
+    gap: 0.5rem;
   }
 
   .\32xl\:gap-3 {
@@ -3262,19 +3295,9 @@ video {
     height: 5rem;
   }
 
-  .xs\:size-28 {
-    width: 7rem;
-    height: 7rem;
-  }
-
   .xs\:size-5 {
     width: 1.25rem;
     height: 1.25rem;
-  }
-
-  .xs\:size-6 {
-    width: 1.5rem;
-    height: 1.5rem;
   }
 
   .xs\:size-8 {

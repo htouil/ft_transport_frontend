@@ -1,7 +1,7 @@
 import { setupLoginPage } from "./login.js";
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
-import { notificationHeader } from "./components.js";
+import { notificationHeader, newFriendRequestTag, oldFriendTag, matchScoreTag, sideNewFriendRequestTag, sideOldFriendTag, sideMatchScoreTag, friendToTournamentTag } from "./components.js";
 
 // home page:
 let app: HTMLElement;
@@ -37,6 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// console.log(`here:`);
 	customElements.define('notification-header', notificationHeader);
+	customElements.define('newfriendrequest-tag', newFriendRequestTag);
+	customElements.define('oldfriend-tag', oldFriendTag);
+	customElements.define('matchscore-tag', matchScoreTag);
+	customElements.define('sidenewfriendrequest-tag', sideNewFriendRequestTag);
+	customElements.define('sideoldfriend-tag', sideOldFriendTag);
+	customElements.define('sidematchscore-tag', sideMatchScoreTag);
+	customElements.define('friendtotournament-tag', friendToTournamentTag);
 	history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
 	loadPage(initialPage);
 	navBtns.forEach((button: HTMLElement) =>
@@ -192,14 +199,14 @@ const selectOnline = () => {
 const openSidePanel = (event: Event) => {
 	event?.stopPropagation();
 	sidePanel?.classList.remove('translate-x-full');
-	document.body.classList.add('overflow-hidden');
+	// document.body.classList.add('overflow-hidden');
 	showFriendsList();
 };
 
 const closeSidePanel = (event?: Event) => {
 	event?.stopPropagation();
 	sidePanel?.classList.add('translate-x-full');
-	document.body.classList.remove('overflow-hidden');
+	// document.body.classList.remove('overflow-hidden');
 };
 
 const handleOutsideClick = (event: Event) => {
