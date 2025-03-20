@@ -2,6 +2,7 @@ import { setupLoginPage } from "./login.js";
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
 import { notificationHeader, newFriendRequestTag, oldFriendTag, matchScoreTag, sideNewFriendRequestTag, sideOldFriendTag, sideMatchScoreTag, friendToTournamentTag } from "./components.js";
+import { localGameHandling } from "./localgame.js";
 
 // home page:
 let app: HTMLElement;
@@ -22,6 +23,7 @@ let friendsList: NodeListOf<HTMLButtonElement> | null;
 let historyList: NodeListOf<HTMLButtonElement> | null;
 let localBtn: HTMLButtonElement | null;
 let onlineBtn: HTMLButtonElement | null;
+let playWFriendsBtn: HTMLButtonElement | null;
 let hostTournBtn: HTMLButtonElement | null;
 //messages page:
 let rtnProfilBtn: HTMLButtonElement | null;
@@ -36,14 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	navBtns = document.querySelectorAll('.nav-btn');
 
 	// console.log(`here:`);
-	customElements.define('notification-header', notificationHeader);
-	customElements.define('newfriendrequest-tag', newFriendRequestTag);
-	customElements.define('oldfriend-tag', oldFriendTag);
-	customElements.define('matchscore-tag', matchScoreTag);
-	customElements.define('sidenewfriendrequest-tag', sideNewFriendRequestTag);
-	customElements.define('sideoldfriend-tag', sideOldFriendTag);
-	customElements.define('sidematchscore-tag', sideMatchScoreTag);
-	customElements.define('friendtotournament-tag', friendToTournamentTag);
+	initiateCustomTags();
 	history.replaceState({ page: initialPage }, '', `?page=${initialPage}`);
 	loadPage(initialPage);
 	navBtns.forEach((button: HTMLElement) =>
@@ -63,7 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 });
 
-export const loadPage = async (page: string) => {
+export function initiateCustomTags() {
+	customElements.define('notification-header', notificationHeader);
+	customElements.define('newfriendrequest-tag', newFriendRequestTag);
+	customElements.define('oldfriend-tag', oldFriendTag);
+	customElements.define('matchscore-tag', matchScoreTag);
+	customElements.define('sidenewfriendrequest-tag', sideNewFriendRequestTag);
+	customElements.define('sideoldfriend-tag', sideOldFriendTag);
+	customElements.define('sidematchscore-tag', sideMatchScoreTag);
+	customElements.define('friendtotournament-tag', friendToTournamentTag);
+};
+
+export async function loadPage(page: string) {
 	try {
 		const response = await fetch(`pages/${page}.html`);
 		const content = await response.text();
@@ -80,6 +86,7 @@ export const loadPage = async (page: string) => {
 		}
 		if (page === 'profil')
 		{
+			setupProfilPage();
 			setupProfilButtons();
 			handleScroll();
 		}
@@ -95,6 +102,10 @@ export const loadPage = async (page: string) => {
 		{
 			setupSettingsButtons();
 		}
+		if (page === 'localgame')
+		{
+			localGameHandling();
+		}
 	}
 	catch (error)
 	{
@@ -102,8 +113,7 @@ export const loadPage = async (page: string) => {
 	}
 };
 
-export const hideNav = (page: string) =>
-{
+export function hideNav(page: string) {
 	if (navBar)
 	{
 		if (page === 'home1')
@@ -113,19 +123,23 @@ export const hideNav = (page: string) =>
 	}
 };
 
-export const loadnhistory = (toLoad: string) => {
+export function loadnhistory(toLoad: string) {
 	loadPage(toLoad);
 	history.pushState({ page: toLoad }, '', `?page=${toLoad}`);
 };
 
 //Home page:
-const setupHomePage = () => {
+function setupHomePage() {
 	updateHomeHeadermain3();
 	updateHomeHeadermain5();
 };
 
 //Profil page:
-const setupProfilButtons = () => {
+function setupProfilPage() {
+
+};
+
+function setupProfilButtons() {
 	homeBtn = document.querySelector('.home-btn');
 	settingsBtn = document.querySelector('.settings-btn');
 	addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
@@ -140,7 +154,8 @@ const setupProfilButtons = () => {
 	historyList = document.querySelectorAll('.history-list');
 	localBtn = document.getElementById('local-btn') as HTMLButtonElement;
 	onlineBtn = document.getElementById('online-btn') as HTMLButtonElement;
-	hostTournBtn = document.querySelector('.host-tourn-btn');
+	hostTournBtn = document.getElementById('hostTournBtn') as HTMLButtonElement;
+	playWFriendsBtn = document.getElementById('playWFriendsBtn') as HTMLButtonElement;
 	
 	homeBtn?.addEventListener('click', () => loadnhistory('home'));
 	settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
@@ -159,9 +174,10 @@ const setupProfilButtons = () => {
 	localBtn?.addEventListener('click', selectLocal);
 	onlineBtn?.addEventListener('click', selectOnline);
 	hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
+	playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 };
 
-const showAddNewFriendPopup = () => {
+function showAddNewFriendPopup() {
 	const toBlur = document.getElementById('toBlur') as HTMLElement;
 	const toPop = document.getElementById('toPop') as HTMLElement;
 	// const main = document.getElementById('app') as HTMLElement;
@@ -174,7 +190,7 @@ const showAddNewFriendPopup = () => {
 	sidePanel?.classList.add('hidden');
 };
 
-const closeAddNewFriendPopup = () => {
+function closeAddNewFriendPopup() {
 	const toBlur = document.getElementById('toBlur') as HTMLElement;
 	const toPop = document.getElementById('toPop') as HTMLElement;
 
@@ -186,12 +202,12 @@ const closeAddNewFriendPopup = () => {
 	sidePanel?.classList.remove('hidden');
 }
 
-const selectLocal = () => {
+function selectLocal() {
 	localBtn?.classList.add('bg-gray-600');
 	onlineBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 };
 
-const selectOnline = () => {
+function selectOnline() {
 	onlineBtn?.classList.add('bg-gray-600');
 	localBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 };

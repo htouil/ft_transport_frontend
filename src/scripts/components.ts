@@ -20,7 +20,7 @@ export class notificationHeader extends HTMLElement {
 				<button class="log-in-bt1_notif">
 					<img class="user_header_pic" src="../public/profile_pictures/htouil.jpeg">
 					<p class="user_name_header">
-						alotfi
+						htouil
 					</p>
 					<img class="user_notification_header" src="../public/logos/bell.svg">
 				</button>

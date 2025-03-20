@@ -974,6 +974,10 @@ video {
   top: 80px;
 }
 
+.right-1 {
+  right: 0.25rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -2976,6 +2980,10 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:right-1 {
+    right: 0.25rem;
+  }
+
   .xl\:mx-20 {
     margin-left: 5rem;
     margin-right: 5rem;
@@ -3084,6 +3092,14 @@ video {
     padding-right: 2rem;
   }
 
+  .xl\:pl-10 {
+    padding-left: 2.5rem;
+  }
+
+  .xl\:pl-14 {
+    padding-left: 3.5rem;
+  }
+
   .xl\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -3107,6 +3123,21 @@ video {
   .xl\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .xl\:placeholder\:text-base::-moz-placeholder {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .xl\:placeholder\:text-base::placeholder {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -3270,6 +3301,16 @@ video {
   .\32xl\:placeholder\:text-base::placeholder {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .\32xl\:placeholder\:text-lg::-moz-placeholder {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .\32xl\:placeholder\:text-lg::placeholder {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 
