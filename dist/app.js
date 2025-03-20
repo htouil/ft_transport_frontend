@@ -1,29 +1,29 @@
 import { setupLoginPage } from "./login.js";
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
-import { notificationHeader, newFriendRequestTag, oldFriendTag, matchScoreTag, sideNewFriendRequestTag, sideOldFriendTag, sideMatchScoreTag, friendToTournamentTag } from "./components.js";
+import { notificationHeader, newFriendRequestTag, oldFriendTag, matchScoreTag, sideNewFriendRequestTag, sideOldFriendTag, sideMatchScoreTag, friendToTournamentTag, } from './components.js';
 import { localGameHandling } from "./localgame.js";
 // home page:
 let app;
 let navBar;
 let navBtns;
 //profil page:
-let homeBtn;
-let settingsBtn;
-let addNewFriendShowBtn;
-let addNewFriendcloseSidePanelBtn;
-let msgBtn;
-let sidePanel;
-let openSidePanelBtn;
-let closeSidePanelBtn;
+// let homeBtn: HTMLButtonElement | null;
+// let settingsBtn: HTMLButtonElement | null;
+// let addNewFriendShowBtn: HTMLButtonElement | null;
+// let addNewFriendCloseBtn: HTMLButtonElement | null;
+// let messagesBtn: HTMLButtonElement | null;
+// let sidePanel: HTMLElement | null;
+// let openSidePanelBtn: HTMLButtonElement | null;
+// let closeSidePanelBtn: HTMLButtonElement | null;
 let friendsBtn;
 let historyBtn;
 let friendsList;
 let historyList;
-let localBtn;
-let onlineBtn;
-let playWFriendsBtn;
-let hostTournBtn;
+// let localBtn: HTMLButtonElement | null;
+// let onlineBtn: HTMLButtonElement | null;
+// let playWFriendsBtn: HTMLButtonElement | null;
+// let hostTournBtn: HTMLButtonElement | null;
 //messages page:
 let rtnProfilBtn;
 //host tournament page:
@@ -123,43 +123,43 @@ function setupProfilPage() {
 }
 ;
 function setupProfilButtons() {
-    homeBtn = document.querySelector('.home-btn');
-    settingsBtn = document.querySelector('.settings-btn');
-    addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn');
-    addNewFriendcloseSidePanelBtn = document.getElementById('addNewFriendcloseSidePanelBtn');
-    msgBtn = document.getElementById('msgBtn');
-    sidePanel = document.getElementById('sidePanel');
-    openSidePanelBtn = document.getElementById('openSidePanelBtn');
-    closeSidePanelBtn = document.getElementById('closeSidePanelBtn');
+    const homeBtn = document.querySelector('.home-btn');
+    const settingsBtn = document.querySelector('.settings-btn');
+    const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn');
+    const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn');
+    const messagesBtn = document.getElementById('messagesBtn');
+    const sidePanel = document.getElementById('sidePanel');
+    const openSidePanelBtn = document.getElementById('openSidePanelBtn');
+    const closeSidePanelBtn = document.getElementById('closeSidePanelBtn');
     friendsBtn = document.querySelectorAll('.friends-btn');
     historyBtn = document.querySelectorAll('.history-btn');
     friendsList = document.querySelectorAll('.friends-list');
     historyList = document.querySelectorAll('.history-list');
-    localBtn = document.getElementById('local-btn');
-    onlineBtn = document.getElementById('online-btn');
-    hostTournBtn = document.getElementById('hostTournBtn');
-    playWFriendsBtn = document.getElementById('playWFriendsBtn');
+    const localBtn = document.getElementById('local-btn');
+    const onlineBtn = document.getElementById('online-btn');
+    const hostTournBtn = document.getElementById('hostTournBtn');
+    const playWFriendsBtn = document.getElementById('playWFriendsBtn');
     homeBtn?.addEventListener('click', () => loadnhistory('home'));
     settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
-    addNewFriendShowBtn?.addEventListener('click', showAddNewFriendPopup);
-    addNewFriendcloseSidePanelBtn?.addEventListener('click', closeAddNewFriendPopup);
-    msgBtn?.addEventListener('click', () => loadnhistory('messages'));
-    openSidePanelBtn?.addEventListener('click', openSidePanel);
-    closeSidePanelBtn?.addEventListener('click', closeSidePanel);
-    document.addEventListener('click', handleOutsideClick);
+    addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
+    addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
+    messagesBtn?.addEventListener('click', () => loadnhistory('messages'));
+    openSidePanelBtn?.addEventListener('click', (event) => openSidePanel(event, sidePanel));
+    closeSidePanelBtn?.addEventListener('click', (event) => closeSidePanel(event, sidePanel));
+    document.addEventListener('click', (event) => handleOutsideClick(event, sidePanel));
     friendsBtn?.forEach((element) => {
         element.addEventListener('click', showFriendsList);
     });
     historyBtn?.forEach((element) => {
         element.addEventListener('click', showHistoryList);
     });
-    localBtn?.addEventListener('click', selectLocal);
-    onlineBtn?.addEventListener('click', selectOnline);
+    localBtn?.addEventListener('click', () => selectLocal(localBtn, onlineBtn));
+    onlineBtn?.addEventListener('click', () => selectOnline(localBtn, onlineBtn));
     hostTournBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
     playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 }
 ;
-function showAddNewFriendPopup() {
+function showAddNewFriendPopup(sidePanel) {
     const toBlur = document.getElementById('toBlur');
     const toPop = document.getElementById('toPop');
     // const main = document.getElementById('app') as HTMLElement;
@@ -171,7 +171,7 @@ function showAddNewFriendPopup() {
     sidePanel?.classList.add('hidden');
 }
 ;
-function closeAddNewFriendPopup() {
+function closeAddNewFriendPopup(sidePanel) {
     const toBlur = document.getElementById('toBlur');
     const toPop = document.getElementById('toPop');
     toBlur.inert = false;
@@ -181,32 +181,35 @@ function closeAddNewFriendPopup() {
     sidePanel?.classList.add('block');
     sidePanel?.classList.remove('hidden');
 }
-function selectLocal() {
+function selectLocal(localBtn, onlineBtn) {
     localBtn?.classList.add('bg-gray-600');
     onlineBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 }
 ;
-function selectOnline() {
+function selectOnline(localBtn, onlineBtn) {
     onlineBtn?.classList.add('bg-gray-600');
     localBtn?.classList.remove('bg-gray-600', 'hover:bg-gray-500');
 }
 ;
-const openSidePanel = (event) => {
+function openSidePanel(event, sidePanel) {
     event?.stopPropagation();
     sidePanel?.classList.remove('translate-x-full');
     // document.body.classList.add('overflow-hidden');
     showFriendsList();
-};
-const closeSidePanel = (event) => {
+}
+;
+function closeSidePanel(event, sidePanel) {
     event?.stopPropagation();
     sidePanel?.classList.add('translate-x-full');
     // document.body.classList.remove('overflow-hidden');
-};
-const handleOutsideClick = (event) => {
-    if (sidePanel && !sidePanel.contains(event.target) && event.target !== openSidePanelBtn)
-        closeSidePanel();
-};
-const showFriendsList = () => {
+}
+;
+function handleOutsideClick(event, sidePanel) {
+    if (sidePanel && !sidePanel.contains(event.target))
+        closeSidePanel(event, sidePanel);
+}
+;
+function showFriendsList() {
     friendsList?.forEach((element) => {
         element?.classList.remove('hidden');
     });
@@ -221,8 +224,9 @@ const showFriendsList = () => {
         element?.classList.add('panel-btn');
         element?.classList.remove('selected-panel-btn');
     });
-};
-const showHistoryList = () => {
+}
+;
+function showHistoryList() {
     historyList?.forEach((element) => {
         element?.classList.remove('hidden');
     });
@@ -237,30 +241,35 @@ const showHistoryList = () => {
         element?.classList.add('panel-btn');
         element?.classList.remove('selected-panel-btn');
     });
-};
-const handleScroll = () => {
-    let scrollables = document.querySelectorAll('.scrollable');
+}
+;
+function handleScroll() {
+    const scrollables = document.querySelectorAll('.scrollable');
     scrollables?.forEach((element) => {
         let timeout = setTimeout(() => { }, 0);
         element.addEventListener('scroll', () => showScrollbar(element, timeout));
         hideScrollbar(element);
     });
-};
-const showScrollbar = (element, timeout) => {
+}
+;
+function showScrollbar(element, timeout) {
     element.classList.remove('scrollbar-none');
     clearTimeout(timeout);
     timeout = setTimeout(() => hideScrollbar(element), 1500);
-};
-const hideScrollbar = (element) => {
+}
+;
+function hideScrollbar(element) {
     element.classList.add('scrollbar-none');
-};
+}
+;
 //Messages page:
-const setupMessagesButtons = () => {
+function setupMessagesButtons() {
     rtnProfilBtn = document.querySelector('.rtnProfilBtn');
     rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
-};
+}
+;
 //Host Tournament page:
-const setupHostTournamentPage = () => {
+function setupHostTournamentPage() {
     const images = ["../public/images/cover_1.jpeg", "../public/images/cover_2.jpeg", "../public/images/cover_3.png",
         "../public/images/cover_4.jpeg"];
     const coverImage = document.getElementById("coverImage");
@@ -280,8 +289,9 @@ const setupHostTournamentPage = () => {
         currIndex = (currIndex + 1) % images.length;
         updateImage(currIndex, coverImage, coverImageInput, images);
     });
-};
-const setupTournamentForm = () => {
+}
+;
+function setupTournamentForm() {
     const form = document.getElementById('tournamentForm');
     const submitBtn = form.querySelector('button[type="submit"]');
     const input = form.querySelector('input[required]');
@@ -298,8 +308,9 @@ const setupTournamentForm = () => {
             //   form.submit();
         }
     });
-};
-const updateStartButton = (input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes) => {
+}
+;
+function updateStartButton(input, submitBtn, inviteFriendsMode, invitedFriendsList, checkBoxes) {
     let allValid = true;
     const txtErrMsg = document.createElement('p');
     const boxErrMsg = document.createElement('p');
@@ -335,11 +346,13 @@ const updateStartButton = (input, submitBtn, inviteFriendsMode, invitedFriendsLi
     }
     submitBtn.style.setProperty('background-color', allValid ? '#4b7694' : '#8a8a92');
     return (allValid);
-};
-const updateImage = (index, coverImage, coverImageInput, images) => {
+}
+;
+function updateImage(index, coverImage, coverImageInput, images) {
     coverImage.style.backgroundImage = `url('${images[index]}')`;
     coverImageInput.value = images[index];
-};
+}
+;
 //////////////////////////////////////////////////////////////
 // figure out how to link .js files together in app.ts
 // import * as home1 from "./home1";
@@ -349,10 +362,11 @@ const updateImage = (index, coverImage, coverImageInput, images) => {
 // import { updateHomeHeadermain3 } from "./home1";
 // import { updateHomeHeadermain5 } from "./home2";
 //Settings page:
-const setupSettingsButtons = () => {
+function setupSettingsButtons() {
     rtnProfilBtn = document.querySelector('.rtnProfilBtn');
     rtnProfilBtn?.addEventListener('click', () => loadnhistory('profil'));
-};
+}
+;
 // //Signup page:
 // const setupLoginPage = () => {
 // };

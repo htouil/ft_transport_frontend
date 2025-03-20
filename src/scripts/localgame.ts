@@ -1,6 +1,6 @@
 export function localGameHandling() {
-    const canvas = document.getElementById("pingPongLocal");
-    const ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("pingPongLocal") as HTMLCanvasElement;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 
     canvas.width = 1500;
     canvas.height = 700;
@@ -21,8 +21,8 @@ export function localGameHandling() {
 
     let lastTime = 0;
 
-    let leftPlayerScore = 0;
-    let rightPlayerScore = 0;
+    let leftPlayerScore: any;
+    let rightPlayerScore: any;
 
     let gameOver = false;
 
@@ -33,7 +33,7 @@ export function localGameHandling() {
         ArrowDown: false,
     };
 
-    const resetButton = document.getElementById("ResetButton");
+    const resetButton = document.getElementById("ResetButton") as HTMLButtonElement;
     resetButton.addEventListener("click", resetgame);
     function resetgame() 
     {
@@ -41,7 +41,7 @@ export function localGameHandling() {
         gameOver = false;
     }
 
-    const exitButton = document.getElementById("exitButton");
+    const exitButton = document.getElementById("exitButton") as HTMLButtonElement;
 
     function exitGame() {
         gameOver = true; 
@@ -102,17 +102,17 @@ export function localGameHandling() {
         ctx.fillText(rightPlayerScore, (3 * canvas.width) / 4, 50);
     }
 
-    function drawWinMessage(message) {
+    function drawWinMessage(message: string) {
         ctx.fillStyle = "#fff";
         ctx.font = "60px Arial";
         ctx.textAlign = "center";
         ctx.fillText(message, canvas.width / 2, canvas.height / 2);
     }
 
-    function updateCanvas(timestamp) 
+    function updateCanvas() 
     {
-        const deltaTime = timestamp - lastTime;
-        lastTime = timestamp;
+        // const deltaTime = timestamp - lastTime;
+        // lastTime = timestamp;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -212,15 +212,15 @@ export function localGameHandling() {
         resetBall();
     }
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener("keydown", (event: KeyboardEvent) => {
         if (event.key in keys) {
-            keys[event.key] = true;
+            // keys[event.key] = true;
         }
     });
 
-    document.addEventListener("keyup", (event) => {
+    document.addEventListener("keyup", (event: KeyboardEvent) => {
         if (event.key in keys) {
-            keys[event.key] = false;
+            // keys[event.key] = false;
         }
     });
 

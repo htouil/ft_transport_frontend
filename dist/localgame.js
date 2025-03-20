@@ -14,8 +14,8 @@ export function localGameHandling() {
     let ballSpeedY = 8;
     const paddleSpeed = 8;
     let lastTime = 0;
-    let leftPlayerScore = 0;
-    let rightPlayerScore = 0;
+    let leftPlayerScore;
+    let rightPlayerScore;
     let gameOver = false;
     const keys = {
         w: false,
@@ -85,9 +85,9 @@ export function localGameHandling() {
         ctx.textAlign = "center";
         ctx.fillText(message, canvas.width / 2, canvas.height / 2);
     }
-    function updateCanvas(timestamp) {
-        const deltaTime = timestamp - lastTime;
-        lastTime = timestamp;
+    function updateCanvas() {
+        // const deltaTime = timestamp - lastTime;
+        // lastTime = timestamp;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawPaddles();
         drawBall();
@@ -171,12 +171,12 @@ export function localGameHandling() {
     }
     document.addEventListener("keydown", (event) => {
         if (event.key in keys) {
-            keys[event.key] = true;
+            // keys[event.key] = true;
         }
     });
     document.addEventListener("keyup", (event) => {
         if (event.key in keys) {
-            keys[event.key] = false;
+            // keys[event.key] = false;
         }
     });
     document.addEventListener("keydown", (event) => {
