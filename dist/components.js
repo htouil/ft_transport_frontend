@@ -30,6 +30,29 @@ export class notificationHeader extends HTMLElement {
     ;
 }
 ;
+export class simpleHeader extends HTMLElement {
+    constructor() {
+        super();
+        this.innerHTML =
+            `<header class="header_notif max-635:px-14 px-24 lg:px-32">
+			<button data-page="home" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
+				<img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
+				<div class="logo-name_notif">
+					<p class="logo-name1_notif">
+						PingPong.io
+					</p>
+					<p class="hero_notif">
+						Table Heroes
+					</p>
+				</div>
+			</button data-page="home" title="Home">
+			<div class="center_notif">
+			</div>
+		</header>`;
+    }
+    ;
+}
+;
 export class newFriendRequestTag extends HTMLElement {
     constructor() {
         super();
@@ -46,13 +69,13 @@ export class newFriendRequestTag extends HTMLElement {
 				</div>
 			</div>
 			<div class="self-center justify-self-end grid grid-cols-2 md:gap-1 2xl:gap-3 size-fit">
-				<button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4" style="background-color: #343644;">
+				<button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4 accRejBtn">
 					<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 						<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z">
 						</path>
 					</svg>
 				</button>
-				<button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4" style="background-color: #343644;">
+				<button type="button" class="grid place-items-center border border-black rounded-lg md:w-7 2xl:w-9 2xl:h-4 accRejBtn">
 					<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
 					</svg>
@@ -127,12 +150,12 @@ export class sideNewFriendRequestTag extends HTMLElement {
 				</div>
 			</div>
 			<div class="self-center justify-self-end grid grid-cols-2 gap-1 size-fit">
-				<button type="button" class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
+				<button type="button" class="grid place-items-center border border-black rounded-lg w-7 accRejBtn">
 					<svg data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 						<path clip-rule="evenodd" fill-rule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"></path>
 					</svg>
 				</button>
-				<button type="button" class="grid place-items-center border border-black rounded-lg w-7" style="background-color: #343644;">
+				<button type="button" class="grid place-items-center border border-black rounded-lg w-7 accRejBtn">
 					<svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-3">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"></path>
 					</svg>

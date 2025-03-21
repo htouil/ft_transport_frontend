@@ -141,6 +141,14 @@
     content: 'Return';
 }
 
+.accRejBtn {
+	background-color: #343644;
+}
+
+.accRejBtn:active {
+	background-color: #3c3e4e;
+}
+
 .whole {
 	margin-top: 15%;
 	margin-left: 8%;

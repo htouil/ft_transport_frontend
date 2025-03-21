@@ -1,4 +1,4 @@
-import { loadPage, hideNav, loadnhistory } from './app.js';
+import { loadnhistory } from './app.js';
 
 export const updateHomeHeadermain3 = () => {
     const tag = [{

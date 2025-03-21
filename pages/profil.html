@@ -65,9 +65,8 @@
 				</div>
 				<div class="grid grid-rows-3 lg:grid-rows-2 gap-1 md:h-fit">
 					<h2 class="xs:text-sm sm:text-sm md:text-base text-white">Game mode</h2>
-                    <!-- check focus here -->
 					<div class="row-span-2 grid grid-cols-2  xs:gap-4 sm:gap-4 md:gap-4 max-870:gap-2 lg:gap-8 w-full h-3/4 md:h-10 border-2 text-sm border-white border-solid rounded-xl bg-gray-400 place-self-start place-items-center">
-						<button type="button" id="local-btn" class="flex items-center place-content-center max-565:gap-1.5 gap-2.5 border-hidden rounded-xl w-10/12 bg-gray-600 hover:bg-gray-500 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
+						<button type="button" id="local-btn" class="flex items-center place-content-center max-565:gap-1.5 gap-2.5 border-hidden rounded-xl w-10/12 bg-gray-600 active:bg-gray-700 active:outline-none active:ring active:ring-gray-950">
 							<img src="../public/logos/signal-sign.svg" class="max-870:size-4 size-5">
 							<p class="text-white">Local</p>
 						</button>
@@ -89,13 +88,13 @@
 					<button id="playWFriendsBtn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
 						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play with friends</p>
 					</button>
-					<h2 class="self-end xs:text-sm sm:text-sm md:text-base text-white">Tournament options</h2>
+					<h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white opacity-50">Tournament options</h2>
 				</div>
 				<div class="grid grid-rows-2 gap-2 lg:gap-3 md:h-fit">
-					<button type="button" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn1">
+					<button id="createTournPageBtn" type="button" data-page="createtourn" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:cursor-not-allowed opacity-50 hover:scale-105 play-btn1" inert>
 						<p class="xs:text-sm sm:text-sm md:text-base text-white">Join a tournament</p>
 					</button>
-					<button id="hostTournBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
+					<button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:cursor-not-allowed opacity-50 hover:scale-105 play-btn2" inert>
 						<p class="xs:text-sm sm:text-sm md:text-base text-white">Host a tournament</p>
 					</button>
 				</div>
