@@ -15,7 +15,38 @@
 </head>
 
 <body class="relative">
-    <notification-header></notification-header>
+    <!-- <header class="header_notif max-635:px-14 px-24 lg:px-32">
+        <button data-page="home" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
+            <img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
+            <div class="logo-name_notif">
+                <p class="logo-name1_notif">
+                    PingPong.io
+                </p>
+                <p class="hero_notif">
+                    Table Heroes
+                </p>
+            </div>
+        </button data-page="home" title="Home">
+        <div class="center_notif">
+        </div>
+        <div class="sign-bt_notif">
+            <button id="notificationsBtn" data-dropdown-toggle="notifications" class="log-in-bt1_notif">
+                <img class="user_header_pic" src="../public/profile_pictures/htouil.jpeg">
+                <p class="user_name_header">
+                    htouil
+                </p>
+                <img class="user_notification_header" src="../public/logos/bell.svg">
+            </button>
+        </div>
+    </header> -->
+    <!-- <div id="notifications" class="z-20 absolute block top-full right-5 lg:right-[19px] 2xl:right-[22px] min-1900:right-[30px]">
+        <img src="../public/logos/triangle.png" class="size-4">
+        <div id="notifications" aria-labelledby="notificationsBtn" class="flex flex-col rounded-lg bg-gray-800">
+            <h1 class="font-medium text-center text-white">Notifications</h1>
+
+        </div>
+    </div> -->
+    <!-- <notification-header></notification-header> -->
 
     <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 md:gap-x-4 lg:gap-x-10 xl:gap-x-12 2xl:gap-x-20 mt-28 md:mt-36 lg:mt-40 2xl:mt-52 mx-16 min-1900:mx-20">
         <!-- Profil's setting -->
@@ -88,13 +119,13 @@
 					<button id="playWFriendsBtn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
 						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play with friends</p>
 					</button>
-					<h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white opacity-50">Tournament options</h2>
+					<h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white opacity-30">Tournament options</h2>
 				</div>
 				<div class="grid grid-rows-2 gap-2 lg:gap-3 md:h-fit">
-					<button id="createTournPageBtn" type="button" data-page="createtourn" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:cursor-not-allowed opacity-50 hover:scale-105 play-btn1" inert>
+					<button id="createTournPageBtn" type="button" data-page="createtourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn1" inert>
 						<p class="xs:text-sm sm:text-sm md:text-base text-white">Join a tournament</p>
 					</button>
-					<button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:cursor-not-allowed opacity-50 hover:scale-105 play-btn2" inert>
+					<button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn2" inert>
 						<p class="xs:text-sm sm:text-sm md:text-base text-white">Host a tournament</p>
 					</button>
 				</div>

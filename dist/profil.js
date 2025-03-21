@@ -70,11 +70,11 @@ function selectLocal(localBtn, onlineBtn, tournTitle, createTournPageBtn, hostTo
     localBtn?.classList.remove('hover:bg-gray-500');
     onlineBtn?.classList.add('hover:bg-gray-500');
     onlineBtn?.classList.remove('bg-gray-600');
-    tournTitle.classList.add('opacity-50');
+    tournTitle.classList.add('opacity-30');
     createTournPageBtn.inert = true;
     hostTournPageBtn.inert = true;
-    createTournPageBtn.classList.add('opacity-50');
-    hostTournPageBtn.classList.add('opacity-50');
+    createTournPageBtn.classList.add('opacity-30');
+    hostTournPageBtn.classList.add('opacity-30');
 }
 ;
 function selectOnline(localBtn, onlineBtn, tournTitle, createTournPageBtn, hostTournPageBtn) {
@@ -82,11 +82,11 @@ function selectOnline(localBtn, onlineBtn, tournTitle, createTournPageBtn, hostT
     onlineBtn?.classList.remove('hover:bg-gray-500');
     localBtn?.classList.add('hover:bg-gray-500');
     localBtn?.classList.remove('bg-gray-600');
-    tournTitle.classList.remove('opacity-50');
+    tournTitle.classList.remove('opacity-30');
     createTournPageBtn.inert = false;
     hostTournPageBtn.inert = false;
-    createTournPageBtn.classList.remove('opacity-50');
-    hostTournPageBtn.classList.remove('opacity-50');
+    createTournPageBtn.classList.remove('opacity-30');
+    hostTournPageBtn.classList.remove('opacity-30');
 }
 ;
 function openSidePanel(event, sidePanel) {

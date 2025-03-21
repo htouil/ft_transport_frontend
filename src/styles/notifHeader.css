@@ -82,6 +82,7 @@ body
 .sign-bt_notif
 {
     display: flex;
+    position: relative;
     align-items: center;
     /* min-width: 10svw; */
     width: 20svw;
