@@ -2,7 +2,7 @@ import { notificationHeader, simpleHeader, newFriendRequestTag, oldFriendTag, ma
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
 import { setupLoginPage } from "./login.js";
-import { setupProfilButtons, handleScroll, } from "./profil.js";
+import { setupProfilPage, setupProfilButtons, handleScroll, } from "./profil.js";
 import { setupHostTournamentPage } from './hosttourn.js';
 import { localGameHandling } from "./localgame.js";
 // home page:
@@ -75,7 +75,7 @@ async function loadPage(page) {
             setupLoginPage();
         }
         if (page === 'profil') {
-            // setupProfilPage();
+            setupProfilPage();
             setupProfilButtons();
             handleScroll();
         }
@@ -118,8 +118,6 @@ function setupHomePage() {
 }
 ;
 //Profil page:
-// function setupProfilPage() {
-// };
 //Messages page:
 function setupMessagesButtons() {
     const rtnProfilBtn = document.querySelector('.rtnProfilBtn');

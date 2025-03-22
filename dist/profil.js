@@ -3,6 +3,39 @@ let friendsBtn;
 let historyBtn;
 let friendsList;
 let historyList;
+export async function setupProfilPage() {
+    try {
+        const playerName = await fetchPlayerName();
+        const iPlayerName = document.getElementById('iPlayerName');
+        if (iPlayerName)
+            iPlayerName.textContent = playerName;
+    }
+    catch (error) {
+        console.error("Failed to fatch for Player's name2: ", error);
+    }
+}
+;
+async function fetchPlayerName() {
+    try {
+        const response = await fetch('http://10.11.2.4:3000/profile', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Cookie': 'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNjE0MzEwOTczLCJ1c2VySWQiOjIsImlhdCI6MTc0MjYxNDMxMCwiZXhwIjoxNzQyNjE3OTEwfQ.eNDde285PRtSWSW1N71o9XA6OZqOdToy6ORFd0s9eic; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict ; Max-Age=3600000; Path=/; HttpOnly'
+            },
+        });
+        console.log("response:", response);
+        if (!response.ok)
+            throw new Error("Failed to fetch for yhe player's Data");
+        const data = await response.json();
+        return (data.name);
+    }
+    catch (error) {
+        console.error("Failed to fetch for the player's name1: ", error);
+        return ('Player');
+    }
+}
+;
 export function setupProfilButtons() {
     const homeBtn = document.querySelector('.home-btn');
     const settingsBtn = document.querySelector('.settings-btn');

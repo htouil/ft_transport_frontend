@@ -13,6 +13,7 @@ import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
 import { setupLoginPage } from "./login.js";
 import {
+	setupProfilPage,
 	setupProfilButtons,
 	handleScroll,
 } from "./profil.js";
@@ -98,7 +99,7 @@ async function loadPage(page: string) {
 		}
 		if (page === 'profil')
 		{
-			// setupProfilPage();
+			setupProfilPage();
 			setupProfilButtons();
 			handleScroll();
 		}
@@ -147,10 +148,6 @@ function setupHomePage() {
 };
 
 //Profil page:
-// function setupProfilPage() {
-
-// };
-
 
 
 //Messages page:
