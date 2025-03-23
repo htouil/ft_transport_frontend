@@ -17,12 +17,21 @@ export async function setupProfilPage() {
 ;
 async function fetchPlayerName() {
     try {
+        // const test = {
+        // 	'email' : 'glmo7@gjjjjjjlmo7.com',
+        // 	'password':'glmo7'
+        // };
+        // const response1 = await fetch('http://10.11.2.4:3000/login', {
+        // 	method:'POST',
+        // 	body: JSON.stringify(test),
+        // });
+        // console.log('hna trip ',response1)
         const response = await fetch('http://10.11.2.4:3000/profile', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Cookie': 'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0aW1lIjoxNzQyNjE0MzEwOTczLCJ1c2VySWQiOjIsImlhdCI6MTc0MjYxNDMxMCwiZXhwIjoxNzQyNjE3OTEwfQ.eNDde285PRtSWSW1N71o9XA6OZqOdToy6ORFd0s9eic; Max-Age=900000; Path=/; HttpOnly; Secure; SameSite=Strict ; Max-Age=3600000; Path=/; HttpOnly'
             },
+            credentials: 'include'
         });
         console.log("response:", response);
         if (!response.ok)
@@ -38,6 +47,7 @@ async function fetchPlayerName() {
 ;
 export function setupProfilButtons() {
     const homeBtn = document.querySelector('.home-btn');
+    const notifBtn = document.querySelector('.log-in-bt1_notif');
     const settingsBtn = document.querySelector('.settings-btn');
     const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn');
     const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn');
@@ -55,7 +65,8 @@ export function setupProfilButtons() {
     const tournTitle = document.getElementById('tournTitle');
     const createTournPageBtn = document.getElementById('createTournPageBtn');
     const hostTournPageBtn = document.getElementById('hostTournPageBtn');
-    homeBtn?.addEventListener('click', () => loadnhistory('home'));
+    homeBtn.addEventListener('click', () => loadnhistory('home'));
+    notifBtn.addEventListener('click', displayNotifications);
     settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
     addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
     addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
@@ -74,6 +85,9 @@ export function setupProfilButtons() {
     createTournPageBtn?.addEventListener('click', () => loadnhistory('createtourn'));
     hostTournPageBtn?.addEventListener('click', () => loadnhistory('hosttourn'));
     playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
+}
+;
+function displayNotifications() {
 }
 ;
 function showAddNewFriendPopup(sidePanel) {

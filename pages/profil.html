@@ -15,7 +15,7 @@
 </head>
 
 <body class="relative">
-    <!-- <header class="header_notif max-635:px-14 px-24 lg:px-32">
+    <header class="header_notif max-635:px-14 px-24 lg:px-32 z-10">
         <button data-page="home" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
             <img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
             <div class="logo-name_notif">
@@ -30,7 +30,7 @@
         <div class="center_notif">
         </div>
         <div class="sign-bt_notif">
-            <button id="notificationsBtn" data-dropdown-toggle="notifications" class="log-in-bt1_notif">
+            <button class="log-in-bt1_notif">
                 <img class="user_header_pic" src="../public/profile_pictures/htouil.jpeg">
                 <p class="user_name_header">
                     htouil
@@ -38,7 +38,7 @@
                 <img class="user_notification_header" src="../public/logos/bell.svg">
             </button>
         </div>
-    </header> -->
+    </header>
     <!-- <div id="notifications" class="z-20 absolute block top-full right-5 lg:right-[19px] 2xl:right-[22px] min-1900:right-[30px]">
         <img src="../public/logos/triangle.png" class="size-4">
         <div id="notifications" aria-labelledby="notificationsBtn" class="flex flex-col rounded-lg bg-gray-800">
@@ -46,7 +46,14 @@
 
         </div>
     </div> -->
-    <notification-header></notification-header>
+    <!-- <notification-header></notification-header> -->
+
+    <div id="notifications" aria-labelledby="notificationsBtn" class="z-20 absolute flex top-12 right-[117px]">
+        <img src="../public/logos/triangle.svg" class="size-3"></img>
+        <div class="">
+            <h1 class="font-medium text-center text-white">Notifications</h1>
+        </div>
+    </div>
 
     <div id="toBlur" class="grid grid-cols-1 md:grid-cols-8 md:grid-rows-5 md:gap-x-4 lg:gap-x-10 xl:gap-x-12 2xl:gap-x-20 mt-28 md:mt-36 lg:mt-40 2xl:mt-52 mx-16 min-1900:mx-20">
         <!-- Profil's setting -->

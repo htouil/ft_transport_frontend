@@ -2,7 +2,7 @@ export class notificationHeader extends HTMLElement {
 	constructor() {
 		super();
 		this.innerHTML =
-		`<header class="header_notif max-635:px-14 px-24 lg:px-32">
+		`<header class="header_notif max-635:px-14 px-24 lg:px-32 z-10">
 			<button data-page="home" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
 				<img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
 				<div class="logo-name_notif">
