@@ -15,7 +15,7 @@
 </head>
 
 <body class="relative">
-    <header class="header_notif max-635:px-14 px-24 lg:px-32 z-10">
+    <!-- <header class="header_notif max-635:px-14 px-24 lg:px-32 z-10">
         <button data-page="home" title="Home" class="home-btn logo_notif transition-transform duration-300 hover:scale-110">
             <img class="logo-pic_notif" src="../public/logos/pingpong_racket.png">
             <div class="logo-name_notif">
@@ -38,17 +38,10 @@
                 <img class="user_notification_header" src="../public/logos/bell.svg">
             </button>
         </div>
-    </header>
-    <!-- <div id="notifications" class="z-20 absolute block top-full right-5 lg:right-[19px] 2xl:right-[22px] min-1900:right-[30px]">
-        <img src="../public/logos/triangle.png" class="size-4">
-        <div id="notifications" aria-labelledby="notificationsBtn" class="flex flex-col rounded-lg bg-gray-800">
-            <h1 class="font-medium text-center text-white">Notifications</h1>
+    </header> -->
+    <notification-header></notification-header>
 
-        </div>
-    </div> -->
-    <!-- <notification-header></notification-header> -->
-
-    <div id="notifs" class="z-20 absolute flex flex-col top-12 right-16">
+    <div id="notifs" class="z-20 absolute hidden flex-col top-12 right-16">
         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -65,11 +58,19 @@
         <div class="border-4 border-slate-800 rounded-xl bg-sky-800 w-64 h-80 -mt-1 divide-y-2 divide-slate-800">
             <h1 class="font-medium text-center text-white">Notifications</h1>
             <div class="flex flex-col h-[285px] overflow-y-auto overscroll-contain scrollable divide-y-2 divide-slate-800">
-                <div class="text-white h-16 flex-shrink-0 px-2">
-                    salam
+                <div class="flex gap-3 place-items-center text-white h-16 flex-shrink-0 px-2">
+                    <button id="notifsAccRejBtn" class="flex-shrink-0">
+                        <img src="../public/logos/notifs_arrow.png" class="size-7">
+                    </button>
+                    <img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="size-10 rounded-full">
+                    <p class="flex-grow-0 text-balance text-xs">Hatim Touil has sent you a friend request.</p>
                 </div>
-                <div class="text-white h-16 flex-shrink-0 px-2">
-                    salam
+                <div class="flex gap-3 place-items-center text-white h-16 flex-shrink-0 px-2">
+                    <button id="notifsAccRejBtn" class="flex-shrink-0 invisible">
+                        <img src="../public/logos/notifs_arrow.png" class="size-7">
+                    </button>
+                    <img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="size-10 rounded-full">
+                    <p class="flex-grow-0 text-balance text-xs">Hatim Touil accepted your friend request.</p>
                 </div>
                 <div class="text-white h-16 flex-shrink-0 px-2">
                     salam
@@ -198,7 +199,7 @@
 								Matches played
 							</h2>
 							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #666495;">15</p>
+								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
 							</div>
 						</div>
 						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
@@ -206,7 +207,7 @@
 								Tournaments played
 							</h2>
 							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #666495;">15</p>
+								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
 							</div>
 						</div>
 						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
@@ -214,7 +215,7 @@
 								Global rank
 							</h2>
 							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #666495;">15</p>
+								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
 							</div>
 						</div>
 						<div class="flex flex-col border-2 border-white border-solid rounded-xl pt-1" style="background: #404251;">
@@ -222,7 +223,7 @@
 								Total friends
 							</h2>
 							<div class="flex flex-1 self-center items-center">
-								<p class="text-2xl font-bold" style="color: #666495;">15</p>
+								<p class="text-2xl font-bold" style="color: #716ea7;">15</p>
 							</div>
 						</div>
 					</div>

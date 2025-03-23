@@ -17,7 +17,7 @@ export class notificationHeader extends HTMLElement {
 			<div class="center_notif">
 			</div>
 			<div class="sign-bt_notif">
-				<button class="log-in-bt1_notif">
+				<button id="notifsBtn" class="log-in-bt1_notif">
 					<img class="user_header_pic" src="../public/profile_pictures/htouil.jpeg">
 					<p class="user_name_header">
 						htouil
