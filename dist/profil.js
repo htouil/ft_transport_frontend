@@ -47,7 +47,7 @@ async function fetchPlayerName() {
 ;
 export function setupProfilButtons() {
     const homeBtn = document.querySelector('.home-btn');
-    const notifBtn = document.querySelector('.log-in-bt1_notif');
+    const notifsBtn = document.getElementById('notifsBtn');
     const settingsBtn = document.querySelector('.settings-btn');
     const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn');
     const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn');
@@ -66,14 +66,14 @@ export function setupProfilButtons() {
     const createTournPageBtn = document.getElementById('createTournPageBtn');
     const hostTournPageBtn = document.getElementById('hostTournPageBtn');
     homeBtn.addEventListener('click', () => loadnhistory('home'));
-    notifBtn.addEventListener('click', displayNotifications);
+    notifsBtn.addEventListener('click', (event) => displayNotifications(event));
     settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
     addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
     addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
     messagesBtn?.addEventListener('click', () => loadnhistory('messages'));
     openSidePanelBtn?.addEventListener('click', (event) => openSidePanel(event, sidePanel));
     closeSidePanelBtn?.addEventListener('click', (event) => closeSidePanel(event, sidePanel));
-    document.addEventListener('click', (event) => handleOutsideClick(event, sidePanel));
+    document.addEventListener('click', (event) => panelOutsideClick(event, sidePanel));
     friendsBtn?.forEach((element) => {
         element.addEventListener('click', showFriendsList);
     });
@@ -87,13 +87,31 @@ export function setupProfilButtons() {
     playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 }
 ;
-function displayNotifications() {
+function displayNotifications(event) {
+    event?.stopPropagation();
+    const notifs = document.getElementById('notifs');
+    if (notifs.classList.contains('hidden')) {
+        notifs.classList.remove('hidden');
+        notifs.classList.add('flex');
+        document.addEventListener('click', (event) => notifsOutsideClick(event, notifs));
+    }
+    else {
+        notifs.classList.remove('flex');
+        notifs.classList.add('hidden');
+    }
+}
+;
+function notifsOutsideClick(event, notifs) {
+    event?.stopPropagation();
+    if (!notifs.contains(event.target)) {
+        notifs.classList.remove('flex');
+        notifs.classList.add('hidden');
+    }
 }
 ;
 function showAddNewFriendPopup(sidePanel) {
     const toBlur = document.getElementById('toBlur');
     const toPop = document.getElementById('toPop');
-    // const main = document.getElementById('app') as HTMLElement;
     toBlur.inert = true;
     toBlur.classList.add('blur-sm');
     toPop.classList.remove('hidden');
@@ -149,7 +167,7 @@ function closeSidePanel(event, sidePanel) {
     // document.body.classList.remove('overflow-hidden');
 }
 ;
-function handleOutsideClick(event, sidePanel) {
+function panelOutsideClick(event, sidePanel) {
     if (sidePanel && !sidePanel.contains(event.target))
         closeSidePanel(event, sidePanel);
 }

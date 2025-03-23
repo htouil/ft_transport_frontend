@@ -30,7 +30,7 @@
         <div class="center_notif">
         </div>
         <div class="sign-bt_notif">
-            <button class="log-in-bt1_notif">
+            <button id="notifsBtn" class="log-in-bt1_notif">
                 <img class="user_header_pic" src="../public/profile_pictures/htouil.jpeg">
                 <p class="user_name_header">
                     htouil
@@ -48,10 +48,60 @@
     </div> -->
     <!-- <notification-header></notification-header> -->
 
-    <div id="notifications" aria-labelledby="notificationsBtn" class="z-20 absolute flex top-12 right-[117px]">
-        <img src="../public/logos/triangle.svg" class="size-3"></img>
-        <div class="">
+    <div id="notifs" class="z-20 absolute flex flex-col top-12 right-16">
+        <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <title>triangle-filled</title>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="drop" fill="#1e293b" transform="translate(32.000000, 42.666667)">
+                        <path d="M246.312928,5.62892705 C252.927596,9.40873724 258.409564,14.8907053 262.189374,21.5053731 L444.667042,340.84129 C456.358134,361.300701 449.250007,387.363834 428.790595,399.054926 C422.34376,402.738832 415.04715,404.676552 407.622001,404.676552 L42.6666667,404.676552 C19.1025173,404.676552 7.10542736e-15,385.574034 7.10542736e-15,362.009885 C7.10542736e-15,354.584736 1.93772021,347.288125 5.62162594,340.84129 L188.099293,21.5053731 C199.790385,1.04596203 225.853517,-6.06216498 246.312928,5.62892705 Z" id="Combined-Shape">
+                        </path>
+                    </g>
+                </g>
+            </g>
+        </svg>
+        <div class="border-4 border-slate-800 rounded-xl bg-sky-800 w-64 h-80 -mt-1 divide-y-2 divide-slate-800">
             <h1 class="font-medium text-center text-white">Notifications</h1>
+            <div class="flex flex-col h-[285px] overflow-y-auto overscroll-contain scrollable divide-y-2 divide-slate-800">
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+                <div class="text-white h-16 flex-shrink-0 px-2">
+                    salam
+                </div>
+            </div>
         </div>
     </div>
 
@@ -432,7 +482,7 @@
         </div>
     </div>
 
-    <form id="toPop" class="absolute hidden flex-col gap-3 sm:gap-4 2xl:gap-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-[270px] sm:w-72 sm:h-80 md:w-[450px] md:h-[270px] lg:w-[500px] lg:h-[280px] xl:w-[550px] 2xl:w-[700px] xl:h-[315px] 2xl:h-[375px] border-2 rounded-2xl p-3 sm:p-4 md:p-5 lg:p-4 xl:p-5 2xl:p-8 bg-sky-800 text-center">
+    <form id="toPop" class="absolute hidden flex-col gap-3 sm:gap-4 2xl:gap-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-[270px] sm:w-72 sm:h-80 md:w-[450px] md:h-[270px] lg:w-[500px] lg:h-[280px] xl:w-[550px] 2xl:w-[700px] xl:h-[315px] 2xl:h-[375px] border-4 border-slate-800 rounded-2xl p-3 sm:p-4 md:p-5 lg:p-4 xl:p-5 2xl:p-8 bg-sky-800 text-center">
         <button type="button" id="addNewFriendCloseBtn" class="flex gap-0.5 justify-self-center self-end text-white transition ease-in-out active:scale-95">
             <p class="self-center text-xs sm:text-sm lg:text-base 2xl:text-lg">close</p>
             <svg data-slot="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="size-6 sm:size-7 lg:size-9 2xl:size-10">
