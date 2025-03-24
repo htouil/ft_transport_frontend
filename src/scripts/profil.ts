@@ -6,7 +6,7 @@ let historyBtn: NodeListOf<HTMLButtonElement> | null;
 let friendsList: NodeListOf<HTMLElement> | null;
 let historyList: NodeListOf<HTMLElement> | null;
 
-export async function setupProfilPage() {
+export async function	setupProfilPage() {
 	try
 	{
 		const playerName = await fetchPlayerName();
@@ -21,7 +21,7 @@ export async function setupProfilPage() {
 	}
 };
 
-async function fetchPlayerName() {
+async function	fetchPlayerName() {
 	try
 	{
 		// const test = {
@@ -57,9 +57,11 @@ async function fetchPlayerName() {
 	}
 };
 
-export function setupProfilButtons() {
+export function	setupProfilButtons() {
 	const homeBtn = document.querySelector('.home-btn') as HTMLButtonElement;
 	const notifsBtn = document.getElementById('notifsBtn') as HTMLButtonElement;
+	const notifs = document.getElementById('notifs') as HTMLElement
+	const notifsAccRejBtn = document.getElementById('notifsAccRejBtn') as HTMLButtonElement;
 	const settingsBtn = document.querySelector('.settings-btn') as HTMLButtonElement;
 	const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
 	const addNewFriendCloseBtn = document.getElementById('addNewFriendCloseBtn') as HTMLButtonElement;
@@ -79,8 +81,9 @@ export function setupProfilButtons() {
 	const hostTournPageBtn = document.getElementById('hostTournPageBtn') as HTMLButtonElement;
 	
 	homeBtn.addEventListener('click', () => loadnhistory('home'));
-	notifsBtn.addEventListener('click', (event) => displayNotifications(event));
-	settingsBtn?.addEventListener('click', () => loadnhistory('settings'));
+	notifsBtn.addEventListener('click', (event) => showNotifications(event, notifs));
+	notifsAccRejBtn.addEventListener('click', (event) => showNotifsAccRej(event, notifs, notifsAccRejBtn));
+	settingsBtn.addEventListener('click', () => loadnhistory('settings'));
 	addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
 	addNewFriendCloseBtn?.addEventListener('click', () => closeAddNewFriendPopup(sidePanel));
 	messagesBtn?.addEventListener('click', () => loadnhistory('messages'));
@@ -100,15 +103,21 @@ export function setupProfilButtons() {
 	playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 };
 
-function displayNotifications(event: Event) {
+function	showNotifications(event: Event, notifs: HTMLElement) {
 	event?.stopPropagation();
-	const notifs = document.getElementById('notifs') as HTMLElement
 
 	if (notifs.classList.contains('hidden'))
 	{
 		notifs.classList.remove('hidden');
 		notifs.classList.add('flex');
 		document.addEventListener('click', (event) => notifsOutsideClick(event, notifs));
+		document.addEventListener('scroll', (event) => {
+			if (!notifs.contains(event.target as Node))
+			{
+				notifs.classList.remove('flex');
+				notifs.classList.add('hidden');
+			}
+		});
 	}
 	else
 	{
@@ -117,7 +126,7 @@ function displayNotifications(event: Event) {
 	}
 };
 
-function notifsOutsideClick(event: Event, notifs: HTMLElement) {
+function	notifsOutsideClick(event: Event, notifs: HTMLElement) {
 	event?.stopPropagation();
 	if (!notifs.contains(event.target as Node))
 	{
@@ -126,7 +135,31 @@ function notifsOutsideClick(event: Event, notifs: HTMLElement) {
 	}
 };
 
-function showAddNewFriendPopup(sidePanel: HTMLElement) {
+function	showNotifsAccRej(event: Event, notifs: HTMLElement, notifsAccRejBtn: HTMLButtonElement) {
+	event?.stopPropagation();
+	const notifsaccRejBox = document.getElementById('notifsaccRejBox') as HTMLElement;
+	const notifsText = document.getElementById('notifsText') as HTMLParagraphElement
+
+	if (notifsaccRejBox.classList.contains('translate-x-full'))
+	{
+		notifsaccRejBox.classList.remove('translate-x-full', 'opacity-0');
+		notifsText.classList.add('opacity-0');
+		notifsAccRejBtn.classList.add('rotate-180');
+		notifs.addEventListener('scroll', () => {
+			notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
+			notifsText.classList.remove('opacity-0');
+			notifsAccRejBtn.classList.remove('rotate-180');
+		});
+	}
+	else
+	{
+		notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
+		notifsText.classList.remove('opacity-0');
+		notifsAccRejBtn.classList.remove('rotate-180');
+	}
+};
+
+function	showAddNewFriendPopup(sidePanel: HTMLElement) {
 	const toBlur = document.getElementById('toBlur') as HTMLElement;
 	const toPop = document.getElementById('toPop') as HTMLElement;
 
@@ -138,7 +171,7 @@ function showAddNewFriendPopup(sidePanel: HTMLElement) {
 	sidePanel?.classList.add('hidden');
 };
 
-function closeAddNewFriendPopup(sidePanel: HTMLElement) {
+function	closeAddNewFriendPopup(sidePanel: HTMLElement) {
 	const toBlur = document.getElementById('toBlur') as HTMLElement;
 	const toPop = document.getElementById('toPop') as HTMLElement;
 
@@ -150,7 +183,7 @@ function closeAddNewFriendPopup(sidePanel: HTMLElement) {
 	sidePanel?.classList.remove('hidden');
 }
 
-function selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, hostTournPageBtn: HTMLButtonElement) {
+function	selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, hostTournPageBtn: HTMLButtonElement) {
 	localBtn?.classList.add('bg-gray-600');
 	localBtn?.classList.remove('hover:bg-gray-500');
 	onlineBtn?.classList.add('hover:bg-gray-500');
@@ -162,7 +195,7 @@ function selectLocal(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, 
 	hostTournPageBtn.classList.add('opacity-30');
 };
 
-function selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, hostTournPageBtn: HTMLButtonElement) {
+function	selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement, tournTitle:HTMLElement, createTournPageBtn: HTMLButtonElement, hostTournPageBtn: HTMLButtonElement) {
 	onlineBtn?.classList.add('bg-gray-600');
 	onlineBtn?.classList.remove('hover:bg-gray-500');
 	localBtn?.classList.add('hover:bg-gray-500');
@@ -174,25 +207,25 @@ function selectOnline(localBtn: HTMLButtonElement, onlineBtn: HTMLButtonElement,
 	hostTournPageBtn.classList.remove('opacity-30');
 };
 
-function openSidePanel(event: Event, sidePanel: HTMLElement) {
+function	openSidePanel(event: Event, sidePanel: HTMLElement) {
 	event?.stopPropagation();
 	sidePanel?.classList.remove('translate-x-full');
 	// document.body.classList.add('overflow-hidden');
 	showFriendsList();
 };
 
-function closeSidePanel(event: Event, sidePanel: HTMLElement) {
+function	closeSidePanel(event: Event, sidePanel: HTMLElement) {
 	event?.stopPropagation();
 	sidePanel?.classList.add('translate-x-full');
 	// document.body.classList.remove('overflow-hidden');
 };
 
-function panelOutsideClick(event: Event, sidePanel: HTMLElement) {
+function	panelOutsideClick(event: Event, sidePanel: HTMLElement) {
 	if (sidePanel && !sidePanel.contains(event.target as Node))
 		closeSidePanel(event, sidePanel);
 };
 
-function showFriendsList() {
+function	showFriendsList() {
 	friendsList?.forEach((element) => {
 		element?.classList.remove('hidden');
 	});
@@ -209,7 +242,7 @@ function showFriendsList() {
 	});
 };
 
-function showHistoryList() {
+function	showHistoryList() {
 	historyList?.forEach((element) => {
 		element?.classList.remove('hidden');
 	});
@@ -226,7 +259,7 @@ function showHistoryList() {
 	});
 };
 
-export function handleScroll() {
+export function	handleScroll() {
 	const scrollables = document.querySelectorAll('.scrollable') as NodeListOf<HTMLElement>;
 	
 	scrollables?.forEach((element) => {
@@ -237,12 +270,12 @@ export function handleScroll() {
 	});
 };
 
-function showScrollbar(element: HTMLElement, timeout: NodeJS.Timeout) {
+function	showScrollbar(element: HTMLElement, timeout: NodeJS.Timeout) {
 	element.classList.remove('scrollbar-none');
 	clearTimeout(timeout);
 	timeout = setTimeout(() => hideScrollbar(element), 1500);
 };
 
-function hideScrollbar(element: HTMLElement) {
+function	hideScrollbar(element: HTMLElement) {
 	element.classList.add('scrollbar-none');
 };

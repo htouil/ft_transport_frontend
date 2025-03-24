@@ -101,7 +101,7 @@ async function loadPage(page: string) {
 		{
 			setupProfilPage();
 			setupProfilButtons();
-			handleScroll();
+			// handleScroll();
 		}
 		if (page === 'messages')
 		{

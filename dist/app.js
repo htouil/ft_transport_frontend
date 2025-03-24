@@ -2,7 +2,7 @@ import { notificationHeader, simpleHeader, newFriendRequestTag, oldFriendTag, ma
 import { updateHomeHeadermain3 } from "./home1.js";
 import { updateHomeHeadermain5 } from "./home2.js";
 import { setupLoginPage } from "./login.js";
-import { setupProfilPage, setupProfilButtons, handleScroll, } from "./profil.js";
+import { setupProfilPage, setupProfilButtons, } from "./profil.js";
 import { setupHostTournamentPage } from './hosttourn.js';
 import { localGameHandling } from "./localgame.js";
 // home page:
@@ -77,7 +77,7 @@ async function loadPage(page) {
         if (page === 'profil') {
             setupProfilPage();
             setupProfilButtons();
-            handleScroll();
+            // handleScroll();
         }
         if (page === 'messages') {
             setupMessagesButtons();
