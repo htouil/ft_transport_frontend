@@ -48,6 +48,7 @@ async function fetchPlayerName() {
 export function setupProfilButtons() {
     const homeBtn = document.querySelector('.home-btn');
     const notifsBtn = document.getElementById('notifsBtn');
+    const notifsPanel = document.getElementById('notifsPanel');
     const notifs = document.getElementById('notifs');
     const notifsAccRejBtn = document.getElementById('notifsAccRejBtn');
     const settingsBtn = document.querySelector('.settings-btn');
@@ -68,7 +69,7 @@ export function setupProfilButtons() {
     const createTournPageBtn = document.getElementById('createTournPageBtn');
     const hostTournPageBtn = document.getElementById('hostTournPageBtn');
     homeBtn.addEventListener('click', () => loadnhistory('home'));
-    notifsBtn.addEventListener('click', (event) => showNotifications(event, notifs));
+    notifsBtn.addEventListener('click', (event) => showNotifications(event, notifsPanel));
     notifsAccRejBtn.addEventListener('click', (event) => showNotifsAccRej(event, notifs, notifsAccRejBtn));
     settingsBtn.addEventListener('click', () => loadnhistory('settings'));
     addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
@@ -90,30 +91,30 @@ export function setupProfilButtons() {
     playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 }
 ;
-function showNotifications(event, notifs) {
+function showNotifications(event, notifsPanel) {
     event?.stopPropagation();
-    if (notifs.classList.contains('hidden')) {
-        notifs.classList.remove('hidden');
-        notifs.classList.add('flex');
-        document.addEventListener('click', (event) => notifsOutsideClick(event, notifs));
+    if (notifsPanel.classList.contains('hidden')) {
+        notifsPanel.classList.remove('hidden');
+        notifsPanel.classList.add('flex');
+        document.addEventListener('click', (event) => notifsOutsideClick(event, notifsPanel));
         document.addEventListener('scroll', (event) => {
-            if (!notifs.contains(event.target)) {
-                notifs.classList.remove('flex');
-                notifs.classList.add('hidden');
+            if (!notifsPanel.contains(event.target)) {
+                notifsPanel.classList.remove('flex');
+                notifsPanel.classList.add('hidden');
             }
         });
     }
     else {
-        notifs.classList.remove('flex');
-        notifs.classList.add('hidden');
+        notifsPanel.classList.remove('flex');
+        notifsPanel.classList.add('hidden');
     }
 }
 ;
-function notifsOutsideClick(event, notifs) {
+function notifsOutsideClick(event, notifsPanel) {
     event?.stopPropagation();
-    if (!notifs.contains(event.target)) {
-        notifs.classList.remove('flex');
-        notifs.classList.add('hidden');
+    if (!notifsPanel.contains(event.target)) {
+        notifsPanel.classList.remove('flex');
+        notifsPanel.classList.add('hidden');
     }
 }
 ;
@@ -126,6 +127,8 @@ function showNotifsAccRej(event, notifs, notifsAccRejBtn) {
         notifsText.classList.add('opacity-0');
         notifsAccRejBtn.classList.add('rotate-180');
         notifs.addEventListener('scroll', () => {
+            // event.stopPropagation();
+            // event.preventDefault();
             notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
             notifsText.classList.remove('opacity-0');
             notifsAccRejBtn.classList.remove('rotate-180');

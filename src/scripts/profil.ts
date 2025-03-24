@@ -60,7 +60,8 @@ async function	fetchPlayerName() {
 export function	setupProfilButtons() {
 	const homeBtn = document.querySelector('.home-btn') as HTMLButtonElement;
 	const notifsBtn = document.getElementById('notifsBtn') as HTMLButtonElement;
-	const notifs = document.getElementById('notifs') as HTMLElement
+	const notifsPanel = document.getElementById('notifsPanel') as HTMLElement
+	const notifs = document.getElementById('notifs') as HTMLElement;
 	const notifsAccRejBtn = document.getElementById('notifsAccRejBtn') as HTMLButtonElement;
 	const settingsBtn = document.querySelector('.settings-btn') as HTMLButtonElement;
 	const addNewFriendShowBtn = document.getElementById('addNewFriendShowBtn') as HTMLButtonElement;
@@ -81,7 +82,7 @@ export function	setupProfilButtons() {
 	const hostTournPageBtn = document.getElementById('hostTournPageBtn') as HTMLButtonElement;
 	
 	homeBtn.addEventListener('click', () => loadnhistory('home'));
-	notifsBtn.addEventListener('click', (event) => showNotifications(event, notifs));
+	notifsBtn.addEventListener('click', (event) => showNotifications(event, notifsPanel));
 	notifsAccRejBtn.addEventListener('click', (event) => showNotifsAccRej(event, notifs, notifsAccRejBtn));
 	settingsBtn.addEventListener('click', () => loadnhistory('settings'));
 	addNewFriendShowBtn?.addEventListener('click', () => showAddNewFriendPopup(sidePanel));
@@ -103,35 +104,35 @@ export function	setupProfilButtons() {
 	playWFriendsBtn?.addEventListener('click', () => loadnhistory('localgame'));
 };
 
-function	showNotifications(event: Event, notifs: HTMLElement) {
+function	showNotifications(event: Event, notifsPanel: HTMLElement) {
 	event?.stopPropagation();
 
-	if (notifs.classList.contains('hidden'))
+	if (notifsPanel.classList.contains('hidden'))
 	{
-		notifs.classList.remove('hidden');
-		notifs.classList.add('flex');
-		document.addEventListener('click', (event) => notifsOutsideClick(event, notifs));
+		notifsPanel.classList.remove('hidden');
+		notifsPanel.classList.add('flex');
+		document.addEventListener('click', (event) => notifsOutsideClick(event, notifsPanel));
 		document.addEventListener('scroll', (event) => {
-			if (!notifs.contains(event.target as Node))
+			if (!notifsPanel.contains(event.target as Node))
 			{
-				notifs.classList.remove('flex');
-				notifs.classList.add('hidden');
+				notifsPanel.classList.remove('flex');
+				notifsPanel.classList.add('hidden');
 			}
 		});
 	}
 	else
 	{
-		notifs.classList.remove('flex');
-		notifs.classList.add('hidden');
+		notifsPanel.classList.remove('flex');
+		notifsPanel.classList.add('hidden');
 	}
 };
 
-function	notifsOutsideClick(event: Event, notifs: HTMLElement) {
+function	notifsOutsideClick(event: Event, notifsPanel: HTMLElement) {
 	event?.stopPropagation();
-	if (!notifs.contains(event.target as Node))
+	if (!notifsPanel.contains(event.target as Node))
 	{
-		notifs.classList.remove('flex');
-		notifs.classList.add('hidden');
+		notifsPanel.classList.remove('flex');
+		notifsPanel.classList.add('hidden');
 	}
 };
 
@@ -146,6 +147,8 @@ function	showNotifsAccRej(event: Event, notifs: HTMLElement, notifsAccRejBtn: HT
 		notifsText.classList.add('opacity-0');
 		notifsAccRejBtn.classList.add('rotate-180');
 		notifs.addEventListener('scroll', () => {
+			// event.stopPropagation();
+			// event.preventDefault();
 			notifsaccRejBox.classList.add('translate-x-full', 'opacity-0');
 			notifsText.classList.remove('opacity-0');
 			notifsAccRejBtn.classList.remove('rotate-180');
