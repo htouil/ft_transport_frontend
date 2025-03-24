@@ -41,7 +41,7 @@
     </header> -->
     <notification-header></notification-header>
 
-    <div id="notifs" class="z-20 absolute hidden flex-col top-12 right-16">
+    <div id="notifs" class="z-20 absolute flex flex-col top-12 right-16">
         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -55,15 +55,23 @@
                 </g>
             </g>
         </svg>
-        <div class="border-4 border-slate-800 rounded-xl bg-sky-800 w-64 h-80 -mt-1 divide-y-2 divide-slate-800">
+        <div class="border-4 rounded-xl border-slate-800 bg-sky-800 w-64 h-80 -mt-1 divide-y-2 divide-slate-800">   
             <h1 class="font-medium text-center text-white">Notifications</h1>
             <div class="flex flex-col h-[285px] overflow-y-auto overscroll-contain scrollable divide-y-2 divide-slate-800">
                 <div class="flex gap-3 place-items-center text-white h-16 flex-shrink-0 px-2">
+                    <!-- <div class="z-30 mr-20 grid grid-cols-2 gap-3 w-44 h-16 border-4 rounded-xl border-slate-800 bg-sky-800">
+                        <button class="rounded-xl bg-rose-700">
+                            Reject
+                        </button>
+                        <button class="rounded-xl bg-emerald-700">
+                            Accept
+                        </button>
+                    </div> -->
+                    <img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="size-10 rounded-full">
+                    <p class="flex-grow-0 text-balance text-xs">Hatim Touil has sent you a friend request.</p> <!-- make transition here to display reject and accept buttons -->
                     <button id="notifsAccRejBtn" class="flex-shrink-0">
                         <img src="../public/logos/notifs_arrow.png" class="size-7">
                     </button>
-                    <img src="../public/profile_pictures/htouil.jpeg" alt="htouil" class="size-10 rounded-full">
-                    <p class="flex-grow-0 text-balance text-xs">Hatim Touil has sent you a friend request.</p>
                 </div>
                 <div class="flex gap-3 place-items-center text-white h-16 flex-shrink-0 px-2">
                     <button id="notifsAccRejBtn" class="flex-shrink-0 invisible">
