@@ -29,9 +29,9 @@
 	} */
 }
 
-.html, body {
-	min-height: 450px;
-}
+/* .html, body {
+	min-height: 600px !important;
+} */
 
 .pink-btn::after {
 	content: "";

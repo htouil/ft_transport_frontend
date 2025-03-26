@@ -99,7 +99,7 @@ async function loadPage(page: string) {
 		}
 		if (page === 'profil')
 		{
-			setupProfilPage();
+			// setupProfilPage();
 			setupProfilButtons();
 			// handleScroll();
 		}
