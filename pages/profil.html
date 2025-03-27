@@ -41,7 +41,7 @@
     </header> -->
     <notification-header></notification-header>
 
-    <div id="notifsPanel" class="z-30 absolute flex flex-col top-11 sm:top-12 right-3 sm:right-16">
+    <div id="notifsPanel" class="z-30 absolute hidden flex-col top-11 sm:top-12 right-3 sm:right-16">
         <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" class="self-end size-3 mr-[53px]">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -240,18 +240,23 @@
 					</button>
 				</div>	
 				<div class="grid grid-rows-2 gap-2 md:h-fit">
-					<button id="playWFriendsBtn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
-						<p class="xs:text-sm sm:text-sm md:text-base text-white">Play with friends</p>
-					</button>
-					<h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white opacity-30">Tournament options</h2>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button id="playWFriendsBtn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
+                            <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 1 VS 1</p>
+                        </button>
+                        <button id="playWFriendsBtn" type="button" data-page="localgame" class="border-2 border-white border-solid rounded-xl w-full h-9 hover:scale-105 play-btn2">
+                            <p class="xs:text-sm sm:text-sm md:text-base text-white">Play 2 VS 2</p>
+                        </button>
+                    </div>
 				</div>
 				<div class="grid grid-rows-2 gap-2 lg:gap-3 md:h-fit">
+                    <h2 id="tournTitle" class="self-end xs:text-sm sm:text-sm md:text-base text-white opacity-30">Tournament options</h2>
 					<button id="createTournPageBtn" type="button" data-page="createtourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn1" inert>
-						<p class="xs:text-sm sm:text-sm md:text-base text-white">Join a tournament</p>
+						<p class="xs:text-sm sm:text-sm md:text-base text-white">Create a tournament</p>
 					</button>
-					<button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn2" inert>
+					<!-- <button id="hostTournPageBtn" type="button" data-page="hosttourn" class="border-2 border-white border-solid rounded-xl w-full h-9 opacity-30 hover:scale-105 play-btn2" inert>
 						<p class="xs:text-sm sm:text-sm md:text-base text-white">Host a tournament</p>
-					</button>
+					</button> -->
 				</div>
 			</div>
 			<div class="grid grid-rows-2 gap-6">

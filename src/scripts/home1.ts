@@ -45,9 +45,9 @@ export const updateHomeHeadermain3 = () => {
     if (element) {
         element.innerHTML = htmlGen;
     }
-    const loginPageBtn = document.getElementById('loginPageBtn') as HTMLButtonElement;
+    // const loginPageBtn = document.getElementById('loginPageBtn') as HTMLButtonElement;
 
-    loginPageBtn?.addEventListener('click', () => loadnhistory('login'));
+    // loginPageBtn?.addEventListener('click', () => loadnhistory('login'));
 };
 
 // module.exports = { updateHomeHeadermain3 };

@@ -10,15 +10,20 @@ import {
 	friendToTournamentTag,
 } from './components.js';
 import { updateHomeHeadermain3 } from "./home1.js";
-import { updateHomeHeadermain5 } from "./home2.js";
-import { setupLoginPage } from "./login.js";
+import { updateHomeHeadermain5 , setupLoginPage } from "./home2.js";
+// import { setupLoginPage } from "./login.js";
 import {
 	setupProfilPage,
 	setupProfilButtons,
 	handleScroll,
 } from "./profil.js";
 import { setupHostTournamentPage } from './hosttourn.js';
-import { localGameHandling } from "./localgame.js";
+// import { localGameHandling } from "./localgame.js";
+import { updateSettingsPage } from "./settings.js";
+import { rakmanchat } from "./chat.js";
+import { GameAi } from "./GameAI.js";
+import { GameLocal } from "./GameLocal.js";
+import { GameMulti } from "./GameMulti.js";
 
 // home page:
 let app: HTMLElement;
@@ -105,7 +110,8 @@ async function loadPage(page: string) {
 		}
 		if (page === 'messages')
 		{
-			setupMessagesButtons();
+			// setupMessagesButtons();
+			rakmanchat();
 		}
 		if (page === 'hosttourn')
 		{
@@ -113,11 +119,19 @@ async function loadPage(page: string) {
 		}
 		if (page === 'settings')
 		{
-			setupSettingsButtons();
+			updateSettingsPage();
 		}
-		if (page === 'localgame')
+		if( page === 'game_ai')
 		{
-			localGameHandling();
+			GameAi();
+		}
+		if(page === 'game_local')
+		{
+			GameLocal();
+		}
+		if(page === 'game_multi')
+		{
+			GameMulti();
 		}
 	}
 	catch (error)

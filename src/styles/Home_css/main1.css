@@ -86,7 +86,9 @@
     padding: clamp(1px, 1vw, 10px) clamp(0px, 1vw, 26px);
     font-size: clamp(10px, 2vw, 43px);
     font-weight: bold;
-    /* USE CLAMPS FOR PADDING TO FIX YOUR SHIT TOMOROW*/ 
+    /* USE CLAMPS FOR PADDING TO FIX YOUR SHIT TOMOROW*/
+    margin-top: -10%;
+    margin-left: 10%;
 
 }
 .sign_div
